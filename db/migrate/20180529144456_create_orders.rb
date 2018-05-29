@@ -7,10 +7,10 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.string :numero_de_orden
       t.date :fecha_de_orden
       t.string :nombre_encargado
-      t.float :cantidad
+      t.float :cantidad, dafault: 0.0
       t.string :descripcion
-      t.float :precio_unitario
-      t.float :valor_total
+      t.float :precio_unitario, dafault: 0.0
+      t.float :valor_total, dafault: 0.0
 
       t.timestamps
     end

@@ -1,5 +1,6 @@
 class ChartersController < ApplicationController
   before_action :set_charter, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /charters
   # GET /charters.json
