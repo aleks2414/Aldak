@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @provider.user %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @provider.alias %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @provider.rfc %>
+</p>
+
+<p>
+  <strong>Razon social:</strong>
+  <%= @provider.razon_social %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @provider.direccion %>
+</p>
+
+<p>
+  <strong>Encargado:</strong>
+  <%= @provider.encargado %>
+</p>
+
+<p>
+  <strong>Telefono encargado:</strong>
+  <%= @provider.telefono_encargado %>
+</p>
+
+<p>
+  <strong>Correo encargado:</strong>
+  <%= @provider.correo_encargado %>
+</p>
+
+<p>
+  <strong>Codigo proveedor:</strong>
+  <%= @provider.codigo_proveedor %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>

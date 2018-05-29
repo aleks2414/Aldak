@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  alias: MyString
+  rfc: MyString
+  razon_social: MyString
+  direccion: MyString
+  planta: MyString
+  codigo_empresa: MyString
+  codigo_planta: MyString
+  numero_proveedor: MyString
+
+two:
+  user: two
+  alias: MyString
+  rfc: MyString
+  razon_social: MyString
+  direccion: MyString
+  planta: MyString
+  codigo_empresa: MyString
+  codigo_planta: MyString
+  numero_proveedor: MyString

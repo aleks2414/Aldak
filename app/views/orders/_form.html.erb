@@ -1,0 +1,67 @@
+<%= form_with(model: order, local: true) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :order_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.text_field :client_id, id: :order_client_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :product_id %>
+    <%= form.text_field :product_id, id: :order_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_de_orden %>
+    <%= form.text_field :numero_de_orden, id: :order_numero_de_orden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_de_orden %>
+    <%= form.date_select :fecha_de_orden, id: :order_fecha_de_orden %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nombre_encargado %>
+    <%= form.text_field :nombre_encargado, id: :order_nombre_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.text_field :cantidad, id: :order_cantidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion, id: :order_descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :precio_unitario %>
+    <%= form.text_field :precio_unitario, id: :order_precio_unitario %>
+  </div>
+
+  <div class="field">
+    <%= form.label :valor_total %>
+    <%= form.text_field :valor_total, id: :order_valor_total %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+<%= form_with(model: provider, local: true) do |form| %>
+  <% if provider.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+      <% provider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :provider_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alias %>
+    <%= form.text_field :alias, id: :provider_alias %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rfc %>
+    <%= form.text_field :rfc, id: :provider_rfc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :razon_social %>
+    <%= form.text_field :razon_social, id: :provider_razon_social %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :provider_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :encargado %>
+    <%= form.text_field :encargado, id: :provider_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono_encargado %>
+    <%= form.text_field :telefono_encargado, id: :provider_telefono_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correo_encargado %>
+    <%= form.text_field :correo_encargado, id: :provider_correo_encargado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigo_proveedor %>
+    <%= form.text_field :codigo_proveedor, id: :provider_codigo_proveedor %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

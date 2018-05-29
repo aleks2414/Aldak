@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @order.client %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @order.product %>
+</p>
+
+<p>
+  <strong>Numero de orden:</strong>
+  <%= @order.numero_de_orden %>
+</p>
+
+<p>
+  <strong>Fecha de orden:</strong>
+  <%= @order.fecha_de_orden %>
+</p>
+
+<p>
+  <strong>Nombre encargado:</strong>
+  <%= @order.nombre_encargado %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @order.cantidad %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @order.descripcion %>
+</p>
+
+<p>
+  <strong>Precio unitario:</strong>
+  <%= @order.precio_unitario %>
+</p>
+
+<p>
+  <strong>Valor total:</strong>
+  <%= @order.valor_total %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

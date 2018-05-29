@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @charter.user %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @charter.alias %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @charter.rfc %>
+</p>
+
+<p>
+  <strong>Razon social:</strong>
+  <%= @charter.razon_social %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @charter.direccion %>
+</p>
+
+<p>
+  <strong>Encargado:</strong>
+  <%= @charter.encargado %>
+</p>
+
+<p>
+  <strong>Telefono encargado:</strong>
+  <%= @charter.telefono_encargado %>
+</p>
+
+<p>
+  <strong>Correo encargado:</strong>
+  <%= @charter.correo_encargado %>
+</p>
+
+<p>
+  <strong>Codigo fletera:</strong>
+  <%= @charter.codigo_fletera %>
+</p>
+
+<%= link_to 'Edit', edit_charter_path(@charter) %> |
+<%= link_to 'Back', charters_path %>

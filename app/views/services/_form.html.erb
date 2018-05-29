@@ -1,0 +1,197 @@
+<%= form_with(model: service, local: true) do |form| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+      <% service.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :service_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :order_id %>
+    <%= form.text_field :order_id, id: :service_order_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.text_field :cantidad, id: :service_cantidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_de_entrega %>
+    <%= form.date_select :fecha_de_entrega, id: :service_fecha_de_entrega %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_operativo %>
+    <%= form.text_field :status_operativo, id: :service_status_operativo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status_comercial %>
+    <%= form.text_field :status_comercial, id: :service_status_comercial %>
+  </div>
+
+  <div class="field">
+    <%= form.label :etapa %>
+    <%= form.text_field :etapa, id: :service_etapa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :provider_id %>
+    <%= form.text_field :provider_id, id: :service_provider_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requiere_factura_p %>
+    <%= form.check_box :requiere_factura_p, id: :service_requiere_factura_p %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pago_a_proveedor %>
+    <%= form.text_field :pago_a_proveedor, id: :service_pago_a_proveedor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condiciones_p %>
+    <%= form.text_area :condiciones_p, id: :service_condiciones_p %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagado_proveedor %>
+    <%= form.check_box :pagado_proveedor, id: :service_pagado_proveedor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :charter_id %>
+    <%= form.text_field :charter_id, id: :service_charter_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requiere_factura_f %>
+    <%= form.check_box :requiere_factura_f, id: :service_requiere_factura_f %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pago_a_fletera %>
+    <%= form.text_field :pago_a_fletera, id: :service_pago_a_fletera %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condiciones_f %>
+    <%= form.text_area :condiciones_f, id: :service_condiciones_f %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagado_fletera %>
+    <%= form.check_box :pagado_fletera, id: :service_pagado_fletera %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigo_remision %>
+    <%= form.text_field :codigo_remision, id: :service_codigo_remision %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remision_enviada %>
+    <%= form.check_box :remision_enviada, id: :service_remision_enviada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :calidad_enviada %>
+    <%= form.check_box :calidad_enviada, id: :service_calidad_enviada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seguridad_enviada %>
+    <%= form.check_box :seguridad_enviada, id: :service_seguridad_enviada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :otro_enviada %>
+    <%= form.check_box :otro_enviada, id: :service_otro_enviada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gasto_operacion %>
+    <%= form.text_field :gasto_operacion, id: :service_gasto_operacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remision_sellada %>
+    <%= form.check_box :remision_sellada, id: :service_remision_sellada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tickets %>
+    <%= form.check_box :tickets, id: :service_tickets %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad_real_etregada %>
+    <%= form.text_field :cantidad_real_etregada, id: :service_cantidad_real_etregada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pago_real_p %>
+    <%= form.text_field :pago_real_p, id: :service_pago_real_p %>
+  </div>
+
+  <div class="field">
+    <%= form.label :factura_recibida_p %>
+    <%= form.check_box :factura_recibida_p, id: :service_factura_recibida_p %>
+  </div>
+
+  <div class="field">
+    <%= form.label :factura_recibida_f %>
+    <%= form.check_box :factura_recibida_f, id: :service_factura_recibida_f %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gr %>
+    <%= form.text_field :gr, id: :service_gr %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_de_factura %>
+    <%= form.text_field :numero_de_factura, id: :service_numero_de_factura %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kilos_finales %>
+    <%= form.text_field :kilos_finales, id: :service_kilos_finales %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_por_facturar %>
+    <%= form.text_field :total_por_facturar, id: :service_total_por_facturar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_de_facturacion %>
+    <%= form.date_select :fecha_de_facturacion, id: :service_fecha_de_facturacion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha_por_cobrar %>
+    <%= form.date_select :fecha_por_cobrar, id: :service_fecha_por_cobrar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagado %>
+    <%= form.check_box :pagado, id: :service_pagado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,62 @@
+<%= form_with(model: client, local: true) do |form| %>
+  <% if client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% client.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :client_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alias %>
+    <%= form.text_field :alias, id: :client_alias %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rfc %>
+    <%= form.text_field :rfc, id: :client_rfc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :razon_social %>
+    <%= form.text_field :razon_social, id: :client_razon_social %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :client_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :planta %>
+    <%= form.text_field :planta, id: :client_planta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigo_empresa %>
+    <%= form.text_field :codigo_empresa, id: :client_codigo_empresa %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigo_planta %>
+    <%= form.text_field :codigo_planta, id: :client_codigo_planta %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_proveedor %>
+    <%= form.text_field :numero_proveedor, id: :client_numero_proveedor %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

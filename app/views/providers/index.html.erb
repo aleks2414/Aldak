@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Providers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Alias</th>
+      <th>Rfc</th>
+      <th>Razon social</th>
+      <th>Direccion</th>
+      <th>Encargado</th>
+      <th>Telefono encargado</th>
+      <th>Correo encargado</th>
+      <th>Codigo proveedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @providers.each do |provider| %>
+      <tr>
+        <td><%= provider.user %></td>
+        <td><%= provider.alias %></td>
+        <td><%= provider.rfc %></td>
+        <td><%= provider.razon_social %></td>
+        <td><%= provider.direccion %></td>
+        <td><%= provider.encargado %></td>
+        <td><%= provider.telefono_encargado %></td>
+        <td><%= provider.correo_encargado %></td>
+        <td><%= provider.codigo_proveedor %></td>
+        <td><%= link_to 'Show', provider %></td>
+        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
+        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Provider', new_provider_path %>

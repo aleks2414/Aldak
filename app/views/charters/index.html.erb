@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Charters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Alias</th>
+      <th>Rfc</th>
+      <th>Razon social</th>
+      <th>Direccion</th>
+      <th>Encargado</th>
+      <th>Telefono encargado</th>
+      <th>Correo encargado</th>
+      <th>Codigo fletera</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charters.each do |charter| %>
+      <tr>
+        <td><%= charter.user %></td>
+        <td><%= charter.alias %></td>
+        <td><%= charter.rfc %></td>
+        <td><%= charter.razon_social %></td>
+        <td><%= charter.direccion %></td>
+        <td><%= charter.encargado %></td>
+        <td><%= charter.telefono_encargado %></td>
+        <td><%= charter.correo_encargado %></td>
+        <td><%= charter.codigo_fletera %></td>
+        <td><%= link_to 'Show', charter %></td>
+        <td><%= link_to 'Edit', edit_charter_path(charter) %></td>
+        <td><%= link_to 'Destroy', charter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Charter', new_charter_path %>

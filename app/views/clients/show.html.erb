@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @client.user %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @client.alias %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @client.rfc %>
+</p>
+
+<p>
+  <strong>Razon social:</strong>
+  <%= @client.razon_social %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @client.direccion %>
+</p>
+
+<p>
+  <strong>Planta:</strong>
+  <%= @client.planta %>
+</p>
+
+<p>
+  <strong>Codigo empresa:</strong>
+  <%= @client.codigo_empresa %>
+</p>
+
+<p>
+  <strong>Codigo planta:</strong>
+  <%= @client.codigo_planta %>
+</p>
+
+<p>
+  <strong>Numero proveedor:</strong>
+  <%= @client.numero_proveedor %>
+</p>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

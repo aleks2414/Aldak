@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  client: one
+  product: one
+  numero_de_orden: MyString
+  fecha_de_orden: 2018-05-29
+  nombre_encargado: MyString
+  cantidad: 1.5
+  descripcion: MyString
+  precio_unitario: 1.5
+  valor_total: 1.5
+
+two:
+  user: two
+  client: two
+  product: two
+  numero_de_orden: MyString
+  fecha_de_orden: 2018-05-29
+  nombre_encargado: MyString
+  cantidad: 1.5
+  descripcion: MyString
+  precio_unitario: 1.5
+  valor_total: 1.5
