@@ -10,16 +10,92 @@
 </head>
 
 <body>
+    <% if alert %>
+    <p class="alert"><%= alert %></p>
+    <% elsif notice %>
+    <p class="notice"><%= notice %></p>
+    <% end %>
+    <!-- WRAPPER -->
+    <div id="wrapper">
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="brand">
+                <a href="<%= root_path %>"><img src="/images/tutto-05.png" alt="Tutto il mondo" class="img-responsive logo"></a>
+            </div>
+            <div class="container-fluid">
+                <div class="navbar-btn">
+                    <button type="button" class="btn-toggle-fullwidth"><i class="material-icons">arrow_back</i></i></button>
+                </div>
+                <div id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if user_signed_in? %>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><%=current_user.name %></span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<%= edit_user_registration_path %>"><i class="lnr lnr-user"></i> <span>Mi Perfil</span></a></li>
+                                <li><a href="<%= destroy_user_session_path %>" data-method='delete'><i class="lnr lnr-exit"></i> <span>Cerrar Sesión</span></a></li>
+                            </ul>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- END NAVBAR -->
+        <!-- LEFT SIDEBAR -->
+        <div id="sidebar-nav" class="sidebar">
+            <div class="sidebar-scroll">
+                <nav>
+                    <ul class="nav">
+                        <li><a href="<%= root_path %>" class="<%= 'active' if current_page?(root_path) %>"><i class="material-icons">dashboard</i> <span>Inicio</span></a></li>
+                        <li>
+                            <li><a href="<%#= pizarron_records_path %>" class="<%#= 'active' if current_page?(pizarron_records_path) %>"><i class="material-icons">view_module</i> <span>Pizarrón</span></a></li>
+                            <li>
+                                <a href="#subPages" data-toggle="collapse" class="collapsed <%#= 'active' if current_page?(quotations_path) or current_page?(new_quotation_path) %>"><i class="material-icons">content_paste</i> <span>Cotización</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                                <div id="subPages" class="<%#= 'collapse' unless current_page?(quotations_path) or current_page?(new_quotation_path)  %> <%#= 'active' if current_page?(quotations_path) or current_page?(new_quotation_path) %>">
+                                    <ul class="nav">
+                                        <li><a href="<%#= new_quotation_path %>" class="<%#= 'active' if current_page?(new_quotation_path) %>">Nueva Cotización</a></li>
+                                        <li><a href="<%#= quotations_path %>" class="<%#= 'active' if current_page?(quotations_path) %>">Todas las Cotizaciones</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--  -->
 
-<% if alert %>
-	<p class="alert"><%= alert %></p>
-<% elsif notice %>
-	<p class="notice"><%= notice %></p>
-<% end %>
+
+                            <li><a href="<%#= services_path %>" class="<%#= 'active' if current_page?(services_path) %>"><i class="material-icons">build</i> <span>Servicios</span></a></li>
+                        
 
 
-<div id="content">
-	<%= yield %>
-</div>
-</body>
+                               
+                                            
+
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- END LEFT SIDEBAR -->
+                                <!-- MAIN -->
+                                <div class="main">
+                                    <!-- MAIN CONTENT -->
+                                    <div class="main-content">
+                                        <div class="container-fluid">
+                                            <!-- OVERVIEW -->
+                                            
+                                            <%= yield %>
+                                        </div>
+                                        <!-- END OVERVIEW -->
+                                    </div>
+                                </div>
+                                <!-- END MAIN CONTENT -->
+                            </div>
+                            <!-- END MAIN -->
+                            <div class="clearfix"></div>
+                            <footer>
+                                <div class="container-fluid">
+                                    <p class="copyright">&copy; 2018 Tutto il Mondo</p>
+                                </div>
+                            </footer>
+                        </div>
+                        <!-- END WRAPPER -->
+                    </body>
 </html>
