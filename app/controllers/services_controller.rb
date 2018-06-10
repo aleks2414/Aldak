@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, except: [:index, :new, :create]
   before_action :authenticate_user!
 
   # GET /services
@@ -11,6 +11,30 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+  end
+
+  def etapa_1
+    
+  end
+
+  def etapa_2
+    
+  end
+
+  def etapa_3
+    
+  end
+
+  def etapa_4
+    
+  end
+
+  def etapa_5
+    
+  end
+
+  def etapa_6
+    
   end
 
   # GET /services/new
@@ -26,10 +50,11 @@ class ServicesController < ApplicationController
   # POST /services.json
   def create
     @service = Service.new(service_params)
+    @service.user_id = current_user.id
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to etapa_1_service_path(@service), notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -43,7 +68,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_back fallback_location: root_path, notice: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }

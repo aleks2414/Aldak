@@ -1,0 +1,49 @@
+<%= render 'pedido' %>
+
+<%= form_for @service do |form| %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-headline">
+    
+      <div class="panel-heading">
+        <h3>Facturación:</h3>
+        <hr>
+      </div>  
+
+<div class="panel-body">
+
+  <div class="field">
+    <%= form.label :fecha_por_cobrar %>
+    <%= form.date_select :fecha_por_cobrar, id: :service_fecha_por_cobrar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagado %>
+    <%= form.check_box :pagado, id: :service_pagado %>
+  </div>
+
+        <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
+        <br>
+
+</div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Facturación", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+</div>
+</div>
+
+<% end %>

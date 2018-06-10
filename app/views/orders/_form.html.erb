@@ -11,29 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :order_user_id %>
-  </div>
-
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :client_id %>
-    <%= form.text_field :client_id, id: :order_client_id %>
+    <%= form.select :client_id, Client.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Cliente'}, {:required => true} %>
+  </div>
   </div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :product_id %>
-    <%= form.text_field :product_id, id: :order_product_id %>
+    <%= form.select :product_id, Product.all.collect { |p| [ "#{p.nombre}", p.id ] }, {:prompt => 'Elige Producto'}, {:required => true} %>
+  </div>
+  </div>
   </div>
 
   <div class="field">
     <%= form.label :numero_de_orden %>
-    <%= form.text_field :numero_de_orden, id: :order_numero_de_orden %>
+    <%= form.text_field :numero_de_orden, id: :order_numero_de_orden, required:true %>
   </div>
 
   <div class="field">
     <%= form.label :fecha_de_orden %>
-    <%= form.date_select :fecha_de_orden, id: :order_fecha_de_orden %>
+    <%= form.date_field :fecha_de_orden, id: :order_fecha_de_orden, required:true %>
   </div>
 
   <div class="field">
@@ -43,7 +44,7 @@
 
   <div class="field">
     <%= form.label :cantidad %>
-    <%= form.text_field :cantidad, id: :order_cantidad %>
+    <%= form.number_field :cantidad, id: :order_cantidad, required:true %>
   </div>
 
   <div class="field">
@@ -51,17 +52,23 @@
     <%= form.text_field :descripcion, id: :order_descripcion %>
   </div>
 
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :precio_unitario %>
-    <%= form.text_field :precio_unitario, id: :order_precio_unitario %>
+    <%= form.number_field :precio_unitario, id: :order_precio_unitario, required:true %>
+  </div>
   </div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :valor_total %>
-    <%= form.text_field :valor_total, id: :order_valor_total %>
+    <%= form.number_field :valor_total, id: :order_valor_total, required:true %>
+  </div>
+  </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :charter_user_id %>
-  </div>
 
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :alias %>
-    <%= form.text_field :alias, id: :charter_alias %>
+    <%= form.text_field :alias, id: :charter_alias, required:true %>
+  </div>
   </div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :rfc %>
-    <%= form.text_field :rfc, id: :charter_rfc %>
+    <%= form.text_field :rfc, id: :charter_rfc, required:true %>
+  </div>
+  </div>
   </div>
 
   <div class="field">
@@ -38,25 +40,31 @@
 
   <div class="field">
     <%= form.label :encargado %>
-    <%= form.text_field :encargado, id: :charter_encargado %>
+    <%= form.text_field :encargado, id: :charter_encargado, required:true %>
   </div>
 
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :telefono_encargado %>
     <%= form.text_field :telefono_encargado, id: :charter_telefono_encargado %>
   </div>
+  </div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :correo_encargado %>
-    <%= form.text_field :correo_encargado, id: :charter_correo_encargado %>
+    <%= form.text_field :correo_encargado, id: :charter_correo_encargado, required:true %>
+  </div>
+  </div>
   </div>
 
   <div class="field">
     <%= form.label :codigo_fletera %>
-    <%= form.text_field :codigo_fletera, id: :charter_codigo_fletera %>
+    <%= form.text_field :codigo_fletera, id: :charter_codigo_fletera, required:true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>

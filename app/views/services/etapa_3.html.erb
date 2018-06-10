@@ -1,0 +1,133 @@
+<%= render 'pedido' %>
+
+<%= form_for @service do |form| %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-headline">
+      
+      <div class="panel-heading">
+        <h3>Proveedores:</h3>
+        <hr>
+      </div>
+
+<div class="panel-body">
+
+
+<div class="row">
+  <div class="col-md-6">
+<div class="field">
+    <%= form.label :provider_id %> <br>
+    <%= @service.provider.alias if @service.provider.present? %>
+</div>
+
+  <div class="field">
+    <%= form.label :requiere_factura_p %>
+    <%= form.check_box :requiere_factura_p, id: :service_requiere_factura_p %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pago_a_proveedor %>
+    <%= form.text_field :pago_a_proveedor, id: :service_pago_a_proveedor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condiciones_proveedor %>
+    <%= form.text_area :condiciones_p, id: :service_condiciones_p %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagado_proveedor %>
+    <%= form.check_box :pagado_proveedor, id: :service_pagado_proveedor %>
+  </div>
+
+<% if @service.requiere_factura_p == true %>
+  <div class="field">
+    <%= form.label :factura_recibida_proveedor %>
+    <%= form.check_box :factura_recibida_p, id: :service_factura_recibida_p %>
+  </div>
+<% end %>
+
+  </div>
+
+  <div class="col-md-6">
+<div class="field">
+    <%= form.label :charter_id %> <br>
+    <%= @service.charter.alias if @service.charter.present? %>
+</div>
+
+
+  <div class="field">
+    <%= form.label :requiere_factura_fletera %>
+    <%= form.check_box :requiere_factura_f, id: :service_requiere_factura_f %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pago_a_fletera %>
+    <%= form.text_field :pago_a_fletera, id: :service_pago_a_fletera %>
+  </div>
+
+  <div class="field">
+    <%= form.label :condiciones_fletera %>
+    <%= form.text_area :condiciones_f, id: :service_condiciones_f %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pagado_fletera %>
+    <%= form.check_box :pagado_fletera, id: :service_pagado_fletera %>
+  </div>
+
+
+<% if @service.requiere_factura_f == true %>
+  <div class="field">
+    <%= form.label :factura_recibida_fletera %>
+    <%= form.check_box :factura_recibida_f, id: :service_factura_recibida_f %>
+  </div>
+<% end %>
+
+  </div>
+</div>
+<hr>
+  <div class="field">
+    <%= form.label :gasto_operacion %> <br>
+    <%= @service.gasto_operacion %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
+        <br>
+
+
+</div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Documentación", etapa_2_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "Datos de GR", etapa_4_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+</div>
+
+</div>
+</div>
+
+<% end %>

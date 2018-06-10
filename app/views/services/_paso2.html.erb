@@ -1,0 +1,46 @@
+<div id="Paris" class="w3-container city" style="display:none">
+  <h3>Documentación:</h3>
+  <hr>
+
+
+
+<p>
+  <strong>Remision enviada: <a href="#" id="01"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :remision_enviada, as: :checkbox , collection: {false: "Nope", true: "Yep"},  :activator => "#01"%>
+</p>
+
+<p>
+  <strong>Calidad enviada: <a href="#" id="02"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :calidad_enviada, as: :checkbox , collection: {false: "Nope", true: "Yep"},  :activator => "#02"%>
+</p>
+
+<p>
+  <strong>Seguridad enviada: <a href="#" id="03"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :seguridad_enviada, as: :checkbox , collection: {false: "Nope", true: "Yep"},  :activator => "#03"%>
+</p>
+
+<p>
+  <strong>Otro enviada: <a href="#" id="04"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :otro_enviada, as: :checkbox , collection: {false: "Nope", true: "Yep"},  :activator => "#04"%>
+</p>
+
+<p>
+  <strong>Remision sellada: <a href="#" id="05"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :remision_sellada, as: :checkbox , collection: {false: "Nope", true: "Yep"},  :activator => "#05"%>
+</p>
+
+<p>
+  <strong>Tickets: <a href="#" id="06"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :tickets, as: :checkbox , collection: {false: "Nope", true: "Yep"},  :activator => "#06"%>
+</p>
+
+<p>
+  <strong>Cantidad real etregada: <a href="#" id="07"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :cantidad_real_etregada,  :activator => "#07"%>
+</p>
+
+<p>
+  <strong>Pago real p: <a href="#" id="08"> <span class="grande fa fa-pencil"></span></a></strong> <br>
+  <%= best_in_place @service, :pago_real_p, :activator => "#08"%>
+</p>
+</div>

@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :client_user_id %>
-  </div>
-
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :alias %>
-    <%= form.text_field :alias, id: :client_alias %>
+    <%= form.text_field :alias, id: :client_alias, required:true %>
+  </div>
   </div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :rfc %>
-    <%= form.text_field :rfc, id: :client_rfc %>
+    <%= form.text_field :rfc, id: :client_rfc, required:true %>
+  </div>
+  </div>
   </div>
 
   <div class="field">
@@ -38,18 +39,24 @@
 
   <div class="field">
     <%= form.label :planta %>
-    <%= form.text_field :planta, id: :client_planta %>
+    <%= form.text_field :planta, id: :client_planta, required:true %>
   </div>
 
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :codigo_empresa %>
-    <%= form.text_field :codigo_empresa, id: :client_codigo_empresa %>
+    <%= form.text_field :codigo_empresa, id: :client_codigo_empresa, required:true %>
   </div>
+</div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :codigo_planta %>
     <%= form.text_field :codigo_planta, id: :client_codigo_planta %>
   </div>
+</div>
+</div>
 
   <div class="field">
     <%= form.label :numero_proveedor %>
@@ -57,6 +64,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>

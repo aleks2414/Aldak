@@ -1,0 +1,81 @@
+<% if @service.order_id.present? %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-headline">
+        <div class="panel-heading">
+          <h3>Pedido: <%= @service.order.numero_de_orden %></h3>
+          <h6>Creado por: <%= @service.user.email %></h6>
+          <hr>
+        </div>
+
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4">
+              <p>
+                <strong>Cliente:</strong>
+                <%= @service.order.client.alias %>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p>
+                <strong>RFC::</strong>
+                <%= @service.order.client.rfc %>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p>
+                <strong>Producto:</strong>
+                <%= @service.order.product.nombre %>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <p>
+                <strong>Fecha de orden:</strong>
+                <%= @service.order.fecha_de_orden %>
+              </p>
+            </div>
+            <div class="col-md-4">
+              <p>
+                <strong>nombre de encargado::</strong>
+                <%= @service.order.nombre_encargado %>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-3">
+              <p>
+                <strong>Cantidad:</strong>
+                <%= @service.order.cantidad %>
+              </p>
+            </div>
+            <div class="col-md-3">
+              <p>
+                <strong>Descripción:</strong>
+                <%= @service.order.descripcion %>
+              </p>
+            </div>
+
+            <div class="col-md-3">
+              <p>
+                <strong>Precio unitario:</strong>
+                <%= number_to_currency @service.order.precio_unitario %>
+              </p>
+            </div>
+
+            <div class="col-md-3">
+              <p>
+                <strong>Valor total:</strong>
+                <%= number_to_currency @service.order.valor_total %>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>

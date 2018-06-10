@@ -1,0 +1,77 @@
+<%= render 'pedido' %>
+
+<%= form_for @service do |form| %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h3>Documentación:</h3>
+        <hr>
+      </div>    
+
+<div class="panel-body">
+
+  <div class="field">
+    <%= form.label :remision_enviada %>
+    <%= form.check_box :remision_enviada, id: :service_remision_enviada %>
+  </div>
+  <div class="field">
+    <%= form.label :calidad_enviada %>
+    <%= form.check_box :calidad_enviada, id: :service_calidad_enviada %>
+  </div>
+  <div class="field">
+    <%= form.label :seguridad_enviada %>
+    <%= form.check_box :seguridad_enviada, id: :service_seguridad_enviada %>
+  </div>
+  <div class="field">
+    <%= form.label :otro_enviada %>
+    <%= form.check_box :otro_enviada, id: :service_otro_enviada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remision_sellada %>
+    <%= form.check_box :remision_sellada, id: :service_remision_sellada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tickets %>
+    <%= form.check_box :tickets, id: :service_tickets %>
+  </div>
+  <div class="field">
+    <%= form.label :cantidad_real_etregada %>
+    <%= form.text_field :cantidad_real_etregada, id: :service_cantidad_real_etregada %>
+  </div>
+  <div class="field">
+    <%= form.label :pago_real_p %>
+    <%= form.text_field :pago_real_p, id: :service_pago_real_p %>
+  </div>
+
+        <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
+        <br>
+
+</div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Remsión", etapa_1_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+    <% if @service.remision_enviada == true && @service.calidad_enviada == true && @service.seguridad_enviada == true  %>
+    <%= link_to "Proveedores", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
+    <% else %>
+    <a class="btn btn-primary disabled btn-block">Proveedores</a>
+    <% end %>
+  </div>
+</div>
+
+</div>
+</div>
+
+<% end %>

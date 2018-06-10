@@ -1,0 +1,41 @@
+<div id="London" class="w3-container city" style="display:none">
+<h3>Remisión:</h3>	
+<h5><%= @service.codigo_remision %></h5>
+<hr>
+
+
+
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @service.cantidad %>
+</p>
+
+<p>
+  <strong>Fecha de entrega:</strong>
+  <%= @service.fecha_de_entrega %>
+</p>
+
+
+<p>
+  <strong>Provider:</strong>
+  <%= @service.provider.alias %>
+</p>
+
+<p>
+  <strong>Charter:</strong>
+  <%= @service.charter.alias %>
+</p>
+
+<br>
+
+
+<h2 class="center">Remisión: <br>
+	<%= @service.codigo_remision %>
+</h2>
+
+
+
+<%= link_to "Ver PDF de remisión", root_path, class: "button button_primary button_block" %> <br>
+
+</div>

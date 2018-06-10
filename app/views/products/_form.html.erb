@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :product_user_id %>
-  </div>
 
+  <div class="row">
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :product_nombre %>
+    <%= form.text_field :nombre, id: :product_nombre, required:true %>
+  </div>
   </div>
 
+  <div class="col-md-6">
   <div class="field">
     <%= form.label :codigo_producto %>
-    <%= form.text_field :codigo_producto, id: :product_codigo_producto %>
+    <%= form.text_field :codigo_producto, id: :product_codigo_producto, required:true %>
+  </div>
+  </div>
   </div>
 
   <div class="field">
@@ -32,6 +34,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

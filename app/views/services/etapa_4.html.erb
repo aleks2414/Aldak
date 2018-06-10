@@ -1,0 +1,48 @@
+<%= render 'pedido' %>
+
+<%= form_for @service do |form| %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-headline">
+      
+      <div class="panel-heading">
+        <h3>Gr:</h3>
+        <hr>
+      </div>
+
+<div class="panel-body">
+
+  <div class="field">
+    <%= form.label :gr %>
+    <%= form.text_field :gr, id: :service_gr %>
+  </div>
+
+        <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
+        <br>
+
+</div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Proveedores", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+  <% if @service.gr.present?  %>
+    <%= link_to "Facturación", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
+  <% else %>
+    <a class="btn btn-primary disabled btn-block">Facturación</a>
+  <% end %>
+  </div>
+</div>
+
+</div>
+</div>
+
+<% end %>

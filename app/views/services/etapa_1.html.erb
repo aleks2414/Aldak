@@ -1,0 +1,72 @@
+<%= render 'pedido' %>
+
+<%= form_for @service do |form| %>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-headline">
+
+      <div class="panel-heading">
+        <h3>Remisión:</h3>
+        <h5><%= @service.codigo_remision %></h5>
+        <%= link_to "Ver PDF de remisión", service_path(@service, format: 'pdf'), class: "button button_primary" %>
+        <hr>
+      </div>
+
+      <div class="panel-body">
+        <div class="field">
+          <%= form.label :numero_de_pedido %>
+          <%= form.text_field :order_id, id: :service_order_id, data: {autocomplete_source: Order.order(:id).map(&:numero_de_orden).uniq} %>
+        </div>
+
+        <div class="field">
+          <%= form.label :cantidad %>
+          <%= form.text_field :cantidad, id: :service_cantidad %>
+        </div>
+
+        <div class="field">
+          <%= form.label :fecha_de_entrega %>
+          <%= form.date_field :fecha_de_entrega, id: :service_fecha_de_entrega %>
+        </div>
+
+        <div class="row">
+        <div class="col-md-6">
+        <div class="field">
+          <%= form.label :provider_id %>
+          <%= form.select :provider_id, Provider.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Proveedor'}, {:required => true} %>
+        </div>
+      </div>
+
+
+
+       <div class="col-md-6">
+        <div class="field">
+          <%= form.label :charter_id %>
+          <%= form.select :charter_id, Charter.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Fletera'}, {:required => true} %>
+        </div>
+      </div>
+      </div>
+
+        <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
+        <br>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6">
+        <%= link_to "Documentación", etapa_2_service_path(@service),class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<% end %>

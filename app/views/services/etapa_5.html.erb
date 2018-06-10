@@ -1,0 +1,56 @@
+<%= render 'pedido' %>
+
+<%= form_for @service do |form| %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-headline">
+    
+      <div class="panel-heading">
+        <h3>Facturación:</h3>
+        <hr>
+      </div>  
+
+<div class="panel-body">
+
+  <div class="field">
+    <%= form.label :numero_de_factura %>
+    <%= form.text_field :numero_de_factura, id: :service_numero_de_factura %>
+  </div>
+  <div class="field">
+    <%= form.label :kilos_finales %>
+    <%= form.text_field :kilos_finales, id: :service_kilos_finales %>
+  </div>
+  <div class="field">
+    <%= form.label :total_por_facturar %>
+    <%= form.text_field :total_por_facturar, id: :service_total_por_facturar %>
+  </div>
+  <div class="field">
+    <%= form.label :fecha_de_facturacion %>
+    <%= form.date_field :fecha_de_facturacion, id: :service_fecha_de_facturacion %>
+  </div>
+
+        <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
+        <br>
+
+</div>
+
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Datos de GR", etapa_4_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "Tugsten y Pago", etapa_6_service_path(@service),class: "btn btn-primary btn-block" %>
+  </div>
+</div>
+
+</div>
+</div>
+
+<% end %>

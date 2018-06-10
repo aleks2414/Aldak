@@ -11,17 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery-ui
+//= require jquery-ui
 //  require jquery_ujs
 //= require bootstrap-sprockets
-// require moment
+//= require moment
 // require fullcalendar
 // require underscore
-// require best_in_place
-// require best_in_place.jquery-ui
+//= require best_in_place
+//= require best_in_place.jquery-ui
 //= require turbolinks
 // require bootstrap
 //= require ckeditor/init
 // require cocoon
 //= require owl.carousel
 //= require_tree .
+

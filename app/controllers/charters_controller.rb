@@ -26,6 +26,7 @@ class ChartersController < ApplicationController
   # POST /charters.json
   def create
     @charter = Charter.new(charter_params)
+    @charter.user_id = current_user.id
 
     respond_to do |format|
       if @charter.save

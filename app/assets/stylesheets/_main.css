@@ -589,10 +589,10 @@ ul.list-justify > li {
 
 .btn-primary {
   background-color: #00B5A3;
-  border-color: #00a0f0; }
+  border-color: #00B5A3; }
   .btn-primary:hover, .btn-primary:focus {
-    background-color: #00a0f0;
-    border-color: #00a0f0; }
+    background-color: #005f55;
+    border-color: #005f55; }
 
 .btn-warning {
   background-color: #e4cb10;
