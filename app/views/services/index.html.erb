@@ -10,42 +10,21 @@
         <table class="table table-hover table-striped">
           <thead>
             <tr>
-              
-              <th>Order</th>
+              <th>Remisión</th>
+              <th>Pedido</th>
               <th>Cantidad</th>
               <th>Fecha de entrega</th>
-              <th>Status operativo</th>
               <th>Status comercial</th>
               <th>Etapa</th>
-              <th>Provider</th>
-              <th>Requiere factura p</th>
-              <th>Pago a proveedor</th>
-              <th>Condiciones p</th>
-              <th>Pagado proveedor</th>
-              <th>Charter</th>
-              <th>Requiere factura f</th>
-              <th>Pago a fletera</th>
-              <th>Condiciones f</th>
-              <th>Pagado fletera</th>
-              <th>Codigo remision</th>
-              <th>Remision enviada</th>
-              <th>Calidad enviada</th>
-              <th>Seguridad enviada</th>
-              <th>Otro enviada</th>
+              <th>Proveedor</th>
+              <th>Fletera</th>
               <th>Gasto operacion</th>
-              <th>Remision sellada</th>
-              <th>Tickets</th>
-              <th>Cantidad real etregada</th>
-              <th>Pago real p</th>
-              <th>Factura recibida p</th>
-              <th>Factura recibida f</th>
               <th>Gr</th>
               <th>Numero de factura</th>
               <th>Kilos finales</th>
               <th>Total por facturar</th>
               <th>Fecha de facturacion</th>
               <th>Fecha por cobrar</th>
-              <th>Pagado</th>
               <th colspan="3"></th>
             </tr>
           </thead>
@@ -54,44 +33,24 @@
             <% @services.each do |service| %>
             <tr>
               
-              <td><%= service.order %></td>
+              <td><%= service.codigo_remision %></td>
+              <td><%= service.order.numero_de_orden %></td>
               <td><%= service.cantidad %></td>
               <td><%= service.fecha_de_entrega %></td>
-              <td><%= service.status_operativo %></td>
               <td><%= service.status_comercial %></td>
               <td><%= service.etapa %></td>
-              <td><%= service.provider %></td>
-              <td><%= service.requiere_factura_p %></td>
-              <td><%= service.pago_a_proveedor %></td>
-              <td><%= service.condiciones_p %></td>
-              <td><%= service.pagado_proveedor %></td>
-              <td><%= service.charter %></td>
-              <td><%= service.requiere_factura_f %></td>
-              <td><%= service.pago_a_fletera %></td>
-              <td><%= service.condiciones_f %></td>
-              <td><%= service.pagado_fletera %></td>
-              <td><%= service.codigo_remision %></td>
-              <td><%= service.remision_enviada %></td>
-              <td><%= service.calidad_enviada %></td>
-              <td><%= service.seguridad_enviada %></td>
-              <td><%= service.otro_enviada %></td>
+              <td><%= service.provider.alias %></td>
+              <td><%= service.charter.alias %></td>
               <td><%= service.gasto_operacion %></td>
-              <td><%= service.remision_sellada %></td>
-              <td><%= service.tickets %></td>
-              <td><%= service.cantidad_real_etregada %></td>
-              <td><%= service.pago_real_p %></td>
-              <td><%= service.factura_recibida_p %></td>
-              <td><%= service.factura_recibida_f %></td>
               <td><%= service.gr %></td>
               <td><%= service.numero_de_factura %></td>
               <td><%= service.kilos_finales %></td>
               <td><%= service.total_por_facturar %></td>
               <td><%= service.fecha_de_facturacion %></td>
               <td><%= service.fecha_por_cobrar %></td>
-              <td><%= service.pagado %></td>
-              <td><%= link_to 'Show', service %></td>
-              <td><%= link_to 'Edit', etapa_1_service_path(service) %></td>
-              <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Ver más', etapa_1_service_path(service) %></td>
+              <!-- <td><%#= link_to 'Continuar', etapa_1_service_path(service) %></td> -->
+              <td><%= link_to 'Eliminar', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
           </tbody>

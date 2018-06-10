@@ -275,10 +275,50 @@ ul.ui-autocomplete {
 }
 
 
+#breadi {
+  margin: 30px 0;
+  ul {
+    list-style: none;
+    width: 100%;
+  }
+  li {
+    display: inline;
+    float: left;
+    width: 15.6%;
+    margin: 0.3%;
+    margin-bottom: 20px;
+    h4 {
+      font-size: 1em;
+    }
+  }
+  .paso {
+    width: 100%;
+    height: 15px;
+  }
+  .actividad {
+    background-color: $primary;
+  }
+  .inactividad {
+    background-color: #e6e6e6;
+  }
+  .active {
+    background-color: #00B5A3;
+  }
+}
+
 /*Media*/
 
 @media (max-width: 800px)
 {
+
+#breadi {
+  li {
+    width: 32%;
+    h4 {
+      font-size: .9em;
+    }
+  }
+}
 
 .hero {
 background-attachment: unset;

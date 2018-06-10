@@ -1,0 +1,47 @@
+<% if @service.etapa == 4 %>
+<div id="breadi">
+  <div class="row">
+    <div class="container">
+      <ul>
+        <%= link_to etapa_1_service_path(@service) do %>
+        <li>
+          <h4>Etapa 1: Remisión</h4>
+          <div class="actividad paso <%= 'active' if current_page?(etapa_1_service_path) %>"></div>
+        </li>
+        <% end %>
+
+        <%= link_to etapa_2_service_path(@service) do %>
+        <li>
+          <h4>Etapa 2: Documentación</h4>
+          <div class="actividad paso <%= 'active' if current_page?(etapa_2_service_path) %>"></div>
+        </li>
+        <% end %>
+
+        <%= link_to etapa_3_service_path(@service) do %>
+        <li>
+          <h4>Etapa 3: Proveedores</h4>
+          <div class="actividad paso <%= 'active' if current_page?(etapa_3_service_path) %>"></div>
+        </li>
+        <% end %>
+
+        <%= link_to etapa_4_service_path(@service) do %>
+        <li>
+          <h4>Etapa 4: GR</h4>
+          <div class="actividad paso <%= 'active' if current_page?(etapa_4_service_path) %>"></div>
+        </li>
+        <% end %>
+
+        <li>
+          <h4>Etapa 5: Facturación</h4>
+          <div class="inactividad paso <%= 'active' if current_page?(etapa_5_service_path) %>"></div>
+        </li>
+
+        <li>
+          <h4>Etapa 6: Pago</h4>
+          <div class="inactividad paso <%= 'active' if current_page?(etapa_6_service_path) %>"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
