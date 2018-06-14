@@ -43,8 +43,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :email_encargado %>
+    <%= form.text_field :email, id: :order_nombre_encargado %>
+  </div>
+
+  <div class="field">
     <%= form.label :cantidad %>
-    <%= form.number_field :cantidad, id: :order_cantidad, required:true %>
+    <%= form.number_field :cantidad, id: :order_cantidad,  step: :any, required:true %>
   </div>
 
   <div class="field">
@@ -56,14 +61,14 @@
   <div class="col-md-6">
   <div class="field">
     <%= form.label :precio_unitario %>
-    <%= form.number_field :precio_unitario, id: :order_precio_unitario, required:true %>
+    <%= form.number_field :precio_unitario, id: :order_precio_unitario,  step: :any, required:true %>
   </div>
   </div>
 
   <div class="col-md-6">
   <div class="field">
     <%= form.label :valor_total %>
-    <%= form.number_field :valor_total, id: :order_valor_total, required:true %>
+    <%= form.number_field :valor_total, id: :order_valor_total, step: :any,  required:true %>
   </div>
   </div>
   </div>
