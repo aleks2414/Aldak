@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :orden_de_compra %>
-    <%= form.select :order_id, Order.all.order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, #{p.client.alias}, #{p.cantidad} kilos - #{p.product.nombre}  (#{p.fecha_de_orden})" , p.id ] } %>
+    <%= form.select :order_id, Order.all.order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, #{p.client.alias}, #{p.cantidad} kilos - #{p.product.nombre}  (#{p.fecha_de_orden})" , p.id ] }, {:prompt => 'Elige Orden de Compra'}, {:required => true}  %>
   </div>
 
   <div class="field">
