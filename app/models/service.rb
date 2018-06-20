@@ -4,13 +4,7 @@ class Service < ApplicationRecord
   belongs_to :provider
   belongs_to :charter
 
-  def order_id
-    order.try(:numero_de_orden)
-  end
 
-  def order_id=(numero_de_orden)
-    self.order = Order.find_by_numero_de_orden(numero_de_orden) if numero_de_orden.present?
-  end
 
 
   before_save :cod_remision
