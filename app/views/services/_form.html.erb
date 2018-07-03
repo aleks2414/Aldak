@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :orden_de_compra %>
-    <%= form.select :order_id, Order.all.order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, #{p.client.alias}, #{p.cantidad} kilos - #{p.product.nombre}  (#{p.fecha_de_orden})" , p.id ] }, {:prompt => 'Elige Orden de Compra'}, {:required => true}  %>
+    <%= form.label :numero_de_pedido %>
+    <%= form.select :order_id, Order.all.order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, #{p.client.alias}, #{p.cantidad} kilos - #{p.product.nombre}  (#{p.fecha_de_orden})" , p.id ] }, {:prompt => 'Elige Número de Pedido'}, {:required => true}  %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
 
   <div class="field">
-    <%= form.label :provider_id %>
+    <%= form.label :proveedor %>
     <%= form.select :provider_id, Provider.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Proveedor'}, {:required => true} %>
   </div>
 
@@ -38,7 +38,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :charter_id %>
+    <%= form.label :fletera %>
     <%= form.select :charter_id, Charter.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Fletera'}, {:required => true} %>
   </div>
 

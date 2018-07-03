@@ -13,7 +13,7 @@ class Service < ApplicationRecord
   before_save :etapa
 
   def cod_remision
-    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.fecha_de_entrega}-#{self.id}"
+    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega)}-0#{self.try(:id)}"
   end
 
   def gasto_op

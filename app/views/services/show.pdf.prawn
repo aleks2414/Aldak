@@ -21,8 +21,6 @@ prawn_document() do |pdf|
 
 
 	pdf.move_down 25
-	pdf.text "Atn: #{@service.order.nombre_encargado}", size: 13, align: :left
-	pdf.move_down 5
 	pdf.text "#{@service.order.client.razon_social}", size: 11, align: :left
 
 
