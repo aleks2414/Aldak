@@ -1,0 +1,86 @@
+<div class="row">
+	<% @services.group_by(&:month).each do |month, services| %>
+	<div class="col-md-12">
+		<div class="panel panel-headline">
+
+			<div class="panel-heading">
+			<h3><%= month %></h3>
+		</div>
+
+		<div class="panel-body">
+			<div class="content table-responsive table-full-width">
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+						<th>ID</th>
+						<th>Número Remisión</th>
+						<th>Fecha de Entrega</th>
+						<th>Status</th>
+						<th>Proveedor</th>
+						<th>Fletera</th>
+						<th>Cantidad entregada</th>
+						<th>Total de Venta</th>
+						<th>Gastos de Operación</th>
+						<th>Ganancia</th>
+						<th>GR</th>
+						<th>ID</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% services.each do |service| %>
+
+							
+							<tr>
+								<td><%= service.id %></td>
+								<td><%= link_to "#{service.codigo_remision}", etapa_1_service_path(service) %></td>
+								<td><%= service.fecha_de_entrega %></td>
+								<td><%= service.status_comercial %></td>
+								<td><%= service.provider.alias %></td>
+								<td><%= service.charter.alias %></td>
+								<td><%= service.cantidad_real_etregada %> kilos</td>
+								<td><%= number_to_currency service.total_venta %></td>
+								<td><%= number_to_currency service.gasto_operacion %></td>
+								<td><%= number_to_currency service.ganancia %></td>
+								<td><%= service.gr %></td>
+								<td><%= service.id%></td>
+							</tr>
+
+						<% end %>
+
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><%=number_to_currency @g= services.map(&:total_venta).sum%></td>
+								<td><%=number_to_currency @g= services.map(&:gasto_operacion).sum%></td>
+								<td><%=number_to_currency @g= services.map(&:ganancia).sum%></td>
+								<td></td>
+								<td></td>
+							</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>

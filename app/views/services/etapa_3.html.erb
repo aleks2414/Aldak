@@ -66,13 +66,70 @@
   </div>
 </div>
 <hr>
-  <div class="field">
-    <%= form.label :gasto_operacion %> <br>
-    <%= @service.gasto_operacion %>
+
+
+<div class="row">
+  <div class="col-md-3 col-md-offset-3">
+     <div class="field">
+    <%= form.label :cantidad_real_etregada %> <br>
+    <%= @service.cantidad_real_etregada %> kilos
+  </div> 
   </div>
+  <div class="col-md-3">
+      <div class="field">
+    <%= form.label :precio_de_venta %> <br>
+    <%= number_to_currency @service.order.precio_unitario %>
+  </div>
+  </div>
+  
+  <div class="col-md-3">
+      <div class="field">
+    <%= form.label :total_venta %> <br>
+    <%= number_to_currency @service.total_venta %>
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+     <div class="field">
+    <%= form.label :cantidad_real_etregada %> <br>
+    <%= @service.cantidad_real_etregada %> kilos
+  </div> 
+  </div>
+  <div class="col-md-3">
+      <div class="field">
+    <%= form.label :costo_de_compra %> <br>
+    <%= number_to_currency @service.order.product.costo_producto %>
+  </div>
+  </div>
+  <div class="col-md-3">
+      <div class="field">
+    <%= form.label :gasto_de_flete %> <br>
+    <%= number_to_currency @service.charter.precio_de_envio %>
+  </div>
+  </div>
+  <div class="col-md-3">
+      <div class="field">
+    <%= form.label :gasto_operacion %> <br>
+    <%= number_to_currency @service.gasto_operacion %>
+  </div>
+  </div>
+</div>
 
 
 
+<div class="row">
+    <div class="col-md-3 col-md-offset-9">
+      <div class="field">
+    <%= form.label :ganancia %> <br>
+    <%= number_to_currency @service.ganancia %>
+  </div>
+  </div>
+</div>
+
+
+<hr>
 
 
 

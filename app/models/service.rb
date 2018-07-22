@@ -9,20 +9,31 @@ class Service < ApplicationRecord
 
   before_save :cod_remision
   before_save :gasto_op
+  before_save :total_venta
   before_save :status_com
   before_save :etapa
   before_save :pago_a_proveedor
+  before_save :ganacia
 
   def cod_remision
     self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega)}-0#{self.try(:id)}"
   end
 
   def pago_a_proveedor
-    self.pago_a_proveedor = self.cantidad_real_etregada * self.order.try(:precio_unitario)
+    self.pago_a_proveedor = self.cantidad_real_etregada * self.order.product.try(:costo_producto)
   end
 
   def gasto_op
     self.gasto_operacion = self.charter.try(:precio_de_envio) + self.pago_a_proveedor
+  end
+
+  def total_venta
+    self.total_venta = self.try(:cantidad_real_etregada) * self.order.try(:precio_unitario)
+  end
+
+  def ganancia
+    self.ganancia = self.try(:total_venta) - self.try(:gasto_operacion)
+
   end
 
   def status_com
@@ -48,6 +59,10 @@ class Service < ApplicationRecord
     else 
       self.etapa = 1
     end
+  end
+
+  def month
+  self.fecha_de_entrega.to_date.strftime('%G-%B')
   end
 
 end
