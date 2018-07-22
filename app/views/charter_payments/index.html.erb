@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Charter Payments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Charter</th>
+      <th>Cantidad</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @charter_payments.each do |charter_payment| %>
+      <tr>
+        <td><%= charter_payment.charter %></td>
+        <td><%= charter_payment.cantidad %></td>
+        <td><%= charter_payment.fecha %></td>
+        <td><%= link_to 'Show', charter_payment %></td>
+        <td><%= link_to 'Edit', edit_charter_payment_path(charter_payment) %></td>
+        <td><%= link_to 'Destroy', charter_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Charter Payment', new_charter_payment_path %>

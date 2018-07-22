@@ -67,11 +67,12 @@
 
 
                             <li>
-                                <a href="#subPages01" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>"><i class="material-icons">how_to_reg</i> <span>Proveedores</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                                <a href="#subPages01" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">how_to_reg</i> <span>Proveedores</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                                 <div id="subPages01" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
                                     <ul class="nav">
                                         <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
                                         <li><a href="<%= providers_path %>" class="<%= 'active' if current_page?(providers_path) %>">Todos los Proveedores</a></li>
+                                        <li><a href="<%= new_provider_payment_path %>" class="<%= 'active' if current_page?(new_provider_payment_path) %>">Pago a Proveedor</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -79,11 +80,12 @@
 
 
                             <li>
-                                <a href="#subPages02" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) %>"><i class="material-icons">directions_bus</i> <span>Fleteras</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                                <a href="#subPages02" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) or current_page?(new_charter_payment_path) %>"><i class="material-icons">directions_bus</i> <span>Fleteras</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                                 <div id="subPages02" class="<%= 'collapse' unless current_page?(charters_path) or current_page?(new_charter_path)  %> <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) %>">
                                     <ul class="nav">
                                         <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
                                         <li><a href="<%= charters_path %>" class="<%= 'active' if current_page?(charters_path) %>">Todas las Fleteras</a></li>
+                                        <li><a href="<%= new_charter_payment_path %>" class="<%= 'active' if current_page?(new_charter_payment_path) %>">Pago a Fletera</a></li>
                                     </ul>
                                 </div>
                             </li>

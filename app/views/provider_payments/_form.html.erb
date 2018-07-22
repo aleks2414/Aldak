@@ -1,0 +1,32 @@
+<%= form_with(model: provider_payment, local: true) do |form| %>
+  <% if provider_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(provider_payment.errors.count, "error") %> prohibited this provider_payment from being saved:</h2>
+
+      <ul>
+      <% provider_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :proveedor %>
+    <%= form.select :provider_id, Provider.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Proveedor'}, {:required => true} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, id: :provider_payment_cantidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_field :fecha, id: :provider_payment_fecha %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

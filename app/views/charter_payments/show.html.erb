@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Charter:</strong>
+  <%= @charter_payment.charter %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @charter_payment.cantidad %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @charter_payment.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_charter_payment_path(@charter_payment) %> |
+<%= link_to 'Back', charter_payments_path %>

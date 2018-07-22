@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :provider_payments
+  resources :charter_payments
   resources :services, except: [:edit] do
     member do
       get 'etapa_1'

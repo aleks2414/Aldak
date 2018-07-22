@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: one
+  cantidad: 1
+  fecha: 2018-07-21
+
+two:
+  provider: two
+  cantidad: 1
+  fecha: 2018-07-21

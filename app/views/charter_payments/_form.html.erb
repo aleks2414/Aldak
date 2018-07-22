@@ -1,0 +1,32 @@
+<%= form_with(model: charter_payment, local: true) do |form| %>
+  <% if charter_payment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(charter_payment.errors.count, "error") %> prohibited this charter_payment from being saved:</h2>
+
+      <ul>
+      <% charter_payment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fletera %>
+    <%= form.select :charter_id, Charter.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Fletera'}, {:required => true} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, id: :charter_payment_cantidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_field :fecha, id: :charter_payment_fecha %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

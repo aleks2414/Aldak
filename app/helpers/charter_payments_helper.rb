@@ -1,0 +1,2 @@
+module CharterPaymentsHelper
+end

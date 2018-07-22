@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180722012237) do
+ActiveRecord::Schema.define(version: 20180722020845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "charter_payments", force: :cascade do |t|
+    t.bigint "charter_id"
+    t.integer "cantidad", default: 0
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["charter_id"], name: "index_charter_payments_on_charter_id"
+  end
 
   create_table "charters", force: :cascade do |t|
     t.bigint "user_id"
@@ -73,6 +82,15 @@ ActiveRecord::Schema.define(version: 20180722012237) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "provider_payments", force: :cascade do |t|
+    t.bigint "provider_id"
+    t.integer "cantidad", default: 0
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_provider_payments_on_provider_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -152,12 +170,14 @@ ActiveRecord::Schema.define(version: 20180722012237) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "charter_payments", "charters"
   add_foreign_key "charters", "users"
   add_foreign_key "clients", "users"
   add_foreign_key "orders", "clients"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "provider_payments", "providers"
   add_foreign_key "providers", "users"
   add_foreign_key "services", "charters"
   add_foreign_key "services", "orders"

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @provider_payment.provider %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @provider_payment.cantidad %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @provider_payment.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_provider_payment_path(@provider_payment) %> |
+<%= link_to 'Back', provider_payments_path %>

@@ -56,12 +56,23 @@
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
-              <th>Cargos</th>
+              <th>Cargos (Pagos)</th>
             </tr>
           </thead>
           <tbody>
+            <% @provider.provider_payments.each do |payment| %>
+            <tr>
+              <td><%= number_to_currency payment.cantidad %></td>
+            </tr>
+            <% end %>
             <tr>
               <td></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Total:</strong><%= number_to_currency @n1 = @provider.provider_payments.map(&:cantidad).sum %></td>
             </tr>
           </tbody>
         </table>
@@ -74,7 +85,7 @@
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
-              <th>Abonos</th>
+              <th>Abonos (servicios)</th>
             </tr>
           </thead>
           <tbody>
@@ -90,7 +101,7 @@
               <td></td>
             </tr>
             <tr>
-              <td><strong>Total:</strong> <%= number_to_currency @provider.services.map(&:pago_a_proveedor).sum %></td>
+              <td><strong>Total:</strong> <%= number_to_currency @n2 = @provider.services.map(&:pago_a_proveedor).sum %></td>
             </tr>
           </tbody>
         </table>
@@ -98,11 +109,13 @@
           
         </div>
       </div>
+
+<h2>Saldo: <%= number_to_currency @n1 - @n2 %></h2>
+
       </div>
     </div>
   </div>
 </div>
 
-<%= @provider.services.count%>
 
 

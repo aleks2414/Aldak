@@ -58,12 +58,26 @@
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
-              <th>Cargos</th>
+              <th>Cargos (Pagos)</th>
             </tr>
           </thead>
           <tbody>
+            <% @charter.charter_payments.each do |payment| %>
+            <tr>
+              <td><%= number_to_currency payment.cantidad %></td>
+            </tr>
+            <% end %>
+
             <tr>
               <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td><strong>Total:</strong><%= number_to_currency @c1 = @charter.charter_payments.map(&:cantidad).sum %></td>
             </tr>
           </tbody>
         </table>
@@ -76,7 +90,7 @@
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
-              <th>Abonos</th>
+              <th>Abonos (servicios)</th>
             </tr>
           </thead>
           <tbody>
@@ -92,7 +106,7 @@
               <td></td>
             </tr>
             <tr>
-              <td><strong>Total:</strong> <%= number_to_currency @charter.services.map(&:charter).map(&:precio_de_envio).sum %></td>
+              <td><strong>Total:</strong> <%= number_to_currency @c2= @charter.services.map(&:charter).map(&:precio_de_envio).sum %></td>
             </tr>
           </tbody>
         </table>
@@ -100,6 +114,9 @@
           
         </div>
       </div>
+
+<h2>Saldo: <%= number_to_currency @c1 - @c2 %></h2>
+
       </div>
     </div>
   </div>
