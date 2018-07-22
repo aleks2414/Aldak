@@ -14,9 +14,13 @@
               <th>Alias</th>
               <th>Rfc</th>
               <th>Razon social</th>
+              <% if user_signed_in? && current_user.admin? %>
               <th>Precio del viaje</th>
+              <% end %>
               <th>Codigo fletera</th>
+              <% if user_signed_in? && current_user.admin? %>
               <th colspan="3"></th>
+              <% end %>
             </tr>
           </thead>
 
@@ -27,11 +31,15 @@
               <td><%= charter.alias %></td>
               <td><%= charter.rfc %></td>
               <td><%= charter.razon_social %></td>
+              <% if user_signed_in? && current_user.admin? %>
               <td><%= charter.precio_de_envio%></td>
+              <% end %>
               <td><%= charter.codigo_fletera %></td>
+              <% if user_signed_in? && current_user.admin? %>
               <td><%= link_to 'Ver más', charter %></td>
               <td><%= link_to 'Editar', edit_charter_path(charter) %></td>
               <td><%= link_to 'Eliminar', charter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>

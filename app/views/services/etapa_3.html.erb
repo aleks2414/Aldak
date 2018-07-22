@@ -65,6 +65,9 @@
 
   </div>
 </div>
+
+<% if user_signed_in? && current_user.admin? %>
+
 <hr>
 
 
@@ -131,7 +134,7 @@
 
 <hr>
 
-
+<% end %>
 
 
 

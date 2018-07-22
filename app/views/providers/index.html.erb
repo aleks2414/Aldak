@@ -19,7 +19,9 @@
               <th>Telefono encargado</th>
               <th>Correo encargado</th>
               <th>Codigo proveedor</th>
+              <% if user_signed_in? && current_user.admin? %>
               <th colspan="3"></th>
+              <% end %>
             </tr>
           </thead>
 
@@ -35,9 +37,11 @@
               <td><%= provider.telefono_encargado %></td>
               <td><%= provider.correo_encargado %></td>
               <td><%= provider.codigo_proveedor %></td>
+              <% if user_signed_in? && current_user.admin? %>
               <td><%= link_to 'Ver más', provider %></td>
               <td><%= link_to 'Editar', edit_provider_path(provider) %></td>
               <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>

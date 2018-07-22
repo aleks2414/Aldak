@@ -18,7 +18,9 @@
               <th>Etapa</th>
               <th>Proveedor</th>
               <th>Fletera</th>
+              <% if user_signed_in? && current_user.admin? %>
               <th>Gasto operacion</th>
+              <% end %>
               <th>Gr</th>
               <th>Numero de factura</th>
               <th>Kilos finales</th>
@@ -41,7 +43,9 @@
               <td><%= service.etapa %></td>
               <td><%= service.provider.alias %></td>
               <td><%= service.charter.alias %></td>
+              <% if user_signed_in? && current_user.admin? %>
               <td><%= service.gasto_operacion %></td>
+              <% end %>
               <td><%= service.gr %></td>
               <td><%= service.numero_de_factura %></td>
               <td><%= service.kilos_finales %></td>
