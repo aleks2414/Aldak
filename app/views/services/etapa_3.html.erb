@@ -21,14 +21,10 @@
     <%= @service.provider.alias if @service.provider.present? %>
 </div>
 
-  <div class="field">
-    <%= form.label :requiere_factura_p %>
-    <%= form.check_box :requiere_factura_p, id: :service_requiere_factura_p %>
-  </div>
 
   <div class="field">
-    <%= form.label :pago_a_proveedor %>
-    <%= form.text_field :pago_a_proveedor, id: :service_pago_a_proveedor %>
+    <%= form.label :cantidad_real_etregada %>
+    <%= form.number_field :cantidad_real_etregada, id: :service_cantidad_real_etregada, step: :any, required: true %>
   </div>
 
   <div class="field">
@@ -36,10 +32,6 @@
     <%= form.text_area :condiciones_p, id: :service_condiciones_p %>
   </div>
 
-  <div class="field">
-    <%= form.label :pagado_proveedor %>
-    <%= form.check_box :pagado_proveedor, id: :service_pagado_proveedor %>
-  </div>
 
 <% if @service.requiere_factura_p == true %>
   <div class="field">
@@ -56,25 +48,11 @@
     <%= @service.charter.alias if @service.charter.present? %>
 </div>
 
-
-  <div class="field">
-    <%= form.label :requiere_factura_fletera %>
-    <%= form.check_box :requiere_factura_f, id: :service_requiere_factura_f %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pago_a_fletera %>
-    <%= form.text_field :pago_a_fletera, id: :service_pago_a_fletera %>
-  </div>
+<br><br><br><br>
 
   <div class="field">
     <%= form.label :condiciones_fletera %>
     <%= form.text_area :condiciones_f, id: :service_condiciones_f %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pagado_fletera %>
-    <%= form.check_box :pagado_fletera, id: :service_pagado_fletera %>
   </div>
 
 

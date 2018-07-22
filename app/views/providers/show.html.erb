@@ -1,20 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @provider.user %>
-</p>
-
-<p>
-  <strong>Alias:</strong>
-  <%= @provider.alias %>
-</p>
-
-<p>
-  <strong>Rfc:</strong>
-  <%= @provider.rfc %>
-</p>
-
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h3><%= @provider.alias %></h3>
+      </div>
+      <div class="panel-body">
 <p>
   <strong>Razon social:</strong>
   <%= @provider.razon_social %>
@@ -45,5 +35,74 @@
   <%= @provider.codigo_proveedor %>
 </p>
 
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h3>Saldos</h3>
+      </div>
+      <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+
+      <div class="content table-responsive table-full-width">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Cargos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+          
+        </div>
+        <div class="col-md-6">
+
+      <div class="content table-responsive table-full-width">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Abonos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @provider.services.each do |service| %>
+            <tr>
+              <td><%= number_to_currency service.pago_a_proveedor %></td>
+            </tr>
+            <% end %>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+            </tr>
+            <tr>
+              <td><strong>Total:</strong> <%= number_to_currency @provider.services.map(&:pago_a_proveedor).sum %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+          
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= @provider.services.count%>
+
+

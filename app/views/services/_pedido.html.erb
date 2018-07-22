@@ -53,27 +53,21 @@
         </div>
 
         <div class="row">
-          <div class="col-md-3">
-            <p>
-              <strong>Cantidad:</strong>
-              <%= @service.order.cantidad %>
-            </p>
-          </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <p>
               <strong>Descripción:</strong>
               <%= @service.order.descripcion %>
             </p>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <p>
               <strong>Precio unitario:</strong>
               <%= number_to_currency @service.order.precio_unitario %>
             </p>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <p>
               <strong>Valor total:</strong>
               <%= number_to_currency @service.order.valor_total %>
@@ -81,11 +75,37 @@
           </div>
         </div>
 
+<hr>
+        <div class="row">
+          <div class="col-md-4">
+            <p>
+              <strong>Cantidad total del pedido:</strong>
+              <%= @xo = @service.order.cantidad %>
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              <strong>Cantidad entregada:</strong>
+              <%= @xe = @service.order.services.map(&:cantidad).sum %>
+            </p>
+          </div>
+
+          <div class="col-md-4">
+            <p>
+              <strong>Cantidad Restante:</strong>
+              <%= @xi = @xo - @xe %>
+            </p>
+          </div>
+        </div>
+        
+
       </div>
     </div>
   </div>
 </div>
 <% end %>
+
+
 
 
 <%= render 'etaps_6' %>

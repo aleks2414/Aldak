@@ -16,7 +16,9 @@
               <th>Numero de orden</th>
               <th>Fecha de orden</th>
               <th>Nombre encargado</th>
-              <th>Cantidad</th>
+              <th>Cantidad Total del Pedido</th>
+              <th>Cantidad Entregada</th>
+              <th>Cantidad Restante</th>
               <th>Descripcion</th>
               <th>Precio unitario</th>
               <th>Valor total</th>
@@ -28,18 +30,20 @@
             <% @orders.each do |order| %>
             <tr>
               
-              <td><%= order.client %></td>
-              <td><%= order.product %></td>
+              <td><%= order.client.alias %></td>
+              <td><%= order.product.nombre %></td>
               <td><%= order.numero_de_orden %></td>
               <td><%= order.fecha_de_orden %></td>
               <td><%= order.nombre_encargado %></td>
-              <td><%= order.cantidad %></td>
+              <td><%= @xo=  order.cantidad %></td>
+              <td><%= @xe=  order.services.map(&:cantidad).sum%></td>
+              <td><%= @xi= @xo - @xe  %></td>
               <td><%= order.descripcion %></td>
               <td><%= order.precio_unitario %></td>
               <td><%= order.valor_total %></td>
-              <td><%= link_to 'Show', order %></td>
-              <td><%= link_to 'Edit', edit_order_path(order) %></td>
-              <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Ver más', order %></td>
+              <td><%= link_to 'Editar', edit_order_path(order) %></td>
+              <td><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
           </tbody>

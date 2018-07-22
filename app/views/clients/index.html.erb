@@ -35,9 +35,9 @@
               <td><%= client.codigo_empresa %></td>
               <td><%= client.codigo_planta %></td>
               <td><%= client.numero_proveedor %></td>
-              <td><%= link_to 'Show', client %></td>
-              <td><%= link_to 'Edit', edit_client_path(client) %></td>
-              <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Ver más', client %></td>
+              <td><%= link_to 'Editar', edit_client_path(client) %></td>
+              <td><%= link_to 'Eliminar', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
           </tbody>

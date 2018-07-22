@@ -14,10 +14,7 @@
               <th>Alias</th>
               <th>Rfc</th>
               <th>Razon social</th>
-              <th>Direccion</th>
-              <th>Encargado</th>
-              <th>Telefono encargado</th>
-              <th>Correo encargado</th>
+              <th>Precio del viaje</th>
               <th>Codigo fletera</th>
               <th colspan="3"></th>
             </tr>
@@ -30,14 +27,11 @@
               <td><%= charter.alias %></td>
               <td><%= charter.rfc %></td>
               <td><%= charter.razon_social %></td>
-              <td><%= charter.direccion %></td>
-              <td><%= charter.encargado %></td>
-              <td><%= charter.telefono_encargado %></td>
-              <td><%= charter.correo_encargado %></td>
+              <td><%= charter.precio_de_envio%></td>
               <td><%= charter.codigo_fletera %></td>
-              <td><%= link_to 'Show', charter %></td>
-              <td><%= link_to 'Edit', edit_charter_path(charter) %></td>
-              <td><%= link_to 'Destroy', charter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Ver más', charter %></td>
+              <td><%= link_to 'Editar', edit_charter_path(charter) %></td>
+              <td><%= link_to 'Eliminar', charter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
           </tbody>

@@ -71,6 +71,6 @@ class ChartersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def charter_params
-      params.require(:charter).permit(:user_id, :alias, :rfc, :razon_social, :direccion, :encargado, :telefono_encargado, :correo_encargado, :codigo_fletera)
+      params.require(:charter).permit(:user_id, :alias, :rfc, :razon_social, :direccion, :encargado, :telefono_encargado, :correo_encargado, :codigo_fletera, :precio_de_envio)
     end
 end

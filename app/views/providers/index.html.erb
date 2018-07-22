@@ -35,9 +35,9 @@
               <td><%= provider.telefono_encargado %></td>
               <td><%= provider.correo_encargado %></td>
               <td><%= provider.codigo_proveedor %></td>
-              <td><%= link_to 'Show', provider %></td>
-              <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-              <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Ver más', provider %></td>
+              <td><%= link_to 'Editar', edit_provider_path(provider) %></td>
+              <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
           </tbody>

@@ -11,13 +11,18 @@ class Service < ApplicationRecord
   before_save :gasto_op
   before_save :status_com
   before_save :etapa
+  before_save :pago_a_proveedor
 
   def cod_remision
     self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega)}-0#{self.try(:id)}"
   end
 
+  def pago_a_proveedor
+    self.pago_a_proveedor = self.cantidad_real_etregada * self.order.try(:precio_unitario)
+  end
+
   def gasto_op
-    self.gasto_operacion = self.pago_a_fletera + self.pago_a_proveedor
+    self.gasto_operacion = self.charter.try(:precio_de_envio) + self.pago_a_proveedor
   end
 
   def status_com
@@ -30,11 +35,11 @@ class Service < ApplicationRecord
 
 
   def etapa
-    if self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.remision_enviada == true && self.calidad_enviada == true && self.seguridad_enviada == true && self.pago_a_proveedor > 0 && self.pago_a_fletera > 0 && self.gasto_operacion > 0 && self.gr.present? && self.numero_de_factura.present? && self.kilos_finales.present? && self.total_por_facturar > 0 && self.fecha_de_facturacion.present?
+    if self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.remision_enviada == true && self.calidad_enviada == true && self.seguridad_enviada == true && self.pago_a_proveedor > 0 && self.pago_a_fletera > 0 && self.gasto_operacion > 0 && self.gr.present? && self.numero_de_factura.present?  && self.fecha_de_facturacion.present?
       self.etapa = 6
     elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.remision_enviada == true && self.calidad_enviada == true && self.seguridad_enviada == true && self.pago_a_proveedor > 0 && self.pago_a_fletera > 0 && self.gasto_operacion > 0 && self.gr.present?
       self.etapa = 5
-    elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.remision_enviada == true && self.calidad_enviada == true && self.seguridad_enviada == true && self.pago_a_proveedor > 0 && self.pago_a_fletera > 0 && self.gasto_operacion > 0
+    elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.remision_enviada == true && self.calidad_enviada == true && self.seguridad_enviada == true && self.gasto_operacion > 0
       self.etapa = 4
     elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.remision_enviada == true && self.calidad_enviada == true && self.seguridad_enviada == true
       self.etapa = 3

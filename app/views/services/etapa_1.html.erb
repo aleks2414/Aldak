@@ -9,18 +9,14 @@
       <div class="panel-heading">
         <h3>Remisión:</h3>
         <h5><%= @service.codigo_remision %></h5>
-        <%= link_to "Ver PDF de remisión", service_path(@service, format: 'pdf'), class: "button button_primary" %>
+        <%= link_to "Ver PDF de remisión", service_path(@service, format: 'pdf'), class: "button button_primary", :target => "_blank" %>
         <hr>
       </div>
 
       <div class="panel-body">
-        <div class="field">
-          <%= form.label :numero_de_pedido %>
-          <%= form.text_field :order_id, id: :service_order_id, data: {autocomplete_source: Order.order(:id).map(&:numero_de_orden).uniq} %>
-        </div>
 
         <div class="field">
-          <%= form.label :cantidad %>
+          <%= form.label :cantidad_solicitada %>
           <%= form.text_field :cantidad, id: :service_cantidad %>
         </div>
 
@@ -41,7 +37,7 @@
 
        <div class="col-md-6">
         <div class="field">
-          <%= form.label :charter_id %>
+          <%= form.label :fletera %>
           <%= form.select :charter_id, Charter.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Fletera'}, {:required => true} %>
         </div>
       </div>
