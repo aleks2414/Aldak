@@ -7,4 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-a01= User.create!({:email => "daniel@andak.com", :password => "andak2018", :password_confirmation => "andak2018", :admin => true, :nombre => "Daniel romo",})
+a01= User.create!({:email => "admin@andak.com", :password => "andak2018", :password_confirmation => "andak2018", :admin => true, :nombre => "Daniel romo",})

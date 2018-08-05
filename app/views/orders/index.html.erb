@@ -17,8 +17,6 @@
               <th>Fecha de orden</th>
               <th>Nombre encargado</th>
               <th>Cantidad Total del Pedido</th>
-              <th>Cantidad Entregada</th>
-              <th>Cantidad Restante</th>
               <th>Descripcion</th>
               <% if user_signed_in? && current_user.admin? %>
               <th>Precio unitario</th>
@@ -39,8 +37,6 @@
               <td><%= order.fecha_de_orden %></td>
               <td><%= order.nombre_encargado %></td>
               <td><%= @xo=  order.cantidad %></td>
-              <td><%= @xe=  order.services.map(&:cantidad).sum%></td>
-              <td><%= @xi= @xo - @xe  %></td>
               <td><%= order.descripcion %></td>
               <% if user_signed_in? && current_user.admin? %>
               <td><%= order.precio_unitario %></td>
