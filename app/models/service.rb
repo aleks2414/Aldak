@@ -8,31 +8,46 @@ class Service < ApplicationRecord
 
 
   before_save :cod_remision
-  before_save :gasto_op
+  before_save :gasto_operacion
   before_save :total_venta
   before_save :status_com
   before_save :etapa
-  before_save :pago_a_proveedor
   before_save :ganancia
+  before_save :proveedor
+  before_save :fletera
+  before_save :iva_proveedor
+  before_save :iva_fletera
 
   def cod_remision
     self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega)}-0#{self.try(:id)}"
   end
 
-  def pago_a_proveedor
-    if requiere_factura_p == true
-    self.pago_a_proveedor = (self.cantidad_real_etregada * self.order.product.try(:costo_producto)) * 1.16
-    else
-    self.pago_a_proveedor = self.cantidad_real_etregada * self.order.product.try(:costo_producto)
-    end
+  def proveedor
+    self.proveedor =  self.cantidad_real_etregada * self.order.product.costo_producto
   end
 
-  def gasto_op
-    if requiere_factura_f == true
-    self.gasto_operacion = self.charter.try(:precio_de_envio) * 1.16 + self.pago_a_proveedor
+  def iva_proveedor
+    if requiere_factura_p == true 
+      self.iva_proveedor = self.proveedor * 0.16
     else
-    self.gasto_operacion = self.charter.try(:precio_de_envio) + self.pago_a_proveedor
+      self.iva_proveedor = 0
     end
+  end 
+
+def fletera
+  self.fletera = self.charter.precio_de_envio
+end
+
+  def iva_fletera
+    if requiere_factura_p == true 
+      self.iva_fletera = self.fletera * 0.16
+    else
+      self.iva_fletera = 0
+    end
+  end 
+
+  def gasto_operacion
+    self.gasto_operacion = self.proveedor + self.iva_proveedor + self.fletera + self.iva_fletera
   end
 
   def total_venta
@@ -70,7 +85,7 @@ class Service < ApplicationRecord
   end
 
   def month
-  self.fecha_de_entrega.to_date.strftime('%G-%B')
+    self.fecha_de_entrega.to_date.strftime('%G-%B')
   end
 
 end

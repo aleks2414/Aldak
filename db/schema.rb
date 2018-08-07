@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805231300) do
+ActiveRecord::Schema.define(version: 20180806235941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,10 @@ ActiveRecord::Schema.define(version: 20180805231300) do
     t.datetime "updated_at", null: false
     t.float "total_venta", default: 0.0
     t.float "ganancia", default: 0.0
+    t.float "proveedor", default: 0.0
+    t.float "fletera", default: 0.0
+    t.float "iva_proveedor", default: 0.0
+    t.float "iva_fletera", default: 0.0
     t.index ["charter_id"], name: "index_services_on_charter_id"
     t.index ["order_id"], name: "index_services_on_order_id"
     t.index ["provider_id"], name: "index_services_on_provider_id"
