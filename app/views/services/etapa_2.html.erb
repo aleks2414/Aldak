@@ -53,11 +53,11 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to "Remsión", etapa_1_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "<- Remsión", etapa_1_service_path(@service),class: "btn btn-primary btn-block" %>
   </div>
   <div class="col-md-6">
     <% if @service.remision_enviada == true && @service.calidad_enviada == true && @service.seguridad_enviada == true  %>
-    <%= link_to "Proveedores", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "Proveedores ->", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
     <% else %>
     <a class="btn btn-primary disabled btn-block">Proveedores</a>
     <% end %>

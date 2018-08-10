@@ -52,7 +52,8 @@ text-rendering: optimizeLegibility;
 }
 
 .button_primary {
-  color: white;
+  color: white !important;
+  font-weight: 900;
   background-color: $primary;
   font-size: 14px;
   border-color: $primary;
@@ -64,7 +65,8 @@ text-rendering: optimizeLegibility;
   }
 
   &:hover > a {
-  color: white;
+  color: white !important;
+  font-weight: 900;
   text-decoration: none;
   background-color: $primary;
   }
@@ -238,6 +240,11 @@ select {
   .label-success, .label-warning {
     font-size: 15px;
   }
+}
+
+.btn-primary {
+  color: white !important;
+  font-weight: 900 !important;
 }
 
 

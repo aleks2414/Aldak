@@ -31,11 +31,11 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to "Proveedores", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "<- Proveedores", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
   </div>
   <div class="col-md-6">
   <% if @service.gr.present?  %>
-    <%= link_to "Facturación", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "Facturación ->", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
   <% else %>
     <a class="btn btn-primary disabled btn-block">Facturación</a>
   <% end %>
