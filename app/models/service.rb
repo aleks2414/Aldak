@@ -5,9 +5,6 @@ class Service < ApplicationRecord
   belongs_to :charter
 
 
-
-
-  before_save :cod_remision
   before_save :gasto_operacion
   before_save :total_venta
   before_save :status_com
@@ -17,9 +14,17 @@ class Service < ApplicationRecord
   before_save :fletera
   before_save :iva_proveedor
   before_save :iva_fletera
+  validate :fecha_entregable
 
-  def cod_remision
-    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime(" %d-%m-%Y")}-0#{self.try(:id)}"
+def fecha_entregable
+  if self.fecha_de_entrega >=  (Time.zone.now.beginning_of_day + 500000)
+  errors.add(:service_id, "No se puede crear una remisión de más de 5 días de distancia") 
+  end 
+end
+
+
+  def codigo_remision
+    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-0#{self.try(:id)}"
   end
 
   def proveedor

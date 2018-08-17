@@ -29,9 +29,9 @@
               <td><%= product.codigo_producto %></td>
               <td><%= product.caracteristicas %></td>
               <% if user_signed_in? && current_user.admin? %>
-              <td><%= link_to 'Show', product %></td>
-              <td><%= link_to 'Edit', edit_product_path(product) %></td>
-              <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Ver más', product %></td>
+              <td><%= link_to 'Editar', edit_product_path(product) %></td>
+              <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>

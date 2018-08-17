@@ -10,13 +10,15 @@
         <table class="table table-hover table-striped">
           <thead>
             <tr>
-              
-              <th>Client</th>
-              <th>Product</th>
-              <th>Numero de orden</th>
+              <th>Status</th>
+              <th>Cliente</th>
+              <th>Producto</th>
+              <th>Número de orden</th>
               <th>Fecha de orden</th>
               <th>Nombre encargado</th>
               <th>Cantidad Total del Pedido</th>
+              <th>Cantidad Entregada</th>
+              <th>Cantidad Restante</th>
               <th>Descripcion</th>
               <% if user_signed_in? && current_user.admin? %>
               <th>Precio unitario</th>
@@ -31,16 +33,23 @@
             <% @orders.each do |order| %>
             <tr>
               
+              <% if order.closed? %>
+              <td>Cerrada</td>
+              <% else %>
+              <td>Abierta</td>
+              <% end %>
               <td><%= order.client.alias %></td>
               <td><%= order.product.nombre %></td>
               <td><%= order.numero_de_orden %></td>
               <td><%= order.fecha_de_orden %></td>
               <td><%= order.nombre_encargado %></td>
               <td><%= @xo=  order.cantidad %></td>
+              <td><%= @xe=  order.services.map(&:cantidad).sum%></td>
+              <td><%= @xi= @xo - @xe  %></td>
               <td><%= order.descripcion %></td>
               <% if user_signed_in? && current_user.admin? %>
-              <td><%= order.precio_unitario %></td>
-              <td><%= order.valor_total %></td>
+              <td><%= number_to_currency order.precio_unitario %></td>
+              <td><%= number_to_currency order.valor_total %></td>
               <td><%= link_to 'Ver más', order %></td>
               <td><%= link_to 'Editar', edit_order_path(order) %></td>
               <td><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

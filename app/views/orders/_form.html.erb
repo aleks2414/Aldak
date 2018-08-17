@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= form.label :Cerrado? %>
+    <%= form.check_box :closed, id: :order_closed %>
+  </div>
+
   <div class="row">
   <div class="col-md-6">
   <div class="field">
@@ -32,6 +38,7 @@
     <%= form.text_field :numero_de_orden, id: :order_numero_de_orden, required:true %>
   </div>
 
+
   <div class="field">
     <%= form.label :fecha_de_orden %>
     <%= form.date_field :fecha_de_orden, id: :order_fecha_de_orden, required:true %>
@@ -47,10 +54,7 @@
     <%= form.text_field :email %>
   </div>
 
-  <div class="field">
-    <%= form.label :cantidad %>
-    <%= form.number_field :cantidad, id: :order_cantidad,  step: :any, required:true %>
-  </div>
+
 
   <div class="field">
     <%= form.label :descripcion %>
@@ -58,6 +62,14 @@
   </div>
 
   <div class="row">
+
+<div class="col-md-6">
+    <div class="field">
+    <%= form.label :cantidad %>
+    <%= form.number_field :cantidad, id: :order_cantidad,  step: :any, required:true %>
+  </div>
+</div>
+
   <div class="col-md-6">
   <div class="field">
     <%= form.label :precio_unitario %>
@@ -65,12 +77,6 @@
   </div>
   </div>
 
-  <div class="col-md-6">
-  <div class="field">
-    <%= form.label :valor_total %>
-    <%= form.number_field :valor_total, id: :order_valor_total, step: :any,  required:true %>
-  </div>
-  </div>
   </div>
 
   <div class="actions">

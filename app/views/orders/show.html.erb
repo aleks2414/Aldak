@@ -46,8 +46,18 @@
 </p>
 
 <p>
+  <strong>Subtotal:</strong>
+  <%= number_to_currency @order.valor_total - @order.iva_pedido %>
+</p>
+
+<p>
+  <strong>IVA:</strong>
+  <%= number_to_currency @order.iva_pedido %>
+</p>
+
+<p>
   <strong>Valor total:</strong>
-  <%= @order.valor_total %>
+  <%= number_to_currency @order.valor_total %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

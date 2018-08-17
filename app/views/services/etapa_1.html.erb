@@ -1,6 +1,5 @@
 <%= render 'pedido' %>
 
-<%= form_for @service do |form| %>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -16,20 +15,23 @@
       <div class="panel-body">
 
         <div class="field">
-          <%= form.label :cantidad_solicitada %>
-          <%= form.text_field :cantidad, id: :service_cantidad %>
+          <label>cantidad solicitada</label> <br>
+          
+          <%= @service.cantidad%>
         </div>
 
         <div class="field">
-          <%= form.label :fecha_de_entrega %>
-          <%= form.date_field :fecha_de_entrega, id: :service_fecha_de_entrega %>
+          <label>fecha de entrega</label> <br>
+          
+          <%= @service.fecha_de_entrega.strftime(" %d-%m-%Y")%>
         </div>
 
         <div class="row">
         <div class="col-md-6">
         <div class="field">
-          <%= form.label :proveedor %>
-          <%= form.select :provider_id, Provider.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Proveedor'}, {:required => true} %>
+          <label>Proveedor</label> <br>
+          
+          <%= @service.provider.alias%>
         </div>
       </div>
 
@@ -37,16 +39,14 @@
 
        <div class="col-md-6">
         <div class="field">
-          <%= form.label :fletera %>
-          <%= form.select :charter_id, Charter.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Fletera'}, {:required => true} %>
+          <label>Fletera</label> <br>
+          
+          <%= @service.charter.alias%>
         </div>
       </div>
       </div>
 
         <br>
-        <div class="actions">
-          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
-        </div>
         <br>
       </div>
 
@@ -64,5 +64,3 @@
   </div>
 </div>
 </div>
-
-<% end %>
