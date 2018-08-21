@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all.order('closed ASC')
+    @orders = Order.all.order('cerrado ASC')
   end
 
   # GET /orders/1
@@ -71,6 +71,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:user_id, :client_id, :product_id, :numero_de_orden, :fecha_de_orden, :nombre_encargado, :email, :cantidad, :descripcion, :precio_unitario, :valor_total, :iva_pedido, :closed)
+      params.require(:order).permit(:user_id, :client_id, :product_id, :numero_de_orden, :fecha_de_orden, :nombre_encargado, :email, :cantidad, :descripcion, :precio_unitario, :valor_total, :iva_pedido, :cerrado)
     end
 end

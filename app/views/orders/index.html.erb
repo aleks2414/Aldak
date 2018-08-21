@@ -33,7 +33,7 @@
             <% @orders.each do |order| %>
             <tr>
               
-              <% if order.closed? %>
+              <% if order.cerrado? %>
               <td>Cerrada</td>
               <% else %>
               <td>Abierta</td>
