@@ -24,7 +24,7 @@ end
 
 
   def codigo_remision
-    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-0#{self.try(:id)}"
+    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-R0#{self.try(:id)}"
   end
 
   def proveedor
