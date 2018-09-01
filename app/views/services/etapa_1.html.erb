@@ -1,5 +1,6 @@
 <%= render 'pedido' %>
 
+<%= form_for @service do |form| %>
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -8,11 +9,22 @@
       <div class="panel-heading">
         <h3>Remisión:</h3>
         <h5><%= @service.codigo_remision %></h5>
+
+        <% if @service.codigo_remision.present? %>
         <%= link_to "Ver PDF de remisión", service_path(@service, format: 'pdf'), class: "button button_primary", :target => "_blank" %>
         <hr>
+        <% else %>
+        <a class="btn btn-primary disabled">CÓDIGO DE REMISIÓN FALTANTE</a>
+        <% end %>
       </div>
 
       <div class="panel-body">
+
+  <div class="field">
+    <%= form.label :codigo_de_remision %> <br>
+    sugerencia: <%="#{@service.order.client.try(:codigo_empresa)}-#{@service.order.client.try(:codigo_planta)}-#{@service.order.product.try(:codigo_producto)}-#{@service.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-R" %>
+    <%= form.text_field :codigo_remision %>
+  </div>        
 
         <div class="field">
           <label>cantidad solicitada</label> <br>
@@ -47,6 +59,9 @@
       </div>
 
         <br>
+        <div class="actions">
+          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
+        </div>
         <br>
       </div>
 
@@ -64,3 +79,5 @@
   </div>
 </div>
 </div>
+
+<% end %>
