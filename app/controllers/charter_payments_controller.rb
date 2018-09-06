@@ -56,7 +56,7 @@ class CharterPaymentsController < ApplicationController
   def destroy
     @charter_payment.destroy
     respond_to do |format|
-      format.html { redirect_to charter_payments_url, notice: 'Charter payment was successfully destroyed.' }
+      format.html { redirect_to charter_path(@charter_payment.charter), notice: 'Charter payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -16,6 +16,7 @@
 						<th>Número Remisión</th>
 						<th>Fecha de Entrega</th>
 						<th>Status</th>
+						<th>Cliente</th>
 						<th>Proveedor</th>
 						<th>Fletera</th>
 						<th>Cantidad entregada</th>
@@ -35,6 +36,7 @@
 								<td><%= link_to "#{service.codigo_remision}", etapa_1_service_path(service) %></td>
 								<td><%= service.fecha_de_entrega %></td>
 								<td><%= service.status_comercial %></td>
+								<td><%= service.order.client.alias%></td>
 								<td><%= service.provider.alias %></td>
 								<td><%= service.charter.alias %></td>
 								<td><%= service.cantidad_real_etregada %> kilos</td>
@@ -60,9 +62,11 @@
 								<td></td>
 								<td></td>
 								<td></td>
+								<td></td>
 							</tr>
 
 							<tr>
+								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>

@@ -1,6 +1,6 @@
 prawn_document() do |pdf|
   logo = "#{Rails.root}/app/assets/images/tutto-07.png"
-	pdf.image logo, width: 120, position: :left
+	pdf.image logo, width: 150, position: :left
 	pdf.move_down 5
 	pdf.text "H. Remisión:", size: 10, align: :right
 	pdf.move_down 5
@@ -45,7 +45,7 @@ pdf.table data, :position => :center, :width => 550, :row_colors => ["F6F6F6", "
 	pdf.move_down 5
 	pdf.text "Encargado de salidas de almacén", size: 11, align: :left
 
-	pdf.move_down 80
+	pdf.move_down 75
 	pdf.text "ANDAK GLOBAL SOLUTIONS S.A DE C.V", size: 10, align: :center, style: :bold
 	pdf.move_down 5
 	pdf.stroke_horizontal_rule

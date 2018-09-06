@@ -44,7 +44,7 @@
               <td><%= order.fecha_de_orden %></td>
               <td><%= order.nombre_encargado %></td>
               <td><%= @xo=  order.cantidad %></td>
-              <td><%= @xe=  order.services.map(&:cantidad).sum%></td>
+              <td><%= @xe=  order.services.map(&:cantidad_real_etregada).sum%></td>
               <td><%= @xi= @xo - @xe  %></td>
               <td><%= order.descripcion %></td>
               <% if user_signed_in? && current_user.admin? %>

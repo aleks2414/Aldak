@@ -60,11 +60,13 @@
             <tr>
               <th>Pagos</th>
               <th></th>
+              <th></th>
             </tr>
 
             <tr>
               <th></th>
               <th>Fecha</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -72,21 +74,25 @@
             <tr>
               <td><%= number_to_currency payment.cantidad %></td>
               <td><%= payment.fecha %></td>
+              <td><%= link_to 'Eliminar', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
 
             <tr>
               <td></td>
               <td></td>
+              <td></td>
             </tr>
 
             <tr>
+              <td></td>
               <td></td>
               <td></td>
             </tr>
 
             <tr>
               <td><strong>Total:</strong><%= number_to_currency @c1 = @charter.charter_payments.map(&:cantidad).sum %></td>
+              <td></td>
               <td></td>
             </tr>
           </tbody>

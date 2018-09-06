@@ -56,7 +56,7 @@ class ProviderPaymentsController < ApplicationController
   def destroy
     @provider_payment.destroy
     respond_to do |format|
-      format.html { redirect_to provider_payments_url, notice: 'Provider payment was successfully destroyed.' }
+      format.html { redirect_to provider_path(@provider_payment.provider), notice: 'Provider payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
