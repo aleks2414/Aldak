@@ -15,6 +15,7 @@
               <th>Cantidad</th>
               <th>Fecha de entrega</th>
               <th>Status comercial</th>
+              <th>Cliente</th>
               <th>Etapa</th>
               <th>Proveedor</th>
               <th>Fletera</th>
@@ -40,6 +41,7 @@
               <td><%= service.cantidad %></td>
               <td><%= service.fecha_de_entrega %></td>
               <td><%= service.status_comercial %></td>
+              <td><%= service.order.client.alias%></td>
               <td><%= service.etapa %></td>
               <td><%= service.provider.alias %></td>
               <td><%= service.charter.alias %></td>
