@@ -14,7 +14,7 @@
               <th>Cliente</th>
               <th>Producto</th>
               <th>Número de orden</th>
-              <th>Fecha de orden</th>
+              <th>Fecha de inicio</th>
               <th>Nombre encargado</th>
               <th>Cantidad Total del Pedido</th>
               <th>Cantidad Entregada</th>
@@ -41,7 +41,7 @@
               <td><%= order.client.alias %></td>
               <td><%= order.product.nombre %></td>
               <td><%= order.numero_de_orden %></td>
-              <td><%= order.fecha_de_orden %></td>
+              <td><%= order.fecha_de_orden.strftime(" %d-%m-%Y") %></td>
               <td><%= order.nombre_encargado %></td>
               <td><%= @xo=  order.cantidad %></td>
               <td><%= @xe=  order.services.map(&:cantidad_real_etregada).sum%></td>
