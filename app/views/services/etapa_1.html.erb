@@ -22,8 +22,7 @@
 
   <div class="field">
     <%= form.label :codigo_de_remision %> <br>
-    sugerencia: <%="#{@service.order.client.try(:codigo_empresa)}-#{@service.order.client.try(:codigo_planta)}-#{@service.order.product.try(:codigo_producto)}-#{@service.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-R" %>
-    <%= form.text_field :codigo_remision %>
+    <%= form.text_field :condiciones_p %>
   </div>        
 
         <div class="field">
