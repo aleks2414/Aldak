@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821032447) do
+ActiveRecord::Schema.define(version: 20180924011859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "charter_payments", force: :cascade do |t|
     t.bigint "charter_id"
-    t.integer "cantidad", default: 0
+    t.float "cantidad", default: 0.0
     t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20180821032447) do
 
   create_table "provider_payments", force: :cascade do |t|
     t.bigint "provider_id"
-    t.integer "cantidad", default: 0
+    t.float "cantidad", default: 0.0
     t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
