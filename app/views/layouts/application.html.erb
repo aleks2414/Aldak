@@ -74,7 +74,6 @@
                                         <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
                                         <% end %>
                                         <li><a href="<%= providers_path %>" class="<%= 'active' if current_page?(providers_path) %>">Todos los Proveedores</a></li>
-                                        <li><a href="<%= new_provider_payment_path %>" class="<%= 'active' if current_page?(new_provider_payment_path) %>">Pago a Proveedor</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -89,7 +88,6 @@
                                         <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
                                         <% end %>
                                         <li><a href="<%= charters_path %>" class="<%= 'active' if current_page?(charters_path) %>">Todas las Fleteras</a></li>
-                                        <li><a href="<%= new_charter_payment_path %>" class="<%= 'active' if current_page?(new_charter_payment_path) %>">Pago a Fletera</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -131,6 +129,18 @@
                                     <ul class="nav">
                                         <li><a href="<%= new_service_path %>" class="<%= 'active' if current_page?(new_service_path) %>">Nueva Remisión</a></li>
                                         <li><a href="<%= services_path %>" class="<%= 'active' if current_page?(services_path) %>">Todas las Remisiones</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--  -->
+
+
+                            <li>
+                                <a href="#subPages06" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">local_atm</i> <span>Pagos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                                <div id="subPages06" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
+                                    <ul class="nav">
+                                        <li><a href="<%= new_provider_payment_path %>" class="<%= 'active' if current_page?(new_provider_payment_path) %>">Pago a Proveedor</a></li>
+                                        <li><a href="<%= new_charter_payment_path %>" class="<%= 'active' if current_page?(new_charter_payment_path) %>">Pago a Fletera</a></li>
                                     </ul>
                                 </div>
                             </li>
