@@ -4,7 +4,7 @@
 		<div class="panel panel-headline">
 
 			<div class="panel-heading">
-			<h3><%= month %></h3>
+			<h4><%= month %></h4>
 		</div>
 
 		<div class="panel-body">
@@ -87,4 +87,12 @@
 		</div>
 	</div>
 	<% end %>
+</div>
+
+<div class="row">
+  <div class="center">
+    <% unless @services.blank? %>
+    <%= will_paginate @services %>
+    <% end %>
+  </div>
 </div>

@@ -38,7 +38,7 @@ text-rendering: optimizeLegibility;
 
 .button {
   transition: background-color .15s linear;
-  font-size: 13px;
+  font-size: 11px;
   min-width: 200px;
   padding: 9px;
   display: inline-block;
@@ -178,6 +178,10 @@ input[type="date"],input[type="name"], input[type="email"], input[type="textbox"
   background-color: white !important;
   }
 
+  h3 {
+  fontsize: 17px!important;
+  }
+
 select {
   height: 3.5rem;
   border:none;
@@ -229,8 +233,8 @@ select {
   }
 
   .btn {
-    height: 50px;
-    font-size: 12px;
+    height: 35px;
+    font-size: 10px;
     letter-spacing: 1px;
     font-weight: 900;
     text-transform: uppercase;
@@ -250,7 +254,7 @@ select {
 
 input .form-control {
   width: 100%;
-  height: 3.5rem;
+  height: 3rem;
   border:none;
   border-bottom:2px solid #dadada;
   margin-bottom: 1.5rem;
@@ -330,4 +334,40 @@ ul.ui-autocomplete {
 .hero {
 background-attachment: unset;
 }
+}
+
+#ui-datepicker-div {
+background-color: white !important;
+padding: 15px;
+}
+
+#mexico {
+padding: 20px;
+margin-bottom: 15px;
+text-transform: uppercase;
+color: white;
+}
+
+.mexico1 {
+  background-color: #106282;
+}
+
+.mexico2 {
+  background-color: #298210;
+}
+
+.mexico3 {
+  background-color: #821077;
+}
+
+.mexico4 {
+  background-color: #E2551E;
+}
+
+.mexico5 {
+  background-color: #BFB611;
+}
+
+.mexico6 {
+  background-color: #BF11AB;
 }

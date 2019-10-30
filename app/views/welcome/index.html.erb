@@ -1,8 +1,62 @@
 <div class="row">
   <div class="col-md-6">
+    <%= link_to new_order_path do %>
+    <div id="mexico" class="mexico1">
+      <h5>Nuevo pedido</h5>
+    </div>
+    <% end %>
+  </div>
+
+<div class="col-md-6">
+    <%= link_to new_order_path do %>
+    <div id="mexico" class="mexico2">
+      <h5>Nueva remisión</h5>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to new_order_path do %>
+    <div id="mexico" class="mexico3">
+      <h5>Nuevo cliente</h5>
+    </div>
+    <% end %>
+  </div>
+
+<div class="col-md-3">
+    <%= link_to new_order_path do %>
+    <div id="mexico" class="mexico4">
+      <h5>Nuevo producto</h5>
+    </div>
+    <% end %>
+  </div>
+
+<div class="col-md-3">
+    <%= link_to new_order_path do %>
+    <div id="mexico" class="mexico5">
+      <h5>Nuevo proveedor</h5>
+    </div>
+    <% end %>
+  </div>
+
+<div class="col-md-3">
+    <%= link_to new_order_path do %>
+    <div id="mexico" class="mexico6">
+      <h5>Nueva fletera</h5>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Etapa 1:</h3>
+        <h4>Etapa 1:</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -45,7 +99,14 @@
             <% end %>
           </tbody>
         </table>
-      </div>       
+      </div> 
+      <div class="row">
+  <div class="center">
+    <% unless @services1.blank? %>
+    <%= will_paginate @services1 %>
+    <% end %>
+  </div>
+</div>      
     </div>
   </div>
 </div>
@@ -53,7 +114,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Etapa 2:</h3>
+        <h4>Etapa 2:</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -96,7 +157,14 @@
             <% end %>
           </tbody>
         </table>
-      </div>       
+      </div> 
+            <div class="row">
+  <div class="center">
+    <% unless @services2.blank? %>
+    <%= will_paginate @services2 %>
+    <% end %>
+  </div>
+</div>      
     </div>
   </div>
 </div>
@@ -108,7 +176,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Etapa 3:</h3>
+        <h4>Etapa 3:</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -151,7 +219,14 @@
             <% end %>
           </tbody>
         </table>
-      </div>       
+      </div>
+            <div class="row">
+  <div class="center">
+    <% unless @services3.blank? %>
+    <%= will_paginate @services3 %>
+    <% end %>
+  </div>
+</div>       
     </div>
   </div>
 </div>
@@ -159,7 +234,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Etapa 4:</h3>
+        <h4>Etapa 4:</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -202,7 +277,15 @@
             <% end %>
           </tbody>
         </table>
-      </div>       
+      </div> 
+
+      <div class="row">
+  <div class="center">
+    <% unless @services4.blank? %>
+    <%= will_paginate @services4 %>
+    <% end %>
+  </div>
+</div>      
     </div>
   </div>
 </div>
@@ -215,7 +298,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Etapa 5:</h3>
+        <h4>Etapa 5:</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -258,7 +341,15 @@
             <% end %>
           </tbody>
         </table>
-      </div>       
+      </div> 
+
+      <div class="row">
+  <div class="center">
+    <% unless @services5.blank? %>
+    <%= will_paginate @services5 %>
+    <% end %>
+  </div>
+</div>      
     </div>
   </div>
 </div>
@@ -266,7 +357,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Etapa 6:</h3>
+        <h4>Etapa 6:</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -309,7 +400,14 @@
             <% end %>
           </tbody>
         </table>
-      </div>       
+      </div> 
+      <div class="row">
+  <div class="center">
+    <% unless @services6.blank? %>
+    <%= will_paginate @services6 %>
+    <% end %>
+  </div>
+</div>      
     </div>
   </div>
 </div>

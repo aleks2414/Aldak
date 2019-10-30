@@ -5,7 +5,9 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @q = Client.ransack(params[:q])
+    @clients = @q.result.uniq
+    @clients = @clients.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /clients/1

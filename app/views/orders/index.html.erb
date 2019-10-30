@@ -1,8 +1,65 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-12">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h3>Pedidos</h3>
+        <h4>Buscar pedidos</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+ <%= search_form_for @q do |f| %>
+      <div class="row">
+      <div class="col-md-6">
+        <label>Cliente:</label>
+        <%= f.select :client_id_eq, options_from_collection_for_select(Client.all, "id", "alias", @q.client_id_eq), {:prompt => 'Elige cliente'} %>
+      </div>
+      <div class="col-md-6">
+        <label>Producto:</label>
+        <%= f.select :product_id_eq, options_from_collection_for_select(Product.all, "id", "alias", @q.product_id_eq), {:prompt => 'Elige producto'} %>
+
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="input-daterange" id="datepicker">
+      <div class="col-md-3">
+        <label>Fecha Inicial:</label>
+        <%= f.text_field :fecha_de_orden_gteq, class: "form-control2", placeholder: "Date >= to" %>
+      </div>
+      <div class="col-md-3">
+        <label>Fecha Final:</label>
+        <%= f.text_field :fecha_de_orden_lteq, class: "form-control2", placeholder: "Date <= to" %>
+      </div>
+
+      <div class="col-md-3">
+        <label>Número de orden:</label>
+        <%= f.search_field :numero_de_orden_cont, placeholder: "Número de orden"  %>
+
+      </div>
+
+      <div class="col-md-3">
+        <label>Nombre del encargado:</label>
+        <%= f.search_field :nombre_encargado_cont, placeholder: "Nombre del encargado"  %>
+
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <%= f.submit "Buscar", class: "btn btn-primary" %>
+      </div>
+      </div>    
+    <% end %>       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Pedidos</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -63,3 +120,23 @@
   </div>
 </div>
 </div>
+
+<div class="row">
+  <div class="center">
+    <% unless @orders.blank? %>
+    <%= will_paginate @orders %>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.form-control2').datepicker({
+      todayHighlight: true,
+      toggleActive: true,
+      format: "mm-yyyy",
+      viewMode: "months", 
+      minViewMode: "months"
+    });
+  });
+</script>

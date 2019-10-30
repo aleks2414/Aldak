@@ -5,7 +5,10 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all.order('cerrado ASC')
+    # @orders = Order.all.order('cerrado ASC')
+    @q = Order.ransack(params[:q])
+    @orders = @q.result.uniq
+    @orders = @orders.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /orders/1

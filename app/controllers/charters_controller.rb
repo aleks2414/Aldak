@@ -6,7 +6,9 @@ class ChartersController < ApplicationController
   # GET /charters
   # GET /charters.json
   def index
-    @charters = Charter.all
+    @q = Charter.ransack(params[:q])
+    @charters = @q.result.uniq
+    @charters = @charters.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /charters/1

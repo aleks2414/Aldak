@@ -6,7 +6,9 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    @providers = Provider.all
+    @q = Provider.ransack(params[:q])
+    @providers = @q.result.uniq
+    @providers = @providers.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /providers/1
