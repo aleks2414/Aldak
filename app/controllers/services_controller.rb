@@ -6,7 +6,7 @@ class ServicesController < ApplicationController
   # GET /services.json
   def index
     @q = Service.ransack(params[:q])
-    @services = @q.result.includes(:orders).uniq
+    @services = @q.result.includes(:order).uniq
     @services = @services.paginate(:page => params[:page], :per_page => 10)
   end
 
