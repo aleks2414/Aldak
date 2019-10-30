@@ -56,6 +56,209 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
+        <h4>Remisiones</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= column_chart Service.group_by_month(:created_at, format: "%G-%B").count,
+    title: 'Remisiones mensuales',
+    colors: ['#F9A972'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Pedidos</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Order.group_by_month(:created_at, format: "%G-%B").count,
+    title: 'Pedidos mensuales',
+    colors: ['#C87DB5'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Producto Pedido</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Order.all.group_by_month(:fecha_de_orden, last: 12, current: false).sum('cantidad'),
+    title: 'Producto mensual pedido',
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Producto entregado</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Service.all.group_by_month(:fecha_de_entrega, last: 12, current: false).sum('cantidad_real_etregada'),
+    title: 'Producto mensual entregado',
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Pago a proveedores</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart ProviderPayment.all.group_by_month(:fecha, last: 12, current: false).sum('cantidad'),
+    title: 'Pago mensual a proveedores',
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Pago a fleteras</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart CharterPayment.all.group_by_month(:fecha, last: 12, current: false).sum('cantidad'),
+    title: 'Pago mensual a fleteras',
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Facturación</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Service.all.group_by_month(:fecha_de_entrega, last: 12, current: false).sum('total_por_facturar'),
+    title: 'Facturación Mensual',
+    colors: ['#F26D6B'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>     
+      </div>
+    </div>
+  </div>
+
+
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
         <h4>Etapa 1:</h4>
         <hr>
       </div>
