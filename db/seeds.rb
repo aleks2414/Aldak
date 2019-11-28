@@ -8,3 +8,4 @@
 
 
 a01= User.create!({:email => "admin@andak.com", :password => "andak2018", :password_confirmation => "andak2018", :admin => true, :nombre => "Daniel romo",})
+a02= User.create!({:email => "alejandroromo14@gmail.com", :password => "alejandro", :password_confirmation => "alejandro", :admin => true, :nombre => "Alejandro Romo",})
