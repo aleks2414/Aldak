@@ -89,9 +89,11 @@ gem "mini_magick"
 # nested models
 gem "cocoon"
 # text format
-gem "ckeditor"
+gem 'ckeditor', github: 'galetahub/ckeditor'
 #carousel
 gem 'photoswipe-rails'
+
+gem 'bootsnap', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
