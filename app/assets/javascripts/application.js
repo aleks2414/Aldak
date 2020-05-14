@@ -21,7 +21,6 @@
 //= require best_in_place.jquery-ui
 //= require turbolinks
 // require bootstrap
-//= require ckeditor/init
 // require cocoon
 //= require Chart.bundle
 //= require chartkick
