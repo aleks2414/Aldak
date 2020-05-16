@@ -19,8 +19,8 @@ class Service < ApplicationRecord
   validate :fecha_entregable
 
 def fecha_entregable
-  if self.fecha_de_entrega >=  (Time.zone.now.beginning_of_day + 500000)
-  errors.add(:service_id, "No se puede crear una remisión de más de 5 días de distancia") 
+  if self.fecha_de_entrega < (Time.zone.now - 2.month) || self.fecha_de_entrega > (Time.zone.now + 2.month)
+    errors.add(:service_id, "No se puede crear una remisión de más o menos de 2 meses de distancia") 
   end 
 end
 

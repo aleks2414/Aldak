@@ -21,7 +21,7 @@
 
   <div class="field">
     <%= form.label :fecha_de_facturacion %>
-    <%= form.date_field :fecha_de_facturacion, id: :service_fecha_de_facturacion %>
+    <%= form.text_field :fecha_de_facturacion, id: :service_fecha_de_facturacion, placeholder: 'Elige Fecha' %>
   </div>
 
         <br>
@@ -48,3 +48,14 @@
 </div>
 
 <% end %>
+
+<script>
+  $( function() {
+    $( "#service_fecha_de_facturacion" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
+      firstDay: 1,
+    });
+  });
+</script>

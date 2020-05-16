@@ -25,7 +25,7 @@
 
   <div class="field">
     <%= form.label :fecha_de_inicio %>
-    <%= form.date_field :fecha_de_orden, id: :order_fecha_de_orden, required:true %>
+    <%= form.text_field :fecha_de_orden, id: :order_fecha_de_orden, required:true, placeholder: 'Elige Fecha' %>
   </div>
 
   <div class="field">
@@ -67,3 +67,14 @@
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  $( function() {
+    $( "#order_fecha_de_orden" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
+      firstDay: 1,
+    });
+  });
+</script>

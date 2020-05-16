@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :numero_de_pedido %>
-    <%= form.select :order_id, Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, #{p.client.alias} - #{p.product.nombre}  (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" , p.id ] }, {:prompt => 'Elige Número de Pedido'}, {:required => true}  %>
+    <%= form.select :order_id, Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" , p.id ] }, {:prompt => 'Elige Número de Pedido'}, {:required => true}  %>
   </div>
 
   <div class="field">
@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label :fecha_de_entrega %>
-    <%= form.date_field :fecha_de_entrega, id: :service_fecha_de_entrega %>
+    <%= form.text_field :fecha_de_entrega, id: :service_fecha_de_entrega, placeholder: 'Elige fecha' %>
   </div>
 
 
@@ -67,3 +67,21 @@
     <%= form.submit class: "btn btn-primary"%>
   </div>
 <% end %>
+
+<script>
+  $( function() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+
+    $( "#service_fecha_de_entrega" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      minDate: new Date(year, month - 2, day),
+      maxDate: new Date(year, month + 2, day),
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
+      firstDay: 1,
+    });
+  });
+</script>
