@@ -57,8 +57,6 @@ ActiveRecord::Schema.define(version: 2020_05_16_101701) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "client_id"
-    t.bigint "product_id"
     t.string "numero_de_orden"
     t.date "fecha_de_orden"
     t.string "nombre_encargado"
@@ -72,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_101701) do
     t.float "iva_pedido", default: 0.0
     t.boolean "closed", default: false
     t.boolean "cerrado", default: false
+    t.bigint "product_id", null: false
+    t.bigint "client_id", null: false
     t.index ["client_id"], name: "index_orders_on_client_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -158,8 +158,8 @@ ActiveRecord::Schema.define(version: 2020_05_16_101701) do
     t.float "fletera", default: 0.0
     t.float "iva_proveedor", default: 0.0
     t.float "iva_fletera", default: 0.0
-    t.bigint "product_id", null: false
-    t.bigint "client_id", null: false
+    t.bigint "product_id"
+    t.bigint "client_id"
     t.index ["charter_id"], name: "index_services_on_charter_id"
     t.index ["client_id"], name: "index_services_on_client_id"
     t.index ["order_id"], name: "index_services_on_order_id"
