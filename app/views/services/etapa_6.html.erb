@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= form.label :fecha_por_cobrar %>
-    <%= form.date_field :fecha_por_cobrar, id: :service_fecha_por_cobrar %>
+    <%= form.text_field :fecha_por_cobrar, id: :service_fecha_por_cobrar, placeholder: 'Elige Fecha' %>
   </div>
 
   <div class="field">
@@ -47,3 +47,14 @@
 </div>
 
 <% end %>
+
+<script>
+  $( function() {
+    $( "#service_fecha_por_cobrar" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
+      firstDay: 1,
+    });
+  });
+</script>
