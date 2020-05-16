@@ -17,22 +17,6 @@
     <%= form.check_box :cerrado, id: :order_cerrado %>
   </div>
 
-  <div class="row">
-  <div class="col-md-6">
-  <div class="field">
-    <%= form.label :client_id %>
-    <%= form.select :client_id, Client.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Cliente'}, {:required => true} %>
-  </div>
-  </div>
-
-  <div class="col-md-6">
-  <div class="field">
-    <%= form.label :product_id %>
-    <%= form.select :product_id, Product.all.collect { |p| [ "#{p.nombre}", p.id ] }, {:prompt => 'Elige Producto'}, {:required => true} %>
-  </div>
-  </div>
-  </div>
-
   <div class="field">
     <%= form.label :numero_de_orden %>
     <%= form.text_field :numero_de_orden, id: :order_numero_de_orden, required:true %>
