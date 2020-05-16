@@ -70,8 +70,15 @@
 
 <script>
   $( function() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth();
+    var day = date.getDate();
+
     $( "#service_fecha_de_entrega" ).datepicker({
       dateFormat: 'dd.mm.yy',
+      minDate: new Date(year, month - 2, day),
+      maxDate: new Date(year, month + 2, day),
       dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
       monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
       firstDay: 1,
