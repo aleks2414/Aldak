@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_180036) do
+ActiveRecord::Schema.define(version: 2020_05_16_101701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,8 +158,12 @@ ActiveRecord::Schema.define(version: 2020_05_13_180036) do
     t.float "fletera", default: 0.0
     t.float "iva_proveedor", default: 0.0
     t.float "iva_fletera", default: 0.0
+    t.bigint "product_id", null: false
+    t.bigint "client_id", null: false
     t.index ["charter_id"], name: "index_services_on_charter_id"
+    t.index ["client_id"], name: "index_services_on_client_id"
     t.index ["order_id"], name: "index_services_on_order_id"
+    t.index ["product_id"], name: "index_services_on_product_id"
     t.index ["provider_id"], name: "index_services_on_provider_id"
     t.index ["user_id"], name: "index_services_on_user_id"
   end
@@ -193,7 +197,9 @@ ActiveRecord::Schema.define(version: 2020_05_13_180036) do
   add_foreign_key "provider_payments", "providers"
   add_foreign_key "providers", "users"
   add_foreign_key "services", "charters"
+  add_foreign_key "services", "clients"
   add_foreign_key "services", "orders"
+  add_foreign_key "services", "products"
   add_foreign_key "services", "providers"
   add_foreign_key "services", "users"
 end

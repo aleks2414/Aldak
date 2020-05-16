@@ -1,8 +1,10 @@
 class Service < ApplicationRecord
   belongs_to :user
-  belongs_to :order
+  belongs_to :order, optional: true
   belongs_to :provider
   belongs_to :charter
+  belongs_to :product
+  belongs_to :client
 
 
   before_save :gasto_operacion
