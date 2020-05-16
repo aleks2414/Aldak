@@ -68,8 +68,6 @@
           <thead>
             <tr>
               <th>Status</th>
-              <th>Cliente</th>
-              <th>Producto</th>
               <th>Número de orden</th>
               <th>Fecha de inicio</th>
               <th>Nombre encargado</th>
@@ -95,8 +93,6 @@
               <% else %>
               <td>Abierta</td>
               <% end %>
-              <td><%= order.client.alias %></td>
-              <td><%= order.product.nombre %></td>
               <td><%= order.numero_de_orden %></td>
               <td><%= order.fecha_de_orden.strftime(" %d-%m-%Y") %></td>
               <td><%= order.nombre_encargado %></td>
