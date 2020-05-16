@@ -8,15 +8,6 @@
       <div class="panel-body">
  <%= search_form_for @q do |f| %>
       <div class="row">
-      <div class="col-md-6">
-        <label>Cliente:</label>
-        <%= f.select :client_id_eq, options_from_collection_for_select(Client.all, "id", "alias", @q.client_id_eq), {:prompt => 'Elige cliente'} %>
-      </div>
-      <div class="col-md-6">
-        <label>Producto:</label>
-        <%= f.select :product_id_eq, options_from_collection_for_select(Product.all, "id", "alias", @q.product_id_eq), {:prompt => 'Elige producto'} %>
-
-      </div>
     </div>
 
   <div class="row">
