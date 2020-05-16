@@ -24,13 +24,21 @@
       <div class="col-md-3">
         <label>Número de orden:</label>
         <%= f.search_field :numero_de_orden_cont, placeholder: "Número de orden"  %>
-
       </div>
 
       <div class="col-md-3">
         <label>Nombre del encargado:</label>
         <%= f.search_field :nombre_encargado_cont, placeholder: "Nombre del encargado"  %>
+      </div>
 
+      <div class="col-md-3">
+        <label>Status:</label>
+        <%
+          if params[:q]
+            selected = params[:q][:cerrado_eq] == 'true' ? ["Cerrada", true] : ["Abierta", false]
+          end
+        %>
+        <%= f.select :cerrado_eq, options_for_select([["Cerrada", true], ["Abierta", false]], selected), { prompt: 'Elegir status' } %>
       </div>
     </div>
   </div>
