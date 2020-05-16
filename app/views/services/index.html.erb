@@ -10,7 +10,7 @@
       <div class="row">
       <div class="col-md-3">
         <label>Cliente:</label>
-        <%= f.select :order_client_id_eq, options_from_collection_for_select(Client.all, "id", "alias", @q.order_client_id_eq), {:prompt => 'Elige cliente'} %>
+        <%= f.select :client_id_eq, options_from_collection_for_select(Client.all, "id", "alias", @q.client_id_eq), {:prompt => 'Elige cliente'} %>
       </div>
       <div class="col-md-3">
         <label>Producto:</label>

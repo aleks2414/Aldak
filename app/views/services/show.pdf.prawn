@@ -14,14 +14,14 @@ prawn_document() do |pdf|
 	pdf.move_down 10
 	pdf.text "Número de Proveedor:", size: 10, align: :left
 	pdf.move_down 5
-	pdf.text "#{@service.order.client.numero_proveedor}", size: 10, align: :left
+	pdf.text "#{@service.client.numero_proveedor}", size: 10, align: :left
 
 	pdf.move_down 1
 	pdf.text "#{@service.fecha_de_entrega.strftime(" %d-%b-%Y")}", size: 12, style: :bold, align: :right
 
 
 	pdf.move_down 25
-	pdf.text "#{@service.order.client.razon_social}", size: 11, align: :left
+	pdf.text "#{@service.client.razon_social}", size: 11, align: :left
 
 
 	pdf.move_down 45
