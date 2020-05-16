@@ -23,10 +23,21 @@
 
   <div class="field">
     <%= form.label :fecha %>
-    <%= form.date_field :fecha, id: :provider_payment_fecha %>
+    <%= form.text_field :fecha, id: :provider_payment_fecha %>
   </div>
 
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+  $( function() {
+    $( "#provider_payment_fecha" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
+      firstDay: 1,
+    });
+  });
+</script>
