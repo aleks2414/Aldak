@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_101701) do
+ActiveRecord::Schema.define(version: 2020_05_16_124334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,10 +70,6 @@ ActiveRecord::Schema.define(version: 2020_05_16_101701) do
     t.float "iva_pedido", default: 0.0
     t.boolean "closed", default: false
     t.boolean "cerrado", default: false
-    t.bigint "product_id", null: false
-    t.bigint "client_id", null: false
-    t.index ["client_id"], name: "index_orders_on_client_id"
-    t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -190,8 +186,6 @@ ActiveRecord::Schema.define(version: 2020_05_16_101701) do
   add_foreign_key "charter_payments", "charters"
   add_foreign_key "charters", "users"
   add_foreign_key "clients", "users"
-  add_foreign_key "orders", "clients"
-  add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
   add_foreign_key "provider_payments", "providers"
