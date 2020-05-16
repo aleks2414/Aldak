@@ -11,6 +11,22 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="col-md-6">
+      <div class="field">
+        <%= form.label :client_id %>
+        <%= form.select :client_id, Client.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Cliente'}, {:required => true} %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="field">
+        <%= form.label :product_id %>
+        <%= form.select :product_id, Product.all.collect { |p| [ "#{p.nombre}", p.id ] }, {:prompt => 'Elige Producto'}, {:required => true} %>
+      </div>
+    </div>
+  </div>
+
   <div class="field">
     <%= form.label :numero_de_pedido %>
     <%= form.select :order_id, Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, #{p.client.alias} - #{p.product.nombre}  (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" , p.id ] }, {:prompt => 'Elige Número de Pedido'}, {:required => true}  %>

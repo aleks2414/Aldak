@@ -1,8 +1,10 @@
 class Service < ApplicationRecord
   belongs_to :user
-  belongs_to :order
+  belongs_to :order, optional: true
   belongs_to :provider
   belongs_to :charter
+  belongs_to :product
+  belongs_to :client
 
 
   before_save :gasto_operacion
@@ -24,11 +26,11 @@ end
 
 
   def codigo_remision
-    self.codigo_remision = "#{self.order.client.try(:codigo_empresa)}-#{self.order.client.try(:codigo_planta)}-#{self.order.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-R0#{self.try(:condiciones_p)}"
+    self.codigo_remision = "#{self.client.try(:codigo_empresa)}-#{self.client.try(:codigo_planta)}-#{self.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-R0#{self.try(:condiciones_p)}"
   end
 
   def proveedor
-    self.proveedor =  self.cantidad_real_etregada * self.order.product.costo_producto
+    self.proveedor =  self.cantidad_real_etregada * self.product.costo_producto
   end
 
   def iva_proveedor

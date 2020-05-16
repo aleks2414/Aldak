@@ -14,14 +14,14 @@ prawn_document() do |pdf|
 	pdf.move_down 10
 	pdf.text "Número de Proveedor:", size: 10, align: :left
 	pdf.move_down 5
-	pdf.text "#{@service.order.client.numero_proveedor}", size: 10, align: :left
+	pdf.text "#{@service.client.numero_proveedor}", size: 10, align: :left
 
 	pdf.move_down 1
 	pdf.text "#{@service.fecha_de_entrega.strftime(" %d-%b-%Y")}", size: 12, style: :bold, align: :right
 
 
 	pdf.move_down 25
-	pdf.text "#{@service.order.client.razon_social}", size: 11, align: :left
+	pdf.text "#{@service.client.razon_social}", size: 11, align: :left
 
 
 	pdf.move_down 45
@@ -33,7 +33,7 @@ prawn_document() do |pdf|
 	# aqui
 data = [ 
  ["Cantidad:", "Unidad:", "Descripción del Producto"],
- ["#{@service.cantidad}", "Kilos", "#{@service.order.product.nombre}"]
+ ["#{@service.cantidad}", "Kilos", "#{@service.product.nombre}"]
  ]
 
 pdf.table data, :position => :center, :width => 550, :row_colors => ["F6F6F6", "F6F6F6"], :column_widths => [183, 183], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "000000" }
