@@ -14,14 +14,13 @@
 <div class="panel-body">
 
   <div class="field">
-    <%= form.label :numero_de_factura %>
-    <%= form.text_field :numero_de_factura, id: :service_numero_de_factura %>
+    <%= form.label :fecha_por_cobrar %>
+    <%= form.text_field :fecha_por_cobrar, id: :service_fecha_por_cobrar, placeholder: 'Elige Fecha' %>
   </div>
 
-
   <div class="field">
-    <%= form.label :fecha_de_facturacion %>
-    <%= form.text_field :fecha_de_facturacion, id: :service_fecha_de_facturacion, placeholder: 'Elige Fecha' %>
+    <%= form.label :pagado %>
+    <%= form.check_box :pagado, id: :service_pagado %>
   </div>
 
         <br>
@@ -37,10 +36,10 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to "<- Datos de GR", etapa_4_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "<- Facturación", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
   </div>
   <div class="col-md-6">
-    <%= link_to "Tugsten y Pago ->", etapa_6_service_path(@service),class: "btn btn-primary btn-block" %>
+
   </div>
 </div>
 
@@ -51,7 +50,7 @@
 
 <script>
   $( function() {
-    $( "#service_fecha_de_facturacion" ).datepicker({
+    $( "#service_fecha_por_cobrar" ).datepicker({
       dateFormat: 'dd.mm.yy',
       dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
       monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],

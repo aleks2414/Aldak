@@ -7,178 +7,23 @@
       <div class="panel panel-headline">
       
       <div class="panel-heading">
-        <h4>Proveedores:</h4>
+        <h4>Gr:</h4>
         <hr>
       </div>
 
 <div class="panel-body">
 
-
-<div class="row">
-  <div class="col-md-6">
-<div class="field">
-    <%= form.label :provider_id %> <br>
-    <%= @service.provider.alias if @service.provider.present? %>
-</div>
-
-
   <div class="field">
-    <%= form.label :cantidad_real_etregada %>
-    <%= form.number_field :cantidad_real_etregada, id: :service_cantidad_real_etregada, step: :any, required: true %>
+    <%= form.label :gr %>
+    <%= form.text_field :gr, id: :service_gr %>
   </div>
 
-  <div class="field">
-    <%= form.label :condiciones_proveedor %>
-    <%= form.text_area :condiciones_p, id: :service_condiciones_p %>
-  </div>
-
-
-<% if @service.requiere_factura_p == true %>
-  <div class="field">
-    <%= form.label :factura_recibida_proveedor %>
-    <%= form.check_box :factura_recibida_p, id: :service_factura_recibida_p %>
-  </div>
-<% end %>
-
-  </div>
-
-  <div class="col-md-6">
-<div class="field">
-    <%= form.label :charter_id %> <br>
-    <%= @service.charter.alias if @service.charter.present? %>
-</div>
-
-<br><br><br><br>
-
-  <div class="field">
-    <%= form.label :condiciones_fletera %>
-    <%= form.text_area :condiciones_f, id: :service_condiciones_f %>
-  </div>
-
-
-<% if @service.requiere_factura_f == true %>
-  <div class="field">
-    <%= form.label :factura_recibida_fletera %>
-    <%= form.check_box :factura_recibida_f, id: :service_factura_recibida_f %>
-  </div>
-<% end %>
-
-  </div>
-</div>
-
-<% if user_signed_in? && current_user.admin? %>
-
-<hr>
-
-
-<div class="row">
-  <div class="col-md-2">
-     <div class="field">
-    <%= form.label :cantidad_real_etregada %> <br>
-    <%= @service.cantidad_real_etregada %> kilos
-  </div> 
-  </div>
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :precio_de_venta %> <br>
-    <%= number_to_currency @service.order.precio_unitario %>
-  </div>
-  </div>
-
-
-  <div class="col-md-2 col-md-offset-2">
-      <div class="field">
-    <%= form.label :subtotal %> <br>
-    <%= number_to_currency @service.try(:cantidad_real_etregada) * @service.order.try(:precio_unitario) %>
-  </div>
-  </div>
-
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :iva %> <br>
-    <%= number_to_currency @service.try(:cantidad_real_etregada) * @service.order.try(:precio_unitario) * 0.16 %>
-  </div>
-  </div>
-  
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :total_venta %> <br>
-    <%= number_to_currency @service.total_venta %>
-  </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-2">
-     <div class="field">
-    <%= form.label :costo_producto %> <br>
-    <%= number_to_currency @service.product.costo_producto %>
-  </div> 
-  </div>
-
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :proveedor %> <br>
-    <%= number_to_currency @service.proveedor %>
-  </div>
-  </div>
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :iva_de_proveedor %> <br>
-    <%= number_to_currency @service.iva_proveedor %>
-  </div>
-  </div>
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :fletera %> <br>
-    <%= number_to_currency @service.fletera %>
-  </div>
-  </div>
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :iva_fletera %> <br>
-    <%= number_to_currency @service.iva_fletera %>
-  </div>
-  </div>
-  <div class="col-md-2">
-      <div class="field">
-    <%= form.label :gasto_operacion %> <br>
-    <%= number_to_currency @service.gasto_operacion %>
-  </div>
-  </div>
-</div>
-
-
-
-<div class="row">
-    <div class="col-md-2 col-md-offset-10">
-      <div class="field">
-    <%= form.label :ganancia %> <br>
-    <%= number_to_currency @service.ganancia %>
-  </div>
-  </div>
-</div>
-
-
-<hr>
-
-<% end %>
-
-
-
-
-
-
-
-
-
-         <br>
+        <br>
         <div class="actions">
           <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
         </div>
         <br>
 
-
 </div>
 
 
@@ -186,10 +31,14 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to "<- Proveedores", etapa_1_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "<- Proveedores", etapa_2_service_path(@service),class: "btn btn-primary btn-block" %>
   </div>
   <div class="col-md-6">
-    <%= link_to "Datos de GR ->", etapa_4_service_path(@service),class: "btn btn-primary btn-block" %>
+  <% if @service.gr.present?  %>
+    <%= link_to "Facturación ->", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
+  <% else %>
+    <a class="btn btn-primary disabled btn-block">Facturación</a>
+  <% end %>
   </div>
 </div>
 
