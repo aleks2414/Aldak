@@ -19,10 +19,6 @@ class ServicesController < ApplicationController
     
   end
 
-  def etapa_2
-    
-  end
-
   def etapa_3
     
   end

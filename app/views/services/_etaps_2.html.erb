@@ -10,13 +10,6 @@
         </li>
         <% end %>
 
-        <%= link_to etapa_2_service_path(@service) do %>
-        <li>
-          <h4>Etapa 2: Documentación</h4>
-          <div class="actividad paso <%= 'active' if current_page?(etapa_2_service_path) %>"></div>
-        </li>
-        <% end %>
-
         <li>
           <h4>Etapa 3: Proveedores</h4>
           <div class="inactividad paso <%= 'active' if current_page?(etapa_3_service_path) %>"></div>

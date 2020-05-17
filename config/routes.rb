@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :services, except: [:edit] do
     member do
       get 'etapa_1'
-      get 'etapa_2'
       get 'etapa_3'
       get 'etapa_4'
       get 'etapa_5'
