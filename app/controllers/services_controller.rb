@@ -23,7 +23,7 @@ class ServicesController < ApplicationController
     
   end
 
-  def etapa_4
+  def etapa_3
     
   end
 
