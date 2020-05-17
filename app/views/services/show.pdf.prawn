@@ -32,8 +32,8 @@ prawn_document() do |pdf|
 	pdf.move_down 15
 	# aqui
 data = [ 
- ["Cantidad:", "Unidad:", "Descripción del Producto"],
- ["#{@service.cantidad}", "Kilos", "#{@service.product.nombre}"]
+ ["Cantidad:", "Unidad:", "Planta del Cliente", "Descripción del Producto:"],
+ ["#{@service.cantidad}", "Kilos", "#{@service.client.planta}", "#{@service.product.nombre}"]
  ]
 
 pdf.table data, :position => :center, :width => 550, :row_colors => ["F6F6F6", "F6F6F6"], :column_widths => [183, 183], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "000000" }
