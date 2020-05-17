@@ -25,9 +25,18 @@ def fecha_entregable
 end
 
 
-  def codigo_remision
-    self.codigo_remision = "#{self.client.try(:codigo_empresa)}-#{self.client.try(:codigo_planta)}-#{self.product.try(:codigo_producto)}-#{self.try(:fecha_de_entrega).strftime("%d-%m-%Y")}-R0#{self.try(:condiciones_p)}"
+def get_code
+  number = 0
+  codigo = ''
+
+  loop do
+    number += 1
+    codigo = "#{self.client.try(:codigo_empresa)}-#{self.product.try(:codigo_producto)}-#{DateTime.now.strftime("%d-%m-%Y")}-#{'%02d' % number}"
+    break if Service.find_by(codigo_remision: codigo).nil?
   end
+
+  codigo
+end
 
   def proveedor
     self.proveedor =  self.cantidad_real_etregada * self.product.costo_producto

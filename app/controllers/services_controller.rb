@@ -53,6 +53,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     @service.user_id = current_user.id
+    @service.codigo_remision = @service.get_code
 
     respond_to do |format|
       if @service.save
