@@ -57,7 +57,7 @@
   </div>
   <div class="col-md-6">
     <% if @service.remision_enviada == true && @service.calidad_enviada == true && @service.seguridad_enviada == true  %>
-    <%= link_to "Proveedores ->", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "Proveedores ->", etapa_2_service_path(@service),class: "btn btn-primary btn-block" %>
     <% else %>
     <a class="btn btn-primary disabled btn-block">Proveedores</a>
     <% end %>
