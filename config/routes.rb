@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'etapa_1'
       get 'etapa_2'
       get 'etapa_3'
-      get 'etapa_5'
+      get 'etapa_4'
       get 'etapa_6'
   end
 end
