@@ -35,10 +35,6 @@ class ServicesController < ApplicationController
     
   end
 
-  def etapa_6
-    
-  end
-
   # GET /services/new
   def new
     @service = Service.new
@@ -98,6 +94,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:user_id, :order_id, :cantidad, :fecha_de_entrega, :status_operativo, :status_comercial, :etapa, :provider_id, :requiere_factura_p, :pago_a_proveedor, :condiciones_p, :pagado_proveedor, :charter_id, :requiere_factura_f, :pago_a_fletera, :condiciones_f, :pagado_fletera, :codigo_remision, :remision_enviada, :calidad_enviada, :seguridad_enviada, :otro_enviada, :gasto_operacion, :remision_sellada, :tickets, :cantidad_real_etregada, :pago_real_p, :factura_recibida_p, :factura_recibida_f, :gr, :numero_de_factura, :kilos_finales, :total_por_facturar, :fecha_de_facturacion, :fecha_por_cobrar, :pagado, :total_venta, :ganancia, :proveedor, :fletera, :iva_proveedor, :iva_fletera, :product_id, :client_id)
+      params.require(:service).permit(:user_id, :order_id, :cantidad, :fecha_de_entrega, :status_operativo, :status_comercial, :etapa, :provider_id, :requiere_factura_p, :pago_a_proveedor, :pagado_proveedor, :charter_id, :requiere_factura_f, :pago_a_fletera, :pagado_fletera, :codigo_remision, :gasto_operacion, :cantidad_real_etregada, :pago_real_p, :gr, :numero_de_factura, :kilos_finales, :total_por_facturar, :fecha_de_facturacion, :fecha_por_cobrar, :pagado, :total_venta, :ganancia, :proveedor, :fletera, :iva_proveedor, :iva_fletera, :product_id, :client_id)
     end
 end

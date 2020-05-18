@@ -5,17 +5,23 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-headline">
-      
+    
       <div class="panel-heading">
-        <h4>Gr:</h4>
+        <h4>Facturación:</h4>
         <hr>
-      </div>
+      </div>  
 
 <div class="panel-body">
 
   <div class="field">
-    <%= form.label :gr %>
-    <%= form.text_field :gr, id: :service_gr %>
+    <%= form.label :numero_de_factura %>
+    <%= form.text_field :numero_de_factura, id: :service_numero_de_factura %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :fecha_de_facturacion %>
+    <%= form.text_field :fecha_de_facturacion, id: :service_fecha_de_facturacion, placeholder: 'Elige Fecha' %>
   </div>
 
         <br>
@@ -31,14 +37,10 @@
 
 <div class="row">
   <div class="col-md-6">
-    <%= link_to "<- Proveedores", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
+    <%= link_to "<- Datos de GR", etapa_3_service_path(@service),class: "btn btn-primary btn-block" %>
   </div>
   <div class="col-md-6">
-  <% if @service.gr.present?  %>
-    <%= link_to "Facturación ->", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
-  <% else %>
-    <a class="btn btn-primary disabled btn-block">Facturación</a>
-  <% end %>
+    <%= link_to "Tugsten y Pago ->", etapa_5_service_path(@service),class: "btn btn-primary btn-block" %>
   </div>
 </div>
 
@@ -46,3 +48,14 @@
 </div>
 
 <% end %>
+
+<script>
+  $( function() {
+    $( "#service_fecha_de_facturacion" ).datepicker({
+      dateFormat: 'dd.mm.yy',
+      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+      monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],
+      firstDay: 1,
+    });
+  });
+</script>

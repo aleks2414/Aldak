@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       get 'etapa_3'
       get 'etapa_4'
       get 'etapa_5'
-      get 'etapa_6'
   end
 end
   resources :orders
