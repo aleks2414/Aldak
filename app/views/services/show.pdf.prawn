@@ -6,10 +6,12 @@ prawn_document() do |pdf|
 	pdf.move_down 5
 	pdf.text "#{@service.codigo_remision}", size: 10, align: :right
 
-	pdf.move_down 10
-	pdf.text "Número de Pedido:", size: 10, align: :right
-	pdf.move_down 5
-	pdf.text "#{@service.order.numero_de_orden}", size: 10, align: :right
+  if @service.order_id.present?
+  	pdf.move_down 10
+  	pdf.text "Número de Pedido:", size: 10, align: :right
+  	pdf.move_down 5
+  	pdf.text "#{@service.order.numero_de_orden}", size: 10, align: :right
+  end
 
 	pdf.move_down 10
 	pdf.text "Número de Proveedor:", size: 10, align: :left
