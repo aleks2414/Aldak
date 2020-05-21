@@ -15,9 +15,9 @@
 
 <body>
     <% if alert %>
-    <p class="alert"><%= alert %></p>
+        <p class="alert"><%= alert %></p>
     <% elsif notice %>
-    <p class="notice"><%= notice %></p>
+        <p class="notice"><%= notice %></p>
     <% end %>
 
     
@@ -53,142 +53,128 @@
             <div class="sidebar-scroll">
                 <nav>
                     <ul class="nav">
+
+                        <!-- Inicio -->
                         <li><a href="<%= root_path %>" class="<%= 'active' if current_page?(root_path) %>"><i class="material-icons">account_balance</i> <span>Inicio</span></a></li>
                         <li>
-                            <li>
-                                <a href="#subPages" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(clients_path) or current_page?(new_client_path) %>"><i class="material-icons">assignment_ind</i> <span>Clientes</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages" class="<%= 'collapse' unless current_page?(clients_path) or current_page?(new_client_path)  %> <%= 'active' if current_page?(clients_path) or current_page?(new_client_path) %>">
-                                    <ul class="nav">
-                                        <li><a href="<%= new_client_path %>" class="<%= 'active' if current_page?(new_client_path) %>">Nuevo Cliente</a></li>
-                                        <li><a href="<%= clients_path %>" class="<%= 'active' if current_page?(clients_path) %>">Todos los Clientes</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!--  -->
 
-
-                            <li>
-                                <a href="#subPages01" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">how_to_reg</i> <span>Proveedores</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages01" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
-                                    <ul class="nav">
-                                        <% if user_signed_in? && current_user.admin? %>
-                                        <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
-                                        <% end %>
-                                        <li><a href="<%= providers_path %>" class="<%= 'active' if current_page?(providers_path) %>">Todos los Proveedores</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!--  -->
-
-
-                            <li>
-                                <a href="#subPages02" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) or current_page?(new_charter_payment_path) %>"><i class="material-icons">directions_bus</i> <span>Fleteras</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages02" class="<%= 'collapse' unless current_page?(charters_path) or current_page?(new_charter_path)  %> <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) %>">
-                                    <ul class="nav">
-                                        <% if user_signed_in? && current_user.admin? %>
-                                        <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
-                                        <% end %>
-                                        <li><a href="<%= charters_path %>" class="<%= 'active' if current_page?(charters_path) %>">Todas las Fleteras</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!--  -->
-
-
-                            <li>
-                                <a href="#subPages03" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>"><i class="material-icons">layers</i> <span>Productos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages03" class="<%= 'collapse' unless current_page?(products_path) or current_page?(new_product_path)  %> <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>">
-                                    <ul class="nav">
-                                        <% if user_signed_in? && current_user.admin? %>
-                                        <li><a href="<%= new_product_path %>" class="<%= 'active' if current_page?(new_product_path) %>">Nuevo Producto</a></li>
-                                        <% end %>
-                                        <li><a href="<%= products_path %>" class="<%= 'active' if current_page?(products_path) %>">Todos los productos</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!--  -->
-
-                            
-                            <li>
-                                <a href="#subPages04" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>"><i class="material-icons">folder_open</i> <span>Pedidos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages04" class="<%= 'collapse' unless current_page?(orders_path) or current_page?(new_order_path)  %> <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>">
-                                    <ul class="nav">
-                                        <% if user_signed_in? && current_user.admin? %>
-                                        <li><a href="<%= new_order_path %>" class="<%= 'active' if current_page?(new_order_path) %>">Nuevo Pedido</a></li>
-                                        <% end %>
-                                        <li><a href="<%= orders_path %>" class="<%= 'active' if current_page?(orders_path) %>">Todos los Pedidos</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        
-                            <!--  -->
-
-
-                            <li>
-                                <a href="#subPages05" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(services_path) or current_page?(new_service_path) %>"><i class="material-icons">storage</i> <span>Remisión</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages05" class="<%= 'collapse' unless current_page?(services_path) or current_page?(new_service_path)  %> <%= 'active' if current_page?(services_path) or current_page?(new_service_path) %>">
-                                    <ul class="nav">
-                                        <li><a href="<%= new_service_path %>" class="<%= 'active' if current_page?(new_service_path) %>">Nueva Remisión</a></li>
-                                        <li><a href="<%= services_path %>" class="<%= 'active' if current_page?(services_path) %>">Todas las Remisiones</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!--  -->
-
-
-                            <li>
-                                <a href="#subPages06" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">local_atm</i> <span>Pagos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
-                                <div id="subPages06" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
-                                    <ul class="nav">
-                                        <li><a href="<%= new_provider_payment_path %>" class="<%= 'active' if current_page?(new_provider_payment_path) %>">Pago a Proveedor</a></li>
-                                        <li><a href="<%= new_charter_payment_path %>" class="<%= 'active' if current_page?(new_charter_payment_path) %>">Pago a Fletera</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!--  -->
-                            
-                            <% if user_signed_in? && current_user.admin? %>
-                            <li><a href="<%= reporte_path %>" class="<%= 'active' if current_page?(reporte_path) %>"><i class="material-icons">assessment</i> <span>Reporte</span></a></li>
-                            <li>
-                            <% end %>
-
-
-                   
-
-                           <!--  <li><a href="<%#= services_path %>" class="<%#= 'active' if current_page?(services_path) %>"><i class="material-icons">build</i> <span>Servicios</span></a></li> -->
-                        
-
-
-                               
-                                            
-
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                                <!-- END LEFT SIDEBAR -->
-                                <!-- MAIN -->
-                                <div class="main">
-                                    <!-- MAIN CONTENT -->
-                                    <div class="main-content">
-                                        <div class="container-fluid">
-                                            <!-- OVERVIEW -->
-                                            
-                                            <%= yield %>
-                                        </div>
-                                        <!-- END OVERVIEW -->
-                                    </div>
-                                </div>
-                                <!-- END MAIN CONTENT -->
+                        <!-- Pedidos -->
+                        <li>
+                            <a href="#subPages04" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>"><i class="material-icons">folder_open</i> <span>Ordenes</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages04" class="<%= 'collapse' unless current_page?(orders_path) or current_page?(new_order_path)  %> <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>">
+                                <ul class="nav">
+                                    <% if user_signed_in? && current_user.admin? %>
+                                    <li><a href="<%= new_order_path %>" class="<%= 'active' if current_page?(new_order_path) %>">Nuevo Orden</a></li>
+                                    <% end %>
+                                    <li><a href="<%= orders_path %>" class="<%= 'active' if current_page?(orders_path) %>">Todas las Ordenes</a></li>
+                                </ul>
                             </div>
-                            <!-- END MAIN -->
-                            <div class="clearfix"></div>
-                            <footer>
-                                <div class="container-fluid">
-                                    <p class="copyright">&copy; 2019 Andak</p>
-                                </div>
-                            </footer>
-                        </div>
-                        <!-- END WRAPPER -->
-                    </body>
+                        </li>
+
+                        <!-- Remision -->
+                        <li>
+                            <a href="#subPages05" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(services_path) or current_page?(new_service_path) %>"><i class="material-icons">storage</i> <span>Remisión</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages05" class="<%= 'collapse' unless current_page?(services_path) or current_page?(new_service_path)  %> <%= 'active' if current_page?(services_path) or current_page?(new_service_path) %>">
+                                <ul class="nav">
+                                    <li><a href="<%= new_service_path %>" class="<%= 'active' if current_page?(new_service_path) %>">Nueva Remisión</a></li>
+                                    <li><a href="<%= services_path %>" class="<%= 'active' if current_page?(services_path) %>">Todas las Remisiones</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Clientes -->
+                        <li>
+                            <a href="#subPages" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(clients_path) or current_page?(new_client_path) %>"><i class="material-icons">assignment_ind</i> <span>Clientes</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages" class="<%= 'collapse' unless current_page?(clients_path) or current_page?(new_client_path)  %> <%= 'active' if current_page?(clients_path) or current_page?(new_client_path) %>">
+                                <ul class="nav">
+                                    <li><a href="<%= new_client_path %>" class="<%= 'active' if current_page?(new_client_path) %>">Nuevo Cliente</a></li>
+                                    <li><a href="<%= clients_path %>" class="<%= 'active' if current_page?(clients_path) %>">Todos los Clientes</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Productos -->
+                        <li>
+                            <a href="#subPages03" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>"><i class="material-icons">layers</i> <span>Productos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages03" class="<%= 'collapse' unless current_page?(products_path) or current_page?(new_product_path)  %> <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>">
+                                <ul class="nav">
+                                    <% if user_signed_in? && current_user.admin? %>
+                                    <li><a href="<%= new_product_path %>" class="<%= 'active' if current_page?(new_product_path) %>">Nuevo Producto</a></li>
+                                    <% end %>
+                                    <li><a href="<%= products_path %>" class="<%= 'active' if current_page?(products_path) %>">Todos los productos</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <!-- Proveedores -->
+                        <li>
+                            <a href="#subPages01" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">how_to_reg</i> <span>Proveedores</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages01" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
+                                <ul class="nav">
+                                    <% if user_signed_in? && current_user.admin? %>
+                                    <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
+                                    <% end %>
+                                    <li><a href="<%= providers_path %>" class="<%= 'active' if current_page?(providers_path) %>">Todos los Proveedores</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Fleteras -->
+                        <li>
+                            <a href="#subPages02" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) or current_page?(new_charter_payment_path) %>"><i class="material-icons">directions_bus</i> <span>Fleteras</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages02" class="<%= 'collapse' unless current_page?(charters_path) or current_page?(new_charter_path)  %> <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) %>">
+                                <ul class="nav">
+                                    <% if user_signed_in? && current_user.admin? %>
+                                    <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
+                                    <% end %>
+                                    <li><a href="<%= charters_path %>" class="<%= 'active' if current_page?(charters_path) %>">Todas las Fleteras</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- Pagos -->
+                        <li>
+                            <a href="#subPages06" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">local_atm</i> <span>Pagos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <div id="subPages06" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
+                                <ul class="nav">
+                                    <li><a href="<%= new_provider_payment_path %>" class="<%= 'active' if current_page?(new_provider_payment_path) %>">Pago a Proveedor</a></li>
+                                    <li><a href="<%= new_charter_payment_path %>" class="<%= 'active' if current_page?(new_charter_payment_path) %>">Pago a Fletera</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <!-- Reporte -->
+                        <% if user_signed_in? && current_user.admin? %>
+                          <li><a href="<%= reporte_path %>" class="<%= 'active' if current_page?(reporte_path) %>"><i class="material-icons">assessment</i> <span>Reporte</span></a></li>
+                        <% end %>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <!-- OVERVIEW -->
+                    
+                    <%= yield %>
+                </div>
+                <!-- END OVERVIEW -->
+            </div>
+        </div>
+        <!-- END MAIN CONTENT -->
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">&copy; 2019 Andak</p>
+        </div>
+    </footer>
+      </div>
+      <!-- END WRAPPER -->
+  </body>
 </html>
