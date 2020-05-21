@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, except: [:index, :new, :create]
+  before_action :set_service, except: [:index, :new, :create, :show]
   before_action :authenticate_user!
 
   # GET /services
@@ -13,6 +13,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @service = Service.find_by(codigo_remision: params[:id])
   end
 
   def etapa_1
