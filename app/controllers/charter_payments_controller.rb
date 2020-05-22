@@ -28,6 +28,8 @@ class CharterPaymentsController < ApplicationController
 
     respond_to do |format|
       if @charter_payment.save
+        @charter_payment.charter.update(status: @charter_payment.charter.set_status)
+
         format.html { redirect_to charter_path(@charter_payment.charter), notice: 'Charter payment was successfully created.' }
         format.json { render :show, status: :created, location: @charter_payment }
       else
