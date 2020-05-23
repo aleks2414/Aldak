@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "~> 2.6.3"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -88,8 +89,6 @@ gem "fog-aws"
 gem "mini_magick"
 # nested models
 gem "cocoon"
-# text format
-gem 'ckeditor', github: 'galetahub/ckeditor'
 #carousel
 gem 'photoswipe-rails'
 
