@@ -28,6 +28,8 @@ class ProviderPaymentsController < ApplicationController
 
     respond_to do |format|
       if @provider_payment.save
+        @provider_payment.provider.update(status: @provider_payment.provider.set_status)
+
         format.html { redirect_to provider_path(@provider_payment.provider), notice: 'Provider payment was successfully created.' }
         format.json { render :show, status: :created, location: @provider_payment }
       else

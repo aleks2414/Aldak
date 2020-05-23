@@ -54,6 +54,9 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
+        @service.charter.update(status: @service.charter.set_status)
+        @service.provider.update(status: @service.provider.set_status)
+
         format.html { redirect_to etapa_1_service_path(@service), notice: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
