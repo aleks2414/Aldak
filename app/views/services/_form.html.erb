@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :numero_de_pedido %>
-    <%= form.select :order_id, Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" , p.id ] }, {:prompt => 'Elige Número de Pedido'}, {:required => true}  %>
+    <%= form.select :order_id, Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" , p.id ] }, {:prompt => 'Elige Número de Pedido'}  %>
   </div>
 
   <div class="field">
