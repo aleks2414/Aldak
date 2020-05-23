@@ -14,6 +14,7 @@ class ChartersController < ApplicationController
   # GET /charters/1
   # GET /charters/1.json
   def show
+    @dates = (@charter.charter_payments.group_by { |m| m.fecha.beginning_of_month }.keys + @charter.services.group_by { |m| m.fecha_de_entrega.beginning_of_month }.keys).uniq.sort
   end
 
   # GET /charters/new

@@ -56,6 +56,8 @@
         <h4>Saldos</h4>
       </div>
       <div class="panel-body">
+        <% @dates.each do |date| %>
+          <h5><%= date.strftime('%B %Y') %></h5>
       <div class="row">
         <div class="col-md-5">
 
@@ -75,7 +77,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @charter.charter_payments.each do |payment| %>
+            <% @charter.charter_payments.where(fecha: date..date.end_of_month).each do |payment| %>
             <tr>
               <td><%= number_to_currency payment.cantidad %></td>
               <td><%= payment.fecha %></td>
@@ -96,7 +98,7 @@
             </tr>
 
             <tr>
-              <td><strong>Total:</strong><%= number_to_currency @c1 = @charter.charter_payments.map(&:cantidad).sum %></td>
+              <td><strong>Total:</strong><%= number_to_currency @c1 = @charter.charter_payments.where(fecha: date..date.end_of_month).map(&:cantidad).sum %></td>
               <td></td>
               <td></td>
             </tr>
@@ -121,7 +123,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @charter.services.each do |service| %>
+            <% @charter.services.where(fecha_de_entrega: date..date.end_of_month).each do |service| %>
             <tr>
               <td><%= link_to  "#{service.codigo_remision}", etapa_1_service_path(service)%></td>
               <td><%= number_to_currency service.charter.precio_de_envio %></td>
@@ -137,7 +139,7 @@
             </tr>
             <tr>
               <td></td>
-              <td><strong>Total:</strong> <%= number_to_currency @c2= @charter.services.map(&:charter).map(&:precio_de_envio).sum %></td>
+              <td><strong>Total:</strong> <%= number_to_currency @c2= @charter.services.where(fecha_de_entrega: date..date.end_of_month).map(&:charter).map(&:precio_de_envio).sum %></td>
             </tr>
           </tbody>
         </table>
@@ -146,7 +148,9 @@
         </div>
       </div>
 
-<h2>Saldo: <%= number_to_currency @c1 - @c2 %></h2>
+<h5>Saldo: <%= number_to_currency @c1 - @c2 %></h5>
+<hr>
+<% end %>
 
       </div>
     </div>
