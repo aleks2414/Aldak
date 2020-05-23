@@ -54,50 +54,51 @@
         <h4>Saldos</h4>
       </div>
       <div class="panel-body">
-      <div class="row">
-        <div class="col-md-5">
+        <% @dates.each do |date| %>
+          <h5><%= date.strftime('%B %Y') %></h5>
+          <div class="row">
+            <div class="col-md-5">
+              <div class="content table-responsive table-full-width">
+                <table class="table table-hover table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Pagos</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
 
-      <div class="content table-responsive table-full-width">
-        <table class="table table-hover table-bordered">
-          <thead>
-            <tr>
-              <th>Pagos</th>
-              <th></th>
-              <th></th>
-            </tr>
-
-            <tr>
-              <th></th>
-              <th>Fecha</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @provider.provider_payments.each do |payment| %>
-            <tr>
-              <td><%= number_to_currency payment.cantidad %></td>
-              <td><%= payment.fecha %></td>
-              <td><%= link_to 'Eliminar', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-            <% end %>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><strong>Total:</strong><%= number_to_currency @n1 = @provider.provider_payments.map(&:cantidad).sum %></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                    <tr>
+                      <th></th>
+                      <th>Fecha</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @provider.provider_payments.where(fecha: date..date.end_of_month).each do |payment| %>
+                    <tr>
+                      <td><%= number_to_currency payment.cantidad %></td>
+                      <td><%= payment.fecha %></td>
+                      <td><%= link_to 'Eliminar', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                    <% end %>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Total:</strong><%= number_to_currency @n1 = @provider.provider_payments.where(fecha: date..date.end_of_month).map(&:cantidad).sum %></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
           
         </div>
         <div class="col-md-7">
@@ -116,7 +117,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @provider.services.each do |service| %>
+            <% @provider.services.where(fecha_de_entrega: date..date.end_of_month).each do |service| %>
             <tr>
               <td><%= link_to  "#{service.codigo_remision}", etapa_1_service_path(service)%></td>
               <td><%= number_to_currency service.proveedor + service.iva_proveedor %></td>
@@ -133,7 +134,7 @@
             </tr>
             <tr>
               <td></td>
-              <td><strong>Total:</strong> <%= number_to_currency @n2 = @provider.services.map(&:proveedor).sum + @provider.services.map(&:iva_proveedor).sum %></td>
+              <td><strong>Total:</strong> <%= number_to_currency @n2 = @provider.services.where(fecha_de_entrega: date..date.end_of_month).map(&:proveedor).sum + @provider.services.map(&:iva_proveedor).sum %></td>
             </tr>
           </tbody>
         </table>
@@ -142,7 +143,9 @@
         </div>
       </div>
 
-<h2>Saldo: <%= number_to_currency @n1 - @n2 %></h2>
+<h5 class="mt-0">Saldo: <%= number_to_currency @n1 - @n2 %></h5>
+<hr>
+<% end %>
 
       </div>
     </div>

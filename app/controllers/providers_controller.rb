@@ -14,6 +14,7 @@ class ProvidersController < ApplicationController
   # GET /providers/1
   # GET /providers/1.json
   def show
+    @dates = (@provider.provider_payments.group_by { |m| m.fecha.beginning_of_month }.keys + @provider.services.group_by { |m| m.fecha_de_entrega.beginning_of_month }.keys).uniq.sort
   end
 
   # GET /providers/new
