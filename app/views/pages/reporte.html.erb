@@ -1,3 +1,26 @@
+<span>Ano:&nbsp</span>
+<% @years.reverse.each do |year| %>
+  <% if year.to_s == @year.to_s %>
+    <%= year %>
+  <% else %>
+    <%= link_to year, reporte_path(year: year), style: "color: #3287B2 !important;" %>
+  <% end %>
+<% end %>
+
+<br>
+
+<span>Mes:&nbsp</span>
+<% @months.each do |month| %>
+  <% if month.to_s == @month.to_s %>
+    <%= month %>
+  <% else %>
+    <%= link_to month, reporte_path(year: @year, month: month), style: "color: #3287B2 !important;" %>
+  <% end %>
+<% end %>
+
+<br>
+<br>
+
 <div class="row">
 	<% @services.group_by(&:month).each do |month, services| %>
 	<div class="col-md-12">
