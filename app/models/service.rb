@@ -104,4 +104,8 @@ end
     self.fecha_de_entrega.to_date.strftime('%G-%B')
   end
 
+  def year
+    self.fecha_de_entrega.to_date.strftime('%Y')
+  end
+
 end
