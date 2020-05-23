@@ -51,6 +51,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     @service.user_id = current_user.id
     @service.codigo_remision = @service.get_code
+    @service.precio_de_compra = @service.product.costo_producto
 
     respond_to do |format|
       if @service.save
