@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
-  searchkick
+  SEARCH_FIELDS = %i( codigo_remision etapa gr numero_de_factura status_comercial status_operativo )
+  searchkick word_middle: SEARCH_FIELDS
   
   belongs_to :user
   belongs_to :order, optional: true
