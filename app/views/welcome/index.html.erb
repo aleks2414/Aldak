@@ -7,14 +7,16 @@
       </div>
       <div class="panel-body">
         <ul>
-          <% @foo.with_highlights.each do |foo, highlights| %>
-            <li>
-              <%= link_to foo, style: "color: #3287B2;" do %>
-                <% highlights.each do |field, value| %>
-                  <%= value.html_safe %>
+          <% @search_results.each do |search_result| %>
+            <% search_result.with_highlights.each do |foo, highlights| %>
+              <li>
+                <%= link_to foo, style: "color: #3287B2;" do %>
+                  <% highlights.each do |field, value| %>
+                    <%= value.html_safe %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>
