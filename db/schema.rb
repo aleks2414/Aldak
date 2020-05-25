@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_22_175016) do
+ActiveRecord::Schema.define(version: 2020_05_23_174810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -148,6 +148,8 @@ ActiveRecord::Schema.define(version: 2020_05_22_175016) do
     t.float "iva_fletera", default: 0.0
     t.bigint "product_id"
     t.bigint "client_id"
+    t.integer "precio_de_venta"
+    t.integer "precio_de_compra"
     t.index ["charter_id"], name: "index_services_on_charter_id"
     t.index ["client_id"], name: "index_services_on_client_id"
     t.index ["order_id"], name: "index_services_on_order_id"
