@@ -13,5 +13,17 @@ class WelcomeController < ApplicationController
   	@services5 = @services5.paginate(:page => params[:page], :per_page => 10)
   	@services6 = Service.where(etapa: 6).order('id ASC')
   	@services6 = @services6.paginate(:page => params[:page], :per_page => 10)
+
+    # Searchkick
+    models = [Client, Product, Service, Order, Provider, Charter]
+
+    @search_results = []
+
+    models.each do |model|
+      results = model.search "fdj", fields: model::SEARCH_FIELDS, match: :word_middle
+      results.each do |result|
+        @search_results << result
+      end
+    end
   end
 end
