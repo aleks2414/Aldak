@@ -20,7 +20,12 @@ class WelcomeController < ApplicationController
     @search_results = []
 
     models.each do |model|
-      @search_results << model.search("fdj", fields: model::SEARCH_FIELDS, match: :word_middle, highlight: {tag: "<strong>"})
+      @search_results << model.search(params[:search], fields: model::SEARCH_FIELDS, match: :word_middle, highlight: {tag: "<strong>"})
     end
+  end
+
+  def reindex
+    [Client, Product, Service, Order, Provider, Charter].each { |model| model.reindex }
+    render json: :done
   end
 end

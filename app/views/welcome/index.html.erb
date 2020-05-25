@@ -2,15 +2,18 @@
   <div class="col-md-12">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>Foo</h4>
-        <hr>
+        <h4>Site search</h4>
       </div>
       <div class="panel-body">
+        <%= form_with url: root_path, method: :get, local: true do |form| %>
+          <%= form.search_field :search, value: params[:search] %>
+        <% end %>
         <ul>
           <% @search_results.each do |search_result| %>
-            <% search_result.with_highlights.each do |foo, highlights| %>
+            <% search_result.with_highlights.each do |record, highlights| %>
               <li>
-                <%= link_to foo, style: "color: #3287B2;" do %>
+                <% path = (record.class == Service) ? etapa_1_service_path(record) : record %>
+                <%= link_to path, style: "color: #3287B2;" do %>
                   <% highlights.each do |field, value| %>
                     <%= value.html_safe %>
                   <% end %>
