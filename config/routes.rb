@@ -17,6 +17,7 @@ end
   resources :clients
   devise_for :users
   root 'welcome#index'
+  get 'reindex' => 'welcome#reindex'
 
   resources :contacts, only: [:new, :create]
 

@@ -1,4 +1,7 @@
 class Provider < ApplicationRecord
+  SEARCH_FIELDS = %i( alias rfc razon_social direccion encargado telefono_encargado correo_encargado codigo_proveedor )
+  searchkick word_middle: SEARCH_FIELDS
+  
   belongs_to :user
   has_many :services
   has_many :provider_payments

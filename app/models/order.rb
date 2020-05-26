@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
+  SEARCH_FIELDS = %i( descripcion email nombre_encargado numero_de_orden )
+  searchkick word_middle: SEARCH_FIELDS
+  
   belongs_to :user
   has_many :services
 

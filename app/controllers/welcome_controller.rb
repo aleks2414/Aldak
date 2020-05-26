@@ -13,5 +13,19 @@ class WelcomeController < ApplicationController
   	@services5 = @services5.paginate(:page => params[:page], :per_page => 10)
   	@services6 = Service.where(etapa: 6).order('id ASC')
   	@services6 = @services6.paginate(:page => params[:page], :per_page => 10)
+
+    # Searchkick
+    models = [Client, Product, Service, Order, Provider, Charter]
+
+    @search_results = []
+
+    models.each do |model|
+      @search_results << model.search(params[:search], fields: model::SEARCH_FIELDS, match: :word_middle, highlight: {tag: "<strong>"})
+    end
+  end
+
+  def reindex
+    [Client, Product, Service, Order, Provider, Charter].each { |model| model.reindex }
+    render json: :done
   end
 end
