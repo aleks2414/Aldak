@@ -40,6 +40,6 @@
 </div> 
 <div class="center">
   <% unless @services6.blank? %>
-  <%= will_paginate @services6 %>
+  <%= will_paginate @services6, params: {anchor: :steps} %>
   <% end %>
 </div>
