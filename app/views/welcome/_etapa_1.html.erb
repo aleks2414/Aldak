@@ -1,0 +1,45 @@
+ <div class="content table-responsive table-full-width">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Remisión</th>
+        <th>Pedido</th>
+        <th>Cantidad</th>
+        <th>Fecha de entrega</th>
+        <th>Cliente</th>
+        <th>Proveedor</th>
+        <th>Fletera</th>
+        <% if user_signed_in? && current_user.admin? %>
+        <th>Gasto operacion</th>
+        <% end %>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @services1.each do |service| %>
+      <tr>
+        
+        <td><%= service.codigo_remision %></td>
+        <td><%= service.order.numero_de_orden %></td>
+        <td><%= service.cantidad %></td>
+        <td><%= service.fecha_de_entrega %></td>
+        <td><%= service.client.alias%></td>
+        <td><%= service.provider.alias %></td>
+        <td><%= service.charter.alias %></td>
+        <% if user_signed_in? && current_user.admin? %>
+        <td><%= service.gasto_operacion %></td>
+        <% end %>
+        <td><%= link_to 'Ver más', etapa_1_service_path(service) %></td>
+        <!-- <td><%#= link_to 'Continuar', etapa_1_service_path(service) %></td> -->
+        <td><%= link_to 'Eliminar', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="center">
+  <% unless @services1.blank? %>
+  <%= will_paginate @services1 %>
+  <% end %>
+</div>
