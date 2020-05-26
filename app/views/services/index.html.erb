@@ -107,10 +107,10 @@
               <td><%= service.cantidad %></td>
               <td><%= service.fecha_de_entrega %></td>
               <td><%= service.status_comercial %></td>
-              <td><%= service.client.alias%></td>
+              <td><%= service.client.try(:alias)%></td>
               <td><%= service.etapa %></td>
-              <td><%= service.provider.alias %></td>
-              <td><%= service.charter.alias %></td>
+              <td><%= service.provider.try(:alias) %></td>
+              <td><%= service.charter.try(:alias) %></td>
               <% if user_signed_in? && current_user.admin? %>
               <td><%= service.gasto_operacion %></td>
               <% end %>
