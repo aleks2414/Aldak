@@ -281,8 +281,33 @@
   </div>
 </div>
 
-
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
+
+
+<div class="row">
+  <div id="steps" style="position: relative; top: -100px;""></div>
+  <div class="col-md-12">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        Etapa:&nbsp;
+        <% (1..4).each do |step| %>
+          <% if @step == step.to_s %>
+            <%= step %>
+          <% else %>
+            <%= link_to step, root_path(step: step, anchor: :steps), style: "color: #3287B2 !important;" %>
+          <% end %>
+        <% end %>
+        <br>
+        <br>
+        <h4>Etapa <%= @step %>:</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="row">
