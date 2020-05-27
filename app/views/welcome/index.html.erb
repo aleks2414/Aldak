@@ -164,6 +164,32 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
+        <h4>Monthly purchases</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Service.group_by_month(:fecha_de_entrega, format: "%G-%B").sum("cantidad_real_etregada*precio_de_compra"),
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
         <h4>Pedidos</h4>
         <hr>
       </div>
