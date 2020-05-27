@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
 	before_action :authenticate_user!
   def index
+    @most_sold_product_id = Service.where(fecha_de_entrega: DateTime.now.beginning_of_month..DateTime.now.end_of_month).group(:product_id).sum(:cantidad_real_etregada).sort_by{|_key, value| value}.last.first
+
     @step = params[:step] || 1
 
   	@services1 = Service.where(etapa: 1).order('id ASC')
