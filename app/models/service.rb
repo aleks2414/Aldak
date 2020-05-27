@@ -42,7 +42,7 @@ def get_code
 end
 
   def proveedor
-    self.proveedor =  self.cantidad_real_etregada * self.product.costo_producto
+    self.proveedor =  self.cantidad_real_etregada * self.precio_de_compra
   end
 
   def iva_proveedor
