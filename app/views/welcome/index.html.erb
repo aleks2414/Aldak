@@ -109,7 +109,6 @@
     </div>
   </div>
 
-<div class="row">
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
@@ -118,6 +117,32 @@
       </div>
       <div class="panel-body">
         <%= line_chart Service.where(fecha_de_entrega: DateTime.now.beginning_of_month..DateTime.now.end_of_month, product_id: @most_sold_product_id).group_by_day(:fecha_de_entrega, format: "%e").sum(:cantidad_real_etregada),
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Monthly sales</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Service.group_by_month(:fecha_de_entrega, format: "%G-%B").sum("cantidad_real_etregada*precio_de_venta"),
     colors: ['green'],
     library: {
       yAxis: {
