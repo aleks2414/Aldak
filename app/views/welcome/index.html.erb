@@ -109,6 +109,33 @@
     </div>
   </div>
 
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>The most sold product in this month (<%= Product.find(@most_sold_product_id).nombre %>)</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= line_chart Service.where(fecha_de_entrega: DateTime.now.beginning_of_month..DateTime.now.end_of_month, product_id: @most_sold_product_id).group_by_day(:fecha_de_entrega, format: "%e").sum(:cantidad_real_etregada),
+    colors: ['green'],
+    library: {
+      yAxis: {
+           labels: {
+               format: '${value}'
+           }
+       },
+          tooltip: {
+            pointFormat: 'Total Spent: <b>{point.y}</b>',
+            xDateFormat: '%B',
+            valuePrefix: '$'
+          }
+        }
+%>
+      </div>
+    </div>
+  </div>
+
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
@@ -291,7 +318,7 @@
       <div class="panel-heading">
         Etapa:&nbsp;
         <% (1..6).each do |step| %>
-          <% if @step == step.to_s %>
+          <% if @step.to_s == step.to_s %>
             <%= step %>
           <% else %>
             <%= link_to step, root_path(step: step, anchor: :steps), style: "color: #3287B2 !important;" %>
