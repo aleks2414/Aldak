@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
 	before_action :authenticate_user!
   def index
+    @step = params[:step] || 1
+
   	@services1 = Service.where(etapa: 1).order('id ASC')
   	@services1 = @services1.paginate(:page => params[:page], :per_page => 10)
   	@services2 = Service.where(etapa: 2).order('id ASC')
