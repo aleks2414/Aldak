@@ -15,6 +15,9 @@ class WelcomeController < ApplicationController
 
     @balance = params[:balance] || 'providers'
 
+    @services0 = Service.where(pagado: false).order('id ASC')
+    @services0 = @services0.paginate(:page => params[:page], :per_page => 10)
+
     @step = params[:step] || 1
 
   	@services1 = Service.where(etapa: 1).order('id ASC')
