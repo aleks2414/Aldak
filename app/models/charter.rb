@@ -8,9 +8,13 @@ class Charter < ApplicationRecord
 
   enum status: %w( debo debe )
 
-  def set_status
+  def balance
     c1 = charter_payments.map(&:cantidad).sum
     c2 = services.map(&:charter).map(&:precio_de_envio).sum
-    c1 - c2 >= 0 ? 'debe' : 'debo'
+    c1 - c2
+  end
+
+  def set_status
+    balance >= 0 ? 'debe' : 'debo'
   end
 end

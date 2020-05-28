@@ -8,6 +8,11 @@ class WelcomeController < ApplicationController
       @all_providers_balance += provider.balance
     end
 
+    @all_charters_balance = 0
+    Charter.all.each do |charter|
+      @all_charters_balance += charter.balance
+    end
+
     @step = params[:step] || 1
 
   	@services1 = Service.where(etapa: 1).order('id ASC')
