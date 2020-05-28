@@ -13,6 +13,8 @@ class WelcomeController < ApplicationController
       @all_charters_balance += charter.balance
     end
 
+    @balance = params[:balance] || 'providers'
+
     @step = params[:step] || 1
 
   	@services1 = Service.where(etapa: 1).order('id ASC')

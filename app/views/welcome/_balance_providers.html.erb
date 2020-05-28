@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Proveedor</th>
+      <th scope="col">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Provider.all.each do |provider| %>
+      <tr>
+        <td><%= provider.alias %></td>
+        <td><%= number_to_currency provider.balance %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

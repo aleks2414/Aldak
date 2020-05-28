@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Fletera</th>
+      <th scope="col">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Charter.all.each do |charter| %>
+      <tr>
+        <td><%= charter.alias %></td>
+        <td><%= number_to_currency charter.balance %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

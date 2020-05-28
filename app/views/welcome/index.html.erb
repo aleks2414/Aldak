@@ -224,7 +224,6 @@
       </div>
     </div>
   </div>
-</div>
 
   <div class="col-md-6">
     <div class="panel panel-headline">
@@ -237,7 +236,26 @@
       </div>
     </div>
   </div>
-</div>
+
+  <div class="col-md-12">
+    <div id="balance" style="position: relative; top: -100px;"></div>
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        Balances of
+        <% if @balance == 'providers' %>
+          Proveedores
+          <%= link_to 'Fleteras', root_path(balance: :charters, anchor: :balance), style: "color: #3287B2 !important;" %>
+        <% else %>
+          <%= link_to 'Proveedores', root_path(balance: :providers, anchor: :balance), style: "color: #3287B2 !important;" %>
+          Fleteras
+        <% end %>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= render "welcome/balance_#{@balance}" %>
+      </div>
+    </div>
+  </div>
 
   <div class="col-md-6">
     <div class="panel panel-headline">
