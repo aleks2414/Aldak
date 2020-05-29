@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :services
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  enum role: %w( sales admin super_admin )
 end
