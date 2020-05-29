@@ -8,8 +8,7 @@ class Service < ApplicationRecord
   belongs_to :charter
   belongs_to :product
   belongs_to :client
-
-
+  
   before_save :gasto_operacion
   before_save :total_venta
   before_save :status_com
@@ -17,8 +16,6 @@ class Service < ApplicationRecord
   before_save :ganancia
   before_save :proveedor
   before_save :fletera
-  before_save :iva_proveedor
-  before_save :iva_fletera
   validate :fecha_entregable
 
 def fecha_entregable
@@ -45,32 +42,18 @@ end
     self.proveedor =  self.cantidad_real_etregada * self.precio_de_compra
   end
 
-  def iva_proveedor
-    if requiere_factura_p == true 
-      self.iva_proveedor = self.proveedor * 0.16
-    else
-      self.iva_proveedor = 0
-    end
-  end 
 
 def fletera
   self.fletera = self.charter.precio_de_envio
 end
-
-  def iva_fletera
-    if requiere_factura_p == true 
-      self.iva_fletera = self.fletera * 0.16
-    else
-      self.iva_fletera = 0
-    end
-  end 
+ 
 
   def gasto_operacion
     self.gasto_operacion = self.proveedor + self.iva_proveedor + self.fletera + self.iva_fletera
   end
 
   def total_venta
-    self.total_venta = (self.try(:cantidad_real_etregada) * self.order.try(:precio_unitario)) * 1.16
+    self.total_venta = (self.try(:cantidad_real_etregada) * self.order.try(:precio_unitario))
   end
 
   def ganancia
