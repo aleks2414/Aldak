@@ -8,6 +8,7 @@ class ClientsController < ApplicationController
     @q = Client.ransack(params[:q])
     @clients = @q.result.uniq
     @clients = @clients.paginate(:page => params[:page], :per_page => 10)
+    @records = Service.all.to_a
   end
 
   # GET /clients/1

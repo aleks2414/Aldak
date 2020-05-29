@@ -16,7 +16,7 @@ def reporte
 
 	@services = Service.where(fecha_de_entrega: date.beginning_of_month..date.end_of_month).order(:id).paginate(:page => params[:page])
 
-@records = Service.all.to_a
+
 
 end
 
