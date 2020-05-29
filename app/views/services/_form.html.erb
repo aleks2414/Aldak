@@ -48,20 +48,14 @@
     <%= form.select :provider_id, Provider.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Proveedor'}, {:required => true} %>
   </div>
 
-  <div class="field">
-    <%= form.label :requiere_factura_proveedor %>
-    <%= form.check_box :requiere_factura_p, id: :service_requiere_factura_p %>
-  </div>
+
 
   <div class="field">
     <%= form.label :fletera %>
     <%= form.select :charter_id, Charter.all.collect { |p| [ "#{p.alias}", p.id ] }, {:prompt => 'Elige Fletera'}, {:required => true} %>
   </div>
 
-  <div class="field">
-    <%= form.label :requiere_factura_fletera %>
-    <%= form.check_box :requiere_factura_f, id: :service_requiere_factura_f %>
-  </div>
+
 
   <div class="actions">
     <%= form.submit class: "btn btn-primary"%>
