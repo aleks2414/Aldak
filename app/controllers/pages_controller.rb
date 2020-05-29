@@ -15,6 +15,9 @@ def reporte
   date = DateTime.new(@year.to_i, @month.to_i, 15) # just a date in the middle of the month
 
 	@services = Service.where(fecha_de_entrega: date.beginning_of_month..date.end_of_month).order(:id).paginate(:page => params[:page])
+
+@records = Service.all.to_a
+
 end
 
 end
