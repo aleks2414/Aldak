@@ -12,7 +12,8 @@ class Ability
 
     # Admin and Sales
     if user.admin?
-      can :manage, [Order, Product, Provider, Charter, :page, User]
+      can :manage, [Order, Product, Provider, Charter, :page]
+      can :manage, User, company_id: User.current.company.id
     else
       can :read, [Order, Product, Provider, Charter, :page]
     end
