@@ -148,7 +148,7 @@
                           <li><a href="<%= reporte_path %>" class="<%= 'active' if current_page?(reporte_path) %>"><i class="material-icons">assessment</i> <span>Reporte</span></a></li>
                         <% end %>
 
-                        <!-- Companies and users -->
+                        <!-- Companies -->
                         <% if user_signed_in? && current_user.super_admin? %>
                           <li>
                               <a href="#subPages07" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(companies_path) or current_page?(new_company_path) %>">
@@ -160,6 +160,23 @@
                                       <li><a href="<%= new_company_path %>" class="<%= 'active' if current_page?(new_company_path) %>">Nueva Compania</a></li>
                                       <% end %>
                                       <li><a href="<%= companies_path %>" class="<%= 'active' if current_page?(companies_path) %>">Todas las Empresas</a></li>
+                                  </ul>
+                              </div>
+                          </li>
+                        <% end %>
+
+                        <!-- Users -->
+                        <% if user_signed_in? && current_user.super_admin? %>
+                          <li>
+                              <a href="#subPages08" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(users_path) or current_page?(new_user_path) %>">
+                                <i class="material-icons">account_box</i> <span>Users</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i>
+                              </a>
+                              <div id="subPages08" class="<%= 'collapse' unless current_page?(users_path) or current_page?(new_user_path)  %> <%= 'active' if current_page?(users_path) or current_page?(new_user_path) %>">
+                                  <ul class="nav">
+                                      <% if user_signed_in? && current_user.super_admin? %>
+                                      <li><a href="<%= new_user_path %>" class="<%= 'active' if current_page?(new_user_path) %>">New user</a></li>
+                                      <% end %>
+                                      <li><a href="<%= users_path %>" class="<%= 'active' if current_page?(users_path) %>">All users</a></li>
                                   </ul>
                               </div>
                           </li>
