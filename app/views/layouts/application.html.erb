@@ -98,8 +98,8 @@
                             <a href="#subPages03" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>"><i class="material-icons">layers</i> <span>Productos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages03" class="<%= 'collapse' unless current_page?(products_path) or current_page?(new_product_path)  %> <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
-                                    <li><a href="<%= new_product_path %>" class="<%= 'active' if current_page?(new_product_path) %>">Nuevo Producto</a></li>
+                                    <% if can? :create, Product %>
+                                      <li><a href="<%= new_product_path %>" class="<%= 'active' if current_page?(new_product_path) %>">Nuevo Producto</a></li>
                                     <% end %>
                                     <li><a href="<%= products_path %>" class="<%= 'active' if current_page?(products_path) %>">Todos los productos</a></li>
                                 </ul>

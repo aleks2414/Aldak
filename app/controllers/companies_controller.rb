@@ -1,6 +1,9 @@
 class CompaniesController < ApplicationController
   load_and_authorize_resource
+
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!
 
   # GET /companies
   # GET /companies.json
