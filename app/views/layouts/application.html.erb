@@ -144,7 +144,7 @@
                         </li>
                         
                         <!-- Reporte -->
-                        <% if user_signed_in? && current_user.admin? %>
+                        <% if can? :manage, :page %>
                           <li><a href="<%= reporte_path %>" class="<%= 'active' if current_page?(reporte_path) %>"><i class="material-icons">assessment</i> <span>Reporte</span></a></li>
                         <% end %>
 
