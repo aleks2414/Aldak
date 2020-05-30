@@ -12,9 +12,9 @@ class Ability
 
     # Admin and Sales
     if user.admin?
-      can :manage, [Order, Product]
+      can :manage, [Order, Product, Provider]
     else
-      can :read, [Order, Product]
+      can :read, [Order, Product, Provider]
     end
 
     # The first argument to `can` is the action you are giving the user

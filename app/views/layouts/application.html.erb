@@ -111,8 +111,8 @@
                             <a href="#subPages01" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">how_to_reg</i> <span>Proveedores</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages01" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
-                                    <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
+                                    <% if can? :create, Provider %>
+                                      <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
                                     <% end %>
                                     <li><a href="<%= providers_path %>" class="<%= 'active' if current_page?(providers_path) %>">Todos los Proveedores</a></li>
                                 </ul>
