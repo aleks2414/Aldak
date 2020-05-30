@@ -16,7 +16,11 @@ end
   resources :charters
   resources :providers
   resources :clients
-  devise_for :users
+
+  # match '/users/:id', to: 'users#show', via: 'get'
+  devise_for :users, :path_prefix => 'd'
+  resources :users, except: [:show]
+
   root 'welcome#index'
   get 'reindex' => 'welcome#reindex'
 
