@@ -63,9 +63,9 @@
                             <a href="#subPages04" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>"><i class="material-icons">folder_open</i> <span>Ordenes</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages04" class="<%= 'collapse' unless current_page?(orders_path) or current_page?(new_order_path)  %> <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
+                                  <% if can? :create, Order %>
                                     <li><a href="<%= new_order_path %>" class="<%= 'active' if current_page?(new_order_path) %>">Nuevo Orden</a></li>
-                                    <% end %>
+                                  <% end %>
                                     <li><a href="<%= orders_path %>" class="<%= 'active' if current_page?(orders_path) %>">Todas las Ordenes</a></li>
                                 </ul>
                             </div>
