@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companies
   resources :provider_payments
   resources :charter_payments
   resources :services, except: [:edit] do
