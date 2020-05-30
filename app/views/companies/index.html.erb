@@ -1,27 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Empresas</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+       <div class="content table-responsive table-full-width">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
 
-<h1>Companies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+          <tbody>
+            <% @companies.each do |company| %>
+              <tr>
+                <td><%= company.name %></td>
+                <td><%= link_to 'Editar', edit_company_path(company) %></td>
+                <td><%= link_to 'Eliminar', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>       
+    </div>
+  </div>
+</div>
+</div>
