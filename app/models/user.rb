@@ -12,4 +12,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: %w( sales admin super_admin )
+
+  def self.current
+    Thread.current[:user]
+  end
+  
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
 end
