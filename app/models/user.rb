@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :products
   has_many :providers
   has_many :services
+  belongs_to :company
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
