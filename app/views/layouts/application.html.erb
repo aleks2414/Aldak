@@ -124,8 +124,8 @@
                             <a href="#subPages02" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) or current_page?(new_charter_payment_path) %>"><i class="material-icons">directions_bus</i> <span>Fleteras</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages02" class="<%= 'collapse' unless current_page?(charters_path) or current_page?(new_charter_path)  %> <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
-                                    <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
+                                    <% if can? :create, Charter %>
+                                      <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
                                     <% end %>
                                     <li><a href="<%= charters_path %>" class="<%= 'active' if current_page?(charters_path) %>">Todas las Fleteras</a></li>
                                 </ul>
