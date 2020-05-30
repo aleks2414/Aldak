@@ -17,21 +17,31 @@
   </div>
 
   <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
     <%= form.label :nombre %>
     <%= form.text_field :nombre %>
   </div>
 
   <div class="field">
-    <%= form.label :role %>
-    <%= form.number_field :role %>
+    <%= form.label :papel %>
+    <%= form.select :role, options_for_select(User.roles.map {|k, v| [k, k]}, @user.role), {:prompt => 'Elegir papel'}, {:required => true} %>
   </div>
 
   <div class="field">
-    <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+    <%= form.label :compania %>
+    <%= collection_select(:user, :company_id, Company.all, :id, :name, {:prompt => 'Elegir compania'}) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>
