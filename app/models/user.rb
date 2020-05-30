@@ -11,7 +11,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum role: %w( sales admin super_admin )
+  enum role: %w( sales purchases admin super_admin )
 
   def self.current
     Thread.current[:user]
