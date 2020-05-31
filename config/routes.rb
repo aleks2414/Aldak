@@ -9,8 +9,10 @@ Rails.application.routes.draw do
       get 'etapa_3'
       get 'etapa_4'
       get 'etapa_5'
+    end
   end
-end
+  get 'quantity' => 'services#quantity'
+
   resources :orders
   resources :products
   resources :charters

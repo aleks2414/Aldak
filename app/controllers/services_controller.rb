@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, except: [:index, :new, :create, :show]
+  before_action :set_service, except: [:index, :new, :create, :show, :quantity]
   before_action :authenticate_user!
 
   # GET /services
@@ -66,6 +66,9 @@ class ServicesController < ApplicationController
         format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def quantity
   end
 
   # PATCH/PUT /services/1
