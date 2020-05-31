@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, except: [:index, :new, :create, :show, :quantity]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:quantity]
 
   # GET /services
   # GET /services.json
@@ -69,6 +69,16 @@ class ServicesController < ApplicationController
   end
 
   def quantity
+    if params[:id].present? && Service.unscoped.find(params[:id])
+      puts 'service found'
+      # respond_to do |format|
+      #   if @line_item.save
+      #     format.js { render template: 'shared/cart' }
+      #   end
+      # end
+    else
+      puts 'service not found'
+    end
   end
 
   # PATCH/PUT /services/1
