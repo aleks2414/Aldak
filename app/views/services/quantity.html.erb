@@ -9,7 +9,7 @@
         <%= form_with(url: "/quantity", method: "get") do %>
           <%= label_tag(:id, "Remision ID:") %>
           <%= text_field_tag :id, nil, {required: true} %>
-          <%= submit_tag("Elige") %>
+          <%= submit_tag "Buscar", class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
