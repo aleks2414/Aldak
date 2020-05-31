@@ -71,11 +71,9 @@ class ServicesController < ApplicationController
   def quantity
     if params[:id].present? && Service.unscoped.find(params[:id])
       puts 'service found'
-      # respond_to do |format|
-      #   if @line_item.save
-      #     format.js { render template: 'shared/cart' }
-      #   end
-      # end
+      respond_to do |format|
+        format.js { render template: 'services/quantity' }
+      end
     else
       puts 'service not found'
     end
