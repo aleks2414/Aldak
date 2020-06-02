@@ -23,6 +23,8 @@ class Service < ApplicationRecord
   before_save :iva_fletera
   validate :fecha_entregable
 
+  enum satisfaction: %w( bajo promedio alto )
+
 def fecha_entregable
   if self.fecha_de_entrega < (Time.zone.now - 2.month) || self.fecha_de_entrega > (Time.zone.now + 2.month)
     errors.add(:service_id, "No se puede crear una remisión de más o menos de 2 meses de distancia") 

@@ -24,7 +24,7 @@
         <hr>
       </div>
       <div class="panel-body">
-        <%= form_with(url: "/quantity", method: "get") do |form| %>
+        <%= form_with(model: @service, local: true) do |form| %>
           <div class="field">
             <%= form.label :cantidad_real_etregada %>
             <%= form.number_field :cantidad_real_etregada %>
@@ -33,6 +33,13 @@
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="validatedCustomFile" required>
             <!-- <label class="custom-file-label" for="validatedCustomFile">Choose file...</label> -->
+          </div>
+
+          <hr>
+
+          <div class="field">
+            <%= form.label 'Encuesta de Satisfacción' %>
+            <%= form.select :satisfaction, Service.satisfactions.keys.map { |w| [w.humanize, w] }, {:prompt => 'Elegir grado'}, {:required => true} %>
           </div>
 
           <%= form.submit "Guardar", class: 'btn btn-primary' %>
