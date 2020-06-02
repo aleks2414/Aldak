@@ -63,9 +63,9 @@
                             <a href="#subPages04" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>"><i class="material-icons">folder_open</i> <span>Ordenes</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages04" class="<%= 'collapse' unless current_page?(orders_path) or current_page?(new_order_path)  %> <%= 'active' if current_page?(orders_path) or current_page?(new_order_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
+                                  <% if can? :create, Order %>
                                     <li><a href="<%= new_order_path %>" class="<%= 'active' if current_page?(new_order_path) %>">Nuevo Orden</a></li>
-                                    <% end %>
+                                  <% end %>
                                     <li><a href="<%= orders_path %>" class="<%= 'active' if current_page?(orders_path) %>">Todas las Ordenes</a></li>
                                 </ul>
                             </div>
@@ -98,8 +98,8 @@
                             <a href="#subPages03" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>"><i class="material-icons">layers</i> <span>Productos</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages03" class="<%= 'collapse' unless current_page?(products_path) or current_page?(new_product_path)  %> <%= 'active' if current_page?(products_path) or current_page?(new_product_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
-                                    <li><a href="<%= new_product_path %>" class="<%= 'active' if current_page?(new_product_path) %>">Nuevo Producto</a></li>
+                                    <% if can? :create, Product %>
+                                      <li><a href="<%= new_product_path %>" class="<%= 'active' if current_page?(new_product_path) %>">Nuevo Producto</a></li>
                                     <% end %>
                                     <li><a href="<%= products_path %>" class="<%= 'active' if current_page?(products_path) %>">Todos los productos</a></li>
                                 </ul>
@@ -111,8 +111,8 @@
                             <a href="#subPages01" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) or current_page?(new_provider_payment_path) %>"><i class="material-icons">how_to_reg</i> <span>Proveedores</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages01" class="<%= 'collapse' unless current_page?(providers_path) or current_page?(new_provider_path)  %> <%= 'active' if current_page?(providers_path) or current_page?(new_provider_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
-                                    <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
+                                    <% if can? :create, Provider %>
+                                      <li><a href="<%= new_provider_path %>" class="<%= 'active' if current_page?(new_provider_path) %>">Nuevo Proveedor</a></li>
                                     <% end %>
                                     <li><a href="<%= providers_path %>" class="<%= 'active' if current_page?(providers_path) %>">Todos los Proveedores</a></li>
                                 </ul>
@@ -124,8 +124,8 @@
                             <a href="#subPages02" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) or current_page?(new_charter_payment_path) %>"><i class="material-icons">directions_bus</i> <span>Fleteras</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
                             <div id="subPages02" class="<%= 'collapse' unless current_page?(charters_path) or current_page?(new_charter_path)  %> <%= 'active' if current_page?(charters_path) or current_page?(new_charter_path) %>">
                                 <ul class="nav">
-                                    <% if user_signed_in? && current_user.admin? %>
-                                    <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
+                                    <% if can? :create, Charter %>
+                                      <li><a href="<%= new_charter_path %>" class="<%= 'active' if current_page?(new_charter_path) %>">Nueva Fletera</a></li>
                                     <% end %>
                                     <li><a href="<%= charters_path %>" class="<%= 'active' if current_page?(charters_path) %>">Todas las Fleteras</a></li>
                                 </ul>
@@ -144,7 +144,7 @@
                         </li>
                         
                         <!-- Reporte -->
-                        <% if user_signed_in? && current_user.admin? %>
+                        <% if can? :manage, :page %>
                           <li><a href="<%= reporte_path %>" class="<%= 'active' if current_page?(reporte_path) %>"><i class="material-icons">assessment</i> <span>Reporte</span></a></li>
                         <% end %>
 
@@ -164,16 +164,14 @@
                         <% end %>
 
                         <!-- Users -->
-                        <% if user_signed_in? && current_user.super_admin? %>
+                        <% if can? :manage, User %>
                           <li>
                               <a href="#subPages08" data-toggle="collapse" class="collapsed <%= 'active' if current_page?(users_path) or current_page?(new_user_path) %>">
                                 <i class="material-icons">account_box</i> <span>Users</span> <i class="icon-submenu material-icons">keyboard_arrow_left</i>
                               </a>
                               <div id="subPages08" class="<%= 'collapse' unless current_page?(users_path) or current_page?(new_user_path)  %> <%= 'active' if current_page?(users_path) or current_page?(new_user_path) %>">
                                   <ul class="nav">
-                                      <% if user_signed_in? && current_user.super_admin? %>
                                       <li><a href="<%= new_user_path %>" class="<%= 'active' if current_page?(new_user_path) %>">New user</a></li>
-                                      <% end %>
                                       <li><a href="<%= users_path %>" class="<%= 'active' if current_page?(users_path) %>">All users</a></li>
                                   </ul>
                               </div>

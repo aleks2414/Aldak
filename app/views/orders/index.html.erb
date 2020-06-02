@@ -74,11 +74,10 @@
               <th>Cantidad Entregada</th>
               <th>Cantidad Restante</th>
               <th>Descripcion</th>
-              <% if user_signed_in? && current_user.admin? %>
-              <th>Precio unitario</th>
-              <th>Valor total</th>
-              
-              <th colspan="3"></th>
+              <% if can? :manage, Order %>
+                <th>Precio unitario</th>
+                <th>Valor total</th>
+                <th colspan="3"></th>
               <% end %>
             </tr>
           </thead>
@@ -99,12 +98,12 @@
               <td><%= @xe=  order.services.map(&:cantidad_real_etregada).sum%></td>
               <td><%= @xi= @xo - @xe  %></td>
               <td><%= order.descripcion %></td>
-              <% if user_signed_in? && current_user.admin? %>
-              <td><%= number_to_currency order.precio_unitario %></td>
-              <td><%= number_to_currency order.valor_total %></td>
-              <td><%= link_to 'Ver más', order %></td>
-              <td><%= link_to 'Editar', edit_order_path(order) %></td>
-              <td><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if can? :manage, Order %>
+                <td><%= number_to_currency order.precio_unitario %></td>
+                <td><%= number_to_currency order.valor_total %></td>
+                <td><%= link_to 'Ver más', order %></td>
+                <td><%= link_to 'Editar', edit_order_path(order) %></td>
+                <td><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>

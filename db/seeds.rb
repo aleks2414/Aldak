@@ -10,4 +10,4 @@ company1 = Company.create(name: 'Ajax')
 company2 = Company.create(name: 'ABC')
 
 a01= User.create!({:email => "admin@andak.com", :password => "andak2018", :password_confirmation => "andak2018", :role => 'admin', :nombre => "Daniel romo", company: company1})
-a02= User.create!({:email => "alejandroromo14@gmail.com", :password => "alejandro", :password_confirmation => "alejandro", :role => 'admin', :nombre => "Alejandro Romo", company: company1})
+a02= User.create!({:email => "alejandroromo14@gmail.com", :password => "alejandro", :password_confirmation => "alejandro", :role => 'super_admin', :nombre => "Alejandro Romo", company: company1})

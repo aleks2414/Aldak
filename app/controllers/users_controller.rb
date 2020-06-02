@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.paginate(:page => params[:page], :per_page => 10)
+    @users = User.accessible_by(current_ability).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /users/1

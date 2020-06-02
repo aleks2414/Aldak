@@ -40,8 +40,8 @@
               <th>Nombre</th>
               <th>Codigo producto</th>
               <th>Caracteristicas</th>
-              <% if user_signed_in? && current_user.admin? %>
-              <th colspan="3"></th>
+              <% if can? :manage, Product %>
+                <th colspan="3"></th>
               <% end %>
             </tr>
           </thead>
@@ -53,10 +53,10 @@
               <td><%= product.nombre %></td>
               <td><%= product.codigo_producto %></td>
               <td><%= product.caracteristicas %></td>
-              <% if user_signed_in? && current_user.admin? %>
-              <td><%= link_to 'Ver más', product %></td>
-              <td><%= link_to 'Editar', edit_product_path(product) %></td>
-              <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if can? :manage, Product %>
+                <td><%= link_to 'Ver más', product %></td>
+                <td><%= link_to 'Editar', edit_product_path(product) %></td>
+                <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>
