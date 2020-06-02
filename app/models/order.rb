@@ -2,11 +2,13 @@ class Order < ApplicationRecord
   SEARCH_FIELDS = %i( descripcion email nombre_encargado numero_de_orden )
   searchkick word_middle: SEARCH_FIELDS
   
+  default_scope { where(user_id: User.current.company.users.pluck(:id)) }
+
   belongs_to :user
   has_many :services
 
-before_save :valor_total
-before_save :iva_pedido
+  before_save :valor_total
+  before_save :iva_pedido
 
 
   def valor_total

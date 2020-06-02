@@ -7,6 +7,17 @@ class User < ApplicationRecord
   has_many :products
   has_many :providers
   has_many :services
+  belongs_to :company
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  enum role: %w( sales admin super_admin )
+
+  def self.current
+    Thread.current[:user]
+  end
+  
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
 end

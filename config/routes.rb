@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companies, except: [:show]
   resources :provider_payments
   resources :charter_payments
   resources :services, except: [:edit] do
@@ -15,7 +16,11 @@ end
   resources :charters
   resources :providers
   resources :clients
-  devise_for :users
+
+  # match '/users/:id', to: 'users#show', via: 'get'
+  devise_for :users, :path_prefix => 'd'
+  resources :users, except: [:show]
+
   root 'welcome#index'
   get 'reindex' => 'welcome#reindex'
 
