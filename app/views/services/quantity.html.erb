@@ -6,9 +6,12 @@
         <hr>
       </div>
       <div class="panel-body">
-        <%= form_with(url: "/quantity", method: "get") do %>
-          <%= label_tag(:id, "Remision ID:") %>
-          <%= text_field_tag :id, nil, {required: true} %>
+        <%= form_with url: "/quantity", method: "get", local: true do %>
+          <div class="form-group">
+            <%= label_tag(:id, "Remision ID:") %>
+            <%= text_field_tag :id, params[:id], {required: true} %>
+            <small class="form-text text-danger"><%= @message %></small>
+          </div>
           <%= submit_tag "Buscar", class: 'btn btn-primary' %>
         <% end %>
       </div>
@@ -16,35 +19,36 @@
   </div>
 </div>
 
-<div class="row" id="quantity">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="panel panel-headline">
-      <div class="panel-heading">
-        <h4>Remision</h4>
-        <hr>
-      </div>
-      <div class="panel-body">
-        <%= form_with(model: @service, local: true) do |form| %>
-          <div class="field">
-            <%= form.label :cantidad_real_etregada %>
-            <%= form.number_field :cantidad_real_etregada %>
-          </div>
-
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-            <!-- <label class="custom-file-label" for="validatedCustomFile">Choose file...</label> -->
-          </div>
-
+<% if @service.present? %>
+  <div class="row" id="quantity">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-headline">
+        <div class="panel-heading">
+          <h4>Remision #<%= @service.id %></h4>
           <hr>
+        </div>
+        <div class="panel-body">
+          <%= form_with(model: @service, local: true) do |form| %>
+            <div class="field">
+              <%= form.label :cantidad_real_etregada %>
+              <%= form.number_field :cantidad_real_etregada %>
+            </div>
 
-          <div class="field">
-            <%= form.label 'Encuesta de Satisfacción' %>
-            <%= form.select :satisfaction, Service.satisfactions.keys.map { |w| [w.humanize, w] }, {:prompt => 'Elegir grado'}, {:required => true} %>
-          </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+            </div>
 
-          <%= form.submit "Guardar", class: 'btn btn-primary' %>
-        <% end %>
+            <hr>
+
+            <div class="field">
+              <%= form.label 'Encuesta de Satisfacción' %>
+              <%= form.select :satisfaction, Service.satisfactions.keys.map { |w| [w.humanize, w] }, {:prompt => 'Elegir grado'}, {:required => true} %>
+            </div>
+
+            <%= form.submit "Guardar", class: 'btn btn-primary' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
