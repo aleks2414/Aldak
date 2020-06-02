@@ -69,13 +69,15 @@ class ServicesController < ApplicationController
   end
 
   def quantity
-    if params[:id].present? && Service.unscoped.find(params[:id])
-      puts 'service found'
-      respond_to do |format|
-        format.js { render template: 'services/quantity' }
+    if params[:id].present?
+      begin
+        @service = Service.unscoped.find(params[:id])
+        respond_to do |format|
+          format.js { render template: 'services/quantity' }
+        end
+      rescue ActiveRecord::RecordNotFound
+        puts 'service not found'
       end
-    else
-      puts 'service not found'
     end
   end
 
