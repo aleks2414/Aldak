@@ -25,6 +25,7 @@
             <%= form.select :satisfaction, Service.satisfactions.keys.map { |w| [w.humanize, w] }, {:prompt => 'Elegir grado', selected: @service.satisfaction}, {:required => true} %>
           </div>
 
+          <%= form.hidden_field :unscoped, value: true %>
           <%= form.submit "Guardar", class: 'btn btn-primary' %>
         <% end %>
       </div>
