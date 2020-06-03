@@ -10,9 +10,10 @@ Rails.application.routes.draw do
       get 'etapa_4'
       get 'etapa_5'
     end
+    collection do
+      get 'search'
+    end
   end
-  get 'quantity' => 'services#quantity'
-  patch 'update_quantity' => 'services#update_quantity'
 
   resources :orders
   resources :products

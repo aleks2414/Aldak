@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-headline">
+      <div class="panel-heading">
+        <h4>Encontrar remision</h4>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <%= form_with url: "/services/search", method: "get", local: true do %>
+          <div class="form-group">
+            <%= label_tag(:id, "Remision ID:") %>
+            <%= text_field_tag :id, params[:id], {required: true} %>
+            <small class="form-text text-danger"><%= @message %></small>
+          </div>
+          <%= submit_tag "Buscar", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
