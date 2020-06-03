@@ -11,11 +11,20 @@ class Ability
     can :manage, :all if user.super_admin?
 
     # Admin
-    if user.admin?
-      can :manage, [Order, Product, Provider, Charter, :page]
-      can :manage, User, company_id: User.current.company.id
-    else # Sales and Purchases
-      can :read, [Order, Product, Provider, Charter, :page]
+    can :manage, :all if user.admin?
+
+    # Purchasing manager
+    if user.purchases?
+      can :read, [Provider, Charter, Product, Order]
+      can [:read, :create], Service
+    end
+
+    # Sales manager
+    if user.sales?
+      can [:read, :create], Client
+      can :read, Order
+      can [:read, :update], Service
+      can :create, [CharterPayment, ProviderPayment]
     end
   end
 end
