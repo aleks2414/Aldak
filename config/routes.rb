@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       get 'etapa_4'
       get 'etapa_5'
       get 'quantity'
-      patch 'update_quantity'
     end
     collection do
       get 'search'

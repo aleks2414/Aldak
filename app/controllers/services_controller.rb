@@ -83,20 +83,6 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
-  def update_quantity
-    @service = Service.unscoped.find(params[:id])
-
-    respond_to do |format|
-      if @service.update(service_params)
-        format.html { redirect_to quantity_path(id: @service.id), notice: 'Service was successfully updated.' }
-        format.json { render :show, status: :ok, location: @service }
-      else
-        format.html { render :edit }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
   def update
