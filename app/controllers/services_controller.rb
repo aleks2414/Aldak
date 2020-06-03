@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
-  before_action :set_service, except: [:index, :new, :create, :show, :search, :quantity]
-  before_action :authenticate_user!, except: [:search, :quantity]
+  before_action :set_service, except: [:index, :new, :create, :show, :search, :quantity, :update_quantity]
+  before_action :authenticate_user!, except: [:search, :quantity, :update_quantity]
 
   # GET /services
   # GET /services.json
@@ -124,11 +124,7 @@ class ServicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
-      if params[:service][:unscoped] == 'true'
-        @service = Service.unscoped.find(params[:id])
-      else
-        @service = Service.find(params[:id])
-      end
+      @service = Service.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

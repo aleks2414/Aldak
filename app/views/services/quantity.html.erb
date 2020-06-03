@@ -6,7 +6,7 @@
         <hr>
       </div>
       <div class="panel-body">
-        <%= form_with(model: @service, local: true) do |form| %>
+        <%= form_with url: update_quantity_service_url(@service), scope: :service, local: true, method: :patch do |form| %>
           <div class="field">
             <%= form.label :cantidad_real_etregada %>
             <%= form.number_field :cantidad_real_etregada, value: @service.cantidad_real_etregada %>
@@ -25,7 +25,6 @@
             <%= form.select :satisfaction, Service.satisfactions.keys.map { |w| [w.humanize, w] }, {:prompt => 'Elegir grado', selected: @service.satisfaction}, {:required => true} %>
           </div>
 
-          <%= form.hidden_field :unscoped, value: true %>
           <%= form.submit "Guardar", class: 'btn btn-primary' %>
         <% end %>
       </div>
