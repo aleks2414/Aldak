@@ -14,7 +14,7 @@
 
           <div class="field">
             <%= form.label 'Imagen del producto' %>
-
+            <%= image_tag @service.try(:image), style: "width: 100%; height: auto; margin-bottom: 10px;" %>
             <%= form.file_field :image %>
           </div>
 
