@@ -11,6 +11,7 @@ class Service < ApplicationRecord
   belongs_to :product
   belongs_to :client
 
+  has_one_attached :image
 
   before_save :gasto_operacion
   before_save :total_venta

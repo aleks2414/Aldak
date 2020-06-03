@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
   get 'quantity' => 'services#quantity'
+  patch 'update_quantity' => 'services#update_quantity'
 
   resources :orders
   resources :products

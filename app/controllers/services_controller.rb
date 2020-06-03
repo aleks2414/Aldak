@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
-  before_action :set_service, except: [:index, :new, :create, :show, :quantity]
-  before_action :authenticate_user!, except: [:quantity]
+  before_action :set_service, except: [:index, :new, :create, :show, :quantity, :update_quantity]
+  before_action :authenticate_user!, except: [:quantity, :update_quantity]
 
   # GET /services
   # GET /services.json
@@ -72,8 +72,23 @@ class ServicesController < ApplicationController
     if params[:id].present?
       begin
         @service = Service.unscoped.find(params[:id])
+        # @service.update(service_params)
       rescue ActiveRecord::RecordNotFound
         @message = 'Service not found'
+      end
+    end
+  end
+
+  def update_quantity
+    @service = Service.unscoped.find(params[:id])
+
+    respond_to do |format|
+      if @service.update(service_params)
+        format.html { redirect_to quantity_path(id: @service.id), notice: 'Service was successfully updated.' }
+        format.json { render :show, status: :ok, location: @service }
+      else
+        format.html { render :edit }
+        format.json { render json: @service.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -110,6 +125,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:user_id, :order_id, :cantidad, :fecha_de_entrega, :status_operativo, :status_comercial, :etapa, :provider_id, :requiere_factura_p, :pago_a_proveedor, :pagado_proveedor, :charter_id, :requiere_factura_f, :pago_a_fletera, :pagado_fletera, :codigo_remision, :gasto_operacion, :cantidad_real_etregada, :pago_real_p, :gr, :numero_de_factura, :kilos_finales, :total_por_facturar, :fecha_de_facturacion, :fecha_por_cobrar, :pagado, :total_venta, :ganancia, :proveedor, :fletera, :iva_proveedor, :iva_fletera, :product_id, :client_id)
+      params.require(:service).permit(:user_id, :order_id, :cantidad, :fecha_de_entrega, :status_operativo, :status_comercial, :etapa, :provider_id, :requiere_factura_p, :pago_a_proveedor, :pagado_proveedor, :charter_id, :requiere_factura_f, :pago_a_fletera, :pagado_fletera, :codigo_remision, :gasto_operacion, :cantidad_real_etregada, :pago_real_p, :gr, :numero_de_factura, :kilos_finales, :total_por_facturar, :fecha_de_facturacion, :fecha_por_cobrar, :pagado, :total_venta, :ganancia, :proveedor, :fletera, :iva_proveedor, :iva_fletera, :product_id, :client_id, :image, :satisfaction)
     end
 end
