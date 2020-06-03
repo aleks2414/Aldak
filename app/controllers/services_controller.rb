@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
-  before_action :set_service, except: [:index, :new, :create, :show, :search, :quantity, :update_quantity]
-  before_action :authenticate_user!, except: [:search, :quantity, :update_quantity]
+  before_action :authenticate_user!
+  before_action :set_service, except: [:index, :new, :create, :show, :search]
 
   # GET /services
   # GET /services.json
@@ -71,7 +71,7 @@ class ServicesController < ApplicationController
   def search
     if params[:id].present?
       begin
-        @service = Service.unscoped.find(params[:id])
+        @service = Service.find(params[:id])
         redirect_to quantity_service_url(@service)
       rescue ActiveRecord::RecordNotFound
         @message = 'Service not found'
@@ -80,7 +80,7 @@ class ServicesController < ApplicationController
   end
 
   def quantity
-    @service = Service.unscoped.find(params[:id])
+    @service = Service.find(params[:id])
   end
 
   def update_quantity
