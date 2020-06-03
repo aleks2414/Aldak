@@ -27,9 +27,17 @@ class Service < ApplicationRecord
   enum satisfaction: %w( bajo promedio alto )
 
 def fecha_entregable
-  if self.fecha_de_entrega < (Time.zone.now - 2.month) || self.fecha_de_entrega > (Time.zone.now + 2.month)
-    errors.add(:service_id, "No se puede crear una remisión de más o menos de 2 meses de distancia") 
-  end 
+  if user.admin? || user.super_admin?
+    start_time = Time.zone.now - 2.month - 1.day
+    message = "No se puede crear una remisión de más o menos de 2 meses de distancia"
+  else
+    start_time = Time.zone.now - 1.day
+    message = "No se puede crear una referencia de más de 2 meses de distancia o antes de hoy"
+  end
+
+  if self.fecha_de_entrega < start_time || self.fecha_de_entrega > (Time.zone.now + 2.month)
+    errors.add(:service_id, message)
+  end
 end
 
 
