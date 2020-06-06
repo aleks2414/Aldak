@@ -32,8 +32,6 @@ class WelcomeController < ApplicationController
   	@services4 = @services4.paginate(:page => params[:page], :per_page => 10)
   	@services5 = Service.where(etapa: 5).order('id ASC')
   	@services5 = @services5.paginate(:page => params[:page], :per_page => 10)
-  	@services6 = Service.where(etapa: 6).order('id ASC')
-  	@services6 = @services6.paginate(:page => params[:page], :per_page => 10)
 
     # Searchkick
     models = [Client, Product, Service, Order, Provider, Charter]
