@@ -112,7 +112,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>The most sold product in this month (<%= Product.find(@most_sold_product_id).nombre %>)</h4>
+        <h4>The most sold product in this month (<%= Product.find(@most_sold_product_id).nombre if @most_sold_product_id.present? %>)</h4>
         <hr>
       </div>
       <div class="panel-body">
