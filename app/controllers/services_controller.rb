@@ -87,6 +87,11 @@ class ServicesController < ApplicationController
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
   def update
+
+    @service.codigo_remision = @service.get_code
+    @service.precio_de_compra = @service.product.costo_producto
+    @service.precio_de_venta = @service.order.precio_unitario
+
     respond_to do |format|
       if @service.update(service_params)
         format.html { redirect_back fallback_location: root_path, notice: 'Service was successfully updated.' }
