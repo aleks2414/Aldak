@@ -10,7 +10,10 @@ class Service < ApplicationRecord
   belongs_to :charter
   belongs_to :product
   belongs_to :client
-  
+
+  has_one_attached :image
+
+
   before_save :gasto_operacion
   before_save :total_venta
   before_save :status_com
@@ -20,10 +23,20 @@ class Service < ApplicationRecord
   before_save :fletera
   validate :fecha_entregable
 
+  enum satisfaction: %w( bajo promedio alto )
+
 def fecha_entregable
-  if self.fecha_de_entrega < (Time.zone.now - 2.month) || self.fecha_de_entrega > (Time.zone.now + 2.month)
-    errors.add(:service_id, "No se puede crear una remisión de más o menos de 2 meses de distancia") 
-  end 
+  if user.admin? || user.super_admin?
+    start_time = Time.zone.now - 2.month - 1.day
+    message = "No se puede crear una remisión de más o menos de 2 meses de distancia"
+  else
+    start_time = Time.zone.now - 1.day
+    message = "No se puede crear una referencia de más de 2 meses de distancia o antes de hoy"
+  end
+
+  if self.fecha_de_entrega < start_time || self.fecha_de_entrega > (Time.zone.now + 2.month)
+    errors.add(:service_id, message)
+  end
 end
 
 

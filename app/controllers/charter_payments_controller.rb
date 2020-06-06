@@ -1,4 +1,5 @@
 class CharterPaymentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_charter_payment, only: [:show, :edit, :update, :destroy]
 
   # GET /charter_payments

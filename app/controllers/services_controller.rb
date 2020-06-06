@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
-  before_action :set_service, except: [:index, :new, :create, :show]
   before_action :authenticate_user!
+  load_and_authorize_resource
+  before_action :set_service, except: [:index, :new, :create, :show, :search]
 
   # GET /services
   # GET /services.json
@@ -68,6 +69,21 @@ class ServicesController < ApplicationController
     end
   end
 
+  def search
+    if params[:id].present?
+      begin
+        @service = Service.find(params[:id])
+        redirect_to quantity_service_url(@service)
+      rescue ActiveRecord::RecordNotFound
+        @message = 'Service not found'
+      end
+    end
+  end
+
+  def quantity
+    @service = Service.find(params[:id])
+  end
+
   # PATCH/PUT /services/1
   # PATCH/PUT /services/1.json
   def update
@@ -105,6 +121,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:user_id, :order_id, :cantidad, :fecha_de_entrega, :status_operativo, :status_comercial, :etapa, :provider_id, :requiere_factura_p, :pago_a_proveedor, :pagado_proveedor, :charter_id, :requiere_factura_f, :pago_a_fletera, :pagado_fletera, :codigo_remision, :gasto_operacion, :cantidad_real_etregada, :pago_real_p, :gr, :numero_de_factura, :kilos_finales, :total_por_facturar, :fecha_de_facturacion, :fecha_por_cobrar, :pagado, :total_venta, :ganancia, :proveedor, :fletera, :iva_proveedor, :iva_fletera, :product_id, :client_id)
+      params.require(:service).permit(:user_id, :order_id, :cantidad, :fecha_de_entrega, :status_operativo, :status_comercial, :etapa, :provider_id, :requiere_factura_p, :pago_a_proveedor, :pagado_proveedor, :charter_id, :requiere_factura_f, :pago_a_fletera, :pagado_fletera, :codigo_remision, :gasto_operacion, :cantidad_real_etregada, :pago_real_p, :gr, :numero_de_factura, :kilos_finales, :total_por_facturar, :fecha_de_facturacion, :fecha_por_cobrar, :pagado, :total_venta, :ganancia, :proveedor, :fletera, :iva_proveedor, :iva_fletera, :product_id, :client_id, :image, :satisfaction)
     end
 end

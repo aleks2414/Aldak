@@ -39,7 +39,7 @@
 
   <div class="field">
     <%= form.label :fecha_de_entrega %>
-    <%= form.text_field :fecha_de_entrega, id: :service_fecha_de_entrega, placeholder: 'Elige fecha' %>
+    <%= form.text_field :fecha_de_entrega, id: :service_fecha_de_entrega, placeholder: 'Elige fecha', autocomplete: "off" %>
   </div>
 
 
@@ -62,6 +62,8 @@
   </div>
 <% end %>
 
+<div id="user_role" style="display: none;"><%= current_user.role %></div>
+
 <script>
   $( function() {
     var date = new Date();
@@ -69,9 +71,15 @@
     var month = date.getMonth();
     var day = date.getDate();
 
+    var userRole = $('#user_role').text();
+    var minDate = new Date();
+    if(userRole == 'admin' || userRole == 'super_admin') {
+      minDate = new Date(year, month - 2, day);
+    }
+
     $( "#service_fecha_de_entrega" ).datepicker({
       dateFormat: 'dd.mm.yy',
-      minDate: new Date(year, month - 2, day),
+      minDate: minDate,
       maxDate: new Date(year, month + 2, day),
       dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
       monthNames: [ 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubure', 'noviembre', 'diciembre' ],

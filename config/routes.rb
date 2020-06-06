@@ -9,8 +9,13 @@ Rails.application.routes.draw do
       get 'etapa_3'
       get 'etapa_4'
       get 'etapa_5'
+      get 'quantity'
+    end
+    collection do
+      get 'search'
+    end
   end
-end
+
   resources :orders
   resources :products
   resources :charters
