@@ -52,7 +52,7 @@
 
           <tbody>
             <% @clients.each do |client| %>
-            <tr>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= client_url(client) %>'>
               
               <td><%= client.alias %></td>
               <td><%= client.rfc %></td>
@@ -84,4 +84,4 @@
 </div>
 
 
-<%= @records %>
+<%#= @records %>

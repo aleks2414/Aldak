@@ -84,7 +84,7 @@
 
           <tbody>
             <% @orders.each do |order| %>
-            <tr>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= order_url(order) %>'>
               
               <% if order.cerrado? %>
               <td>Cerrada</td>

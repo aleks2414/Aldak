@@ -54,7 +54,7 @@
 
           <tbody>
             <% @providers.each do |provider| %>
-            <tr>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= provider_url(provider) %>'>
               
               <td><%= provider.alias %></td>
               <td><%= provider.rfc %></td>
