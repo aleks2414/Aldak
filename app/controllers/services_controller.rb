@@ -53,7 +53,7 @@ class ServicesController < ApplicationController
     @service.user_id = current_user.id
     @service.codigo_remision = @service.get_code
     @service.precio_de_compra = @service.product.costo_producto
-    @service.precio_de_venta = @service.order.precio_unitario
+    @service.precio_de_venta = @service.product.precio_de_venta
 
     respond_to do |format|
       if @service.save
@@ -90,7 +90,7 @@ class ServicesController < ApplicationController
 
     @service.codigo_remision = @service.get_code
     @service.precio_de_compra = @service.product.costo_producto
-    @service.precio_de_venta = @service.order.precio_unitario
+    @service.precio_de_venta = @service.product.precio_de_venta
 
     respond_to do |format|
       if @service.update(service_params)
