@@ -29,8 +29,15 @@
 
   <div class="field">
     <%= form.label :numero_de_pedido %>
-    <%= form.select :order_id, Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| [ "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" , p.id ] }, {:prompt => 'Elige Número de Pedido'}  %>
+    <%= form.text_field :order_name, id: 'service_order_name', placeholder: 'Start typing the name of order', required: true, data: {autocomplete_source: Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" }} %>
   </div>
+
+  <script type="text/javascript">
+    console.log($( "#service_order_name" ).data('autocomplete-source'));
+    $( "#service_order_name" ).autocomplete({
+      source: $( "#service_order_name" ).data('autocomplete-source')
+    });
+  </script>
 
   <div class="field">
     <%= form.label :cantidad %>

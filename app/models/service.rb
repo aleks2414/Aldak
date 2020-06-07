@@ -109,4 +109,7 @@ end
     self.fecha_de_entrega.to_date.strftime('%Y')
   end
 
+  def order_name=(name)
+    self.order = Order.find_by_numero_de_orden(name.split(',').first) if name.present?
+  end
 end
