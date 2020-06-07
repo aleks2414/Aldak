@@ -38,6 +38,13 @@
 
   <div class="col-md-6">
   <div class="field">
+    <%= form.label :precio_de_venta_sin_iva %>
+    <%= form.number_field :precio_de_venta,  step: :any, required:true %>
+  </div>
+  </div>
+
+  <div class="col-md-6">
+  <div class="field">
     <%= form.label :alias %>
     <%= form.text_field :alias, id: :product_codigo_producto, required:true %>
   </div>
