@@ -53,7 +53,7 @@
 
           <tbody>
             <% @charters.each do |charter| %>
-            <tr>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= charter_url(charter) %>'>
               
               <td><%= charter.alias %></td>
               <td><%= charter.rfc %></td>

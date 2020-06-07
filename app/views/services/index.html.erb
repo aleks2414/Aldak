@@ -100,7 +100,7 @@
 
           <tbody>
             <% @services.each do |service| %>
-            <tr>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= service_url(service) %>'>
               
               <td><%= service.try(:codigo_remision) %></td>
               <td><%= service.order.try(:numero_de_orden) %></td>

@@ -48,7 +48,7 @@
 
           <tbody>
             <% @products.each do |product| %>
-            <tr>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= product_url(product) %>'>
               
               <td><%= product.nombre %></td>
               <td><%= product.codigo_producto %></td>
