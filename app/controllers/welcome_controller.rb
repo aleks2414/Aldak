@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   authorize_resource class: false
 
   def index
-    @most_sold_product_id = Service.where(fecha_de_entrega: DateTime.now.beginning_of_month..DateTime.now.end_of_month).group(:product_id).sum(:cantidad_real_etregada).sort_by{|_key, value| value}.last.first
+    @most_sold_product_id = Service.where(fecha_de_entrega: DateTime.now.beginning_of_month..DateTime.now.end_of_month).group(:product_id).sum(:cantidad_real_etregada).sort_by{|_key, value| value}.last.try(:first)
 
     @all_providers_balance = 0
     Provider.all.each do |provider|
