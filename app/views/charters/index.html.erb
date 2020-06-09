@@ -64,9 +64,9 @@
               <td><%= charter.codigo_fletera %></td>
               <td class="text-capitalize"><%= charter.status %></td>
               <% if can? :manage, Charter %>
-              <td><%= link_to 'Ver más', charter %></td>
-              <td><%= link_to 'Editar', edit_charter_path(charter) %></td>
-              <td><%= link_to 'Eliminar', charter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td class="link"><%= link_to 'Ver más', charter %></td>
+              <td class="link"><%= link_to 'Editar', edit_charter_path(charter) %></td>
+              <td class="link"><%= link_to 'Eliminar', charter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>

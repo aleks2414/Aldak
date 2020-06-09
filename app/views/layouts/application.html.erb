@@ -212,8 +212,8 @@
 
     <script type="text/javascript">
       $(document).ready(function($) {
-        $(".clickable-row").click(function() {
-            window.location = $(this).data("href");
+        $(".clickable-row > td").not('.link').click(function() {
+            window.location = $(this).parent().data("href");
         });
       });
     </script>
