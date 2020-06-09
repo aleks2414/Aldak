@@ -20,15 +20,15 @@
       <% @services3.each do |service| %>
       <tr>
         
-        <td><%= service.codigo_remision %></td>
-        <td><%= service.order.numero_de_orden %></td>
-        <td><%= service.cantidad %></td>
-        <td><%= service.fecha_de_entrega %></td>
-        <td><%= service.client.alias%></td>
-        <td><%= service.provider.alias %></td>
-        <td><%= service.charter.alias %></td>
+        <td><%= service.try(:codigo_remision) %></td>
+        <td><%= service.order.try(:numero_de_orden) %></td>
+        <td><%= service.try(:cantidad) %></td>
+        <td><%= service.try(:fecha_de_entrega) %></td>
+        <td><%= service.client.try(:alias)%></td>
+        <td><%= service.provider.try(:alias) %></td>
+        <td><%= service.charter.try(:alias)%></td>
         <% if user_signed_in? && current_user.admin? %>
-        <td><%= service.gasto_operacion %></td>
+        <td><%= service.try(:gasto_operacion) %></td>
         <% end %>
         <td><%= link_to 'Ver más', etapa_1_service_path(service) %></td>
         <!-- <td><%#= link_to 'Continuar', etapa_1_service_path(service) %></td> -->

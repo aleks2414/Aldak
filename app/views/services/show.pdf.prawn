@@ -40,7 +40,7 @@ data = [
 
 pdf.table data, :position => :center, :width => 550, :row_colors => ["F6F6F6", "F6F6F6"], :column_widths => [183, 183], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "000000" }
 
-	pdf.move_down 185
+	pdf.move_down 165
 	pdf.move_down 5
 	pdf.text "Autorizó:", size: 10, align: :left
 	pdf.text "ING. JORGE AZPEITIA", size: 13, align: :left

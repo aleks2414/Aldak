@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :numero_de_pedido %>
-    <%= form.text_field :order_name, id: 'service_order_name', placeholder: 'Start typing the name of order', required: true, data: {autocomplete_source: Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" }} %>
+    <%= form.text_field :order_name, id: 'service_order_name', placeholder: 'Escribe el nombre del pedido', data: {autocomplete_source: Order.where({ "cerrado" => false }).order('fecha_de_orden DESC').collect { |p| "#{p.numero_de_orden}, (#{p.fecha_de_orden}), #{@a= p.cantidad - @b= p.services.map(&:cantidad_real_etregada).sum} kilos (#{number_to_percentage (100- (@b/p.cantidad) *100)}) restantes" }} %>
   </div>
 
   <script type="text/javascript">

@@ -68,7 +68,7 @@ end
   end
 
   def total_venta
-    self.total_venta = (self.try(:cantidad_real_etregada) * self.order.try(:precio_unitario))
+    self.total_venta = (self.try(:cantidad_real_etregada) * self.product.try(:precio_de_venta))
   end
 
   def ganancia
