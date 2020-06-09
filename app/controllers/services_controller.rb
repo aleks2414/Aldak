@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
+  load_and_authorize_resource except: :show
   before_action :set_service, except: [:index, :new, :create, :show, :search]
 
   # GET /services
@@ -15,6 +15,7 @@ class ServicesController < ApplicationController
   # GET /services/1.json
   def show
     @service = Service.find_by(codigo_remision: params[:id])
+    authorize! :read, @service
   end
 
   def etapa_1
