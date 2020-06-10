@@ -86,17 +86,21 @@ end
 
 
   def etapa
-    if self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.pago_a_proveedor > 0 && self.pago_a_fletera > 0 && self.gasto_operacion > 0 && self.gr.present? && self.numero_de_factura.present?  && self.fecha_de_facturacion.present?
-      self.etapa = 6
-    elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.pago_a_proveedor > 0 && self.pago_a_fletera > 0 && self.gasto_operacion > 0 && self.gr.present?
-      self.etapa = 5
-    elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present? && self.gasto_operacion > 0
-      self.etapa = 4
-    elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present?
-      self.etapa = 3
-    elsif self.cantidad > 0 && self.fecha_de_entrega.present? && self.provider.present? && self.charter.present?
-      self.etapa = 2
-    else 
+    if self.cantidad_real_etregada > 0
+      if self.gr.present?
+        if self.numero_de_factura.present? && self.fecha_de_facturacion.present?
+          if self.fecha_por_cobrar.present?
+            self.etapa = 5
+          else
+            self.etapa = 4
+          end
+        else
+          self.etapa = 3
+        end
+      else
+        self.etapa = 2
+      end
+    else
       self.etapa = 1
     end
   end
