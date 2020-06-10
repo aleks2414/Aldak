@@ -66,9 +66,9 @@
               <td><%= provider.codigo_proveedor %></td>
               <td class="text-capitalize"><%= provider.status %></td>
               <% if can? :manage, Provider %>
-                <td><%= link_to 'Ver más', provider %></td>
-                <td><%= link_to 'Editar', edit_provider_path(provider) %></td>
-                <td><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="link"><%= link_to 'Ver más', provider %></td>
+                <td class="link"><%= link_to 'Editar', edit_provider_path(provider) %></td>
+                <td class="link"><%= link_to 'Eliminar', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>

@@ -100,7 +100,7 @@
 
           <tbody>
             <% @services.each do |service| %>
-            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= service_url(service) %>'>
+            <tr class='clickable-row' style='cursor: pointer;' data-href='<%= etapa_1_service_path(service) %>'>
               
               <td><%= service.try(:codigo_remision) %></td>
               <td><%= service.order.try(:numero_de_orden) %></td>
@@ -120,9 +120,9 @@
               <td><%= service.try(:total_por_facturar) %></td>
               <td><%= service.try(:fecha_de_facturacion) %></td>
               <td><%= service.try(:fecha_por_cobrar) %></td>
-              <td><%= link_to 'Ver más', etapa_1_service_path(service) %></td>
+              <td class="link"><%= link_to 'Ver más', etapa_1_service_path(service) %></td>
               <!-- <td><%#= link_to 'Continuar', etapa_1_service_path(service) %></td> -->
-              <td><%= link_to 'Eliminar', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td class="link"><%= link_to 'Eliminar', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
             <% end %>
           </tbody>

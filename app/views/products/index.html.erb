@@ -54,9 +54,9 @@
               <td><%= product.codigo_producto %></td>
               <td><%= product.caracteristicas %></td>
               <% if can? :manage, Product %>
-                <td><%= link_to 'Ver más', product %></td>
-                <td><%= link_to 'Editar', edit_product_path(product) %></td>
-                <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="link"><%= link_to 'Ver más', product %></td>
+                <td class="link"><%= link_to 'Editar', edit_product_path(product) %></td>
+                <td class="link"><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>

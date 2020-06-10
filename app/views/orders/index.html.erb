@@ -101,9 +101,9 @@
               <% if can? :manage, Order %>
                 <td><%= number_to_currency order.precio_unitario %></td>
                 <td><%= number_to_currency order.valor_total %></td>
-                <td><%= link_to 'Ver más', order %></td>
-                <td><%= link_to 'Editar', edit_order_path(order) %></td>
-                <td><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="link"><%= link_to 'Ver más', order %></td>
+                <td class="link"><%= link_to 'Editar', edit_order_path(order) %></td>
+                <td class="link"><%= link_to 'Eliminar', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
             </tr>
             <% end %>
