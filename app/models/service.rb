@@ -76,11 +76,11 @@ end
  
 
   def gasto_operacion
-    self.gasto_operacion = self.proveedor + self.iva_proveedor + self.fletera + self.iva_fletera
+    self.gasto_operacion = self.proveedor + self.fletera
   end
 
   def total_venta
-    self.total_venta = (self.try(:cantidad_real_etregada) * self.product.try(:precio_de_venta))
+    self.total_venta = (self.try(:cantidad_real_etregada) * self.try(:precio_de_venta))
   end
 
   def ganancia
