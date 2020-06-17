@@ -87,11 +87,6 @@
                       <td></td>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
                       <td><strong>Total:</strong><%= number_to_currency @n1 = @provider.provider_payments.where(fecha: date..date.end_of_month).map(&:cantidad).sum %></td>
                       <td></td>
                       <td></td>
@@ -120,7 +115,7 @@
             <% @provider.services.where(fecha_de_entrega: date..date.end_of_month).each do |service| %>
             <tr>
               <td><%= link_to  "#{service.codigo_remision}", etapa_1_service_path(service)%></td>
-              <td><%= number_to_currency service.proveedor + service.iva_proveedor %></td>
+              <td><%= number_to_currency service.proveedor %></td>
               
             </tr>
             <% end %>
@@ -130,11 +125,7 @@
             </tr>
             <tr>
               <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><strong>Total:</strong> <%= number_to_currency @n2 = @provider.services.where(fecha_de_entrega: date..date.end_of_month).map(&:proveedor).sum + @provider.services.map(&:iva_proveedor).sum %></td>
+              <td><strong>Total:</strong> <%= number_to_currency @n2 = @provider.services.where(fecha_de_entrega: date..date.end_of_month).map(&:proveedor).sum %></td>
             </tr>
           </tbody>
         </table>

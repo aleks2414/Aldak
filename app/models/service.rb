@@ -21,6 +21,8 @@ class Service < ApplicationRecord
   before_save :ganancia
   before_save :proveedor
   before_save :fletera
+   # before_save :precio_de_compra
+   #  before_save :precio_de_venta
   validate :fecha_entregable
 
   enum satisfaction: %w( bajo promedio alto )
@@ -38,6 +40,16 @@ def fecha_entregable
     errors.add(:service_id, message)
   end
 end
+
+
+# def precio_de_venta
+#   self.precio_de_venta = self.product.precio_de_venta
+# end
+
+# def precio_de_compra
+#   self.precio_de_compra = self.product.costo_producto
+# end
+
 
 
 def get_code
