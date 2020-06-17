@@ -6,4 +6,20 @@ class Product < ApplicationRecord
 
   belongs_to :user
   has_many :services
+
+
+before_save :costo_producto
+before_save :precio_de_venta
+
+def costo_producto
+	if self.cost_tax == true then self.costo_producto = self.base_cost_price * 1.16 else self.costo_producto = self.base_cost_price end
+end
+
+
+
+
+def precio_de_venta
+	if self.sell_tax == true then self.precio_de_venta = self.base_sell_price * 1.16 else self.precio_de_venta = self.base_sell_price end
+end
+
 end

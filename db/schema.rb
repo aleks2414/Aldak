@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_150934) do
+ActiveRecord::Schema.define(version: 2020_06_16_235542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,10 @@ ActiveRecord::Schema.define(version: 2020_06_07_150934) do
     t.float "costo_producto", default: 0.0
     t.string "alias"
     t.float "precio_de_venta", default: 0.0
+    t.float "base_cost_price", default: 0.0
+    t.float "base_sell_price", default: 0.0
+    t.boolean "cost_tax", default: false
+    t.boolean "sell_tax", default: false
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 

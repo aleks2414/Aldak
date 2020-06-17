@@ -28,33 +28,49 @@
   </div>
   </div>
 
-  <div class="row">
+
+
+
+<!--  -->
+
+<div class="row">
   <div class="col-md-6">
   <div class="field">
     <%= form.label :costo_del_producto_sin_iva %>
-    <%= form.number_field :costo_producto,  step: :any, required:true %>
+    <%= form.number_field :base_cost_price,  step: :any, required:true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genera_iva %>
+    <%= form.check_box :cost_tax,  step: :any %>
   </div>
   </div>
 
   <div class="col-md-6">
   <div class="field">
-    <%= form.label :precio_de_venta_sin_iva %>
-    <%= form.number_field :precio_de_venta,  step: :any, required:true %>
-  </div>
-  </div>
-
-  <div class="col-md-6">
-  <div class="field">
-    <%= form.label :alias %>
-    <%= form.text_field :alias, id: :product_codigo_producto, required:true %>
-  </div>
-  </div>
+    <%= form.label :costo_del_producto_sin_iva %>
+    <%= form.number_field :base_sell_price,  step: :any, required:true %>
   </div>
 
   <div class="field">
-    <%= form.label :caracteristicas %>
-    <%= form.text_field :caracteristicas, id: :product_caracteristicas %>
+    <%= form.label :genera_iva %>
+    <%= form.check_box :sell_tax,  step: :any %>
   </div>
+  </div>
+
+
+  </div>
+
+  <!--  -->
+
+  
+
+
+
+
+
+
+
 
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
