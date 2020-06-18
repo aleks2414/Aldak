@@ -95,6 +95,7 @@ gem 'photoswipe-rails'
 gem 'bootsnap', require: false
 
 gem 'searchkick'
+gem 'bonsai-searchkick'
 gem 'cancancan'
 
 # Use Capistrano for deployment
