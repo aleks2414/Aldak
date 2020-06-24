@@ -1,7 +1,5 @@
 <%= render 'pedido' %>
 
-<%= form_for @service do |form| %>
-
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-headline">
@@ -59,12 +57,6 @@
         </div>
       </div>
       </div>
-
-        <br>
-        <div class="actions">
-          <%= form.submit "Guardar cambios", class: "btn btn-primary"%>
-        </div>
-        <br>
       </div>
 
     </div>
@@ -81,5 +73,3 @@
   </div>
 </div>
 </div>
-
-<% end %>
