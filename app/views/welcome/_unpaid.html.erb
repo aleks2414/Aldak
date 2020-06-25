@@ -21,7 +21,7 @@
       <tr>
         
         <td><%= service.codigo_remision %></td>
-        <td><%= service.order.numero_de_orden %></td>
+        <td><%= service.order.numero_de_orden if service.order.present? %></td>
         <td><%= service.cantidad %></td>
         <td><%= service.fecha_de_entrega %></td>
         <td><%= service.client.alias%></td>

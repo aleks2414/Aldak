@@ -67,8 +67,6 @@ GEM
       actionpack (>= 3.2)
       railties (>= 3.2)
     bindex (0.8.1)
-    bonsai-searchkick (0.0.1)
-      searchkick (< 99)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     bootstrap-sass (3.4.1)
@@ -561,7 +559,6 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable
   best_in_place
-  bonsai-searchkick
   bootsnap
   bootstrap-sass
   byebug
