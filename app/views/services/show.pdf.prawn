@@ -34,13 +34,13 @@ prawn_document() do |pdf|
 	pdf.move_down 15
 	# aqui
 data = [ 
- ["Cantidad:", "Unidad:", "Planta del Cliente", "Descripción del Producto:"],
- ["#{@service.cantidad}", "Kilos", "#{@service.client.planta}", "#{@service.product.nombre}"]
+ ["Descripción:", "Planta:", "Cantidad", "Unidad:"],
+ ["#{@service.product.nombre}", "#{@service.client.planta}", "#{@service.cantidad}", "Kilos"]
  ]
 
-pdf.table data, :position => :center, :width => 550, :row_colors => ["F6F6F6", "F6F6F6"], :column_widths => [183, 183], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "000000" }
+pdf.table data, :position => :center, :width => 550, :row_colors => ["F9F9F9", "F9F9F9"], :column_widths => [183, 183], :cell_style => { :font => "Helvetica", :size => 10, :border_color => "000000" }
 
-	pdf.move_down 165
+	pdf.move_down 210
 	pdf.move_down 5
 	pdf.text "Autorizó:", size: 10, align: :left
 	pdf.text "ING. JORGE AZPEITIA", size: 13, align: :left

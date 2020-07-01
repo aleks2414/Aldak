@@ -41,6 +41,22 @@
           <%= @charter.status %>
         </p>
 
+
+<% if @charter.balance <= 0 %>
+<p>
+  <strong>EL proveedor debe:</strong>
+  <%= number_to_currency @charter.balance *-1 %>
+</p>
+<% end %>
+
+<% if @charter.balance >= 0 %>
+<p>
+  <strong>Le Debo al proveedor:</strong>
+  <%= number_to_currency @charter.balance  %>
+</p>
+<% end %>
+
+
       </div>
 
     </div>

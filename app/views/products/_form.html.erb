@@ -15,7 +15,7 @@
   <div class="row">
   <div class="col-md-6">
   <div class="field">
-    <%= form.label :nombre_del_producto %>
+    <%= form.label :nombre %>
     <%= form.text_field :nombre, id: :product_nombre, required:true %>
   </div>
   </div>
@@ -30,30 +30,30 @@
 
 
 
-
+<% if current_user.admin? or current_user.super_admin? %>
 <!--  -->
 
 <div class="row">
   <div class="col-md-6">
   <div class="field">
-    <%= form.label :costo_del_producto_sin_iva %>
+    <%= form.label :costo_del_producto %>
     <%= form.number_field :base_cost_price,  step: :any, required:true %>
   </div>
 
   <div class="field">
-    <%= form.label :genera_iva %>
+    <%= form.label :iva %>
     <%= form.check_box :cost_tax,  step: :any %>
   </div>
   </div>
 
   <div class="col-md-6">
   <div class="field">
-    <%= form.label :precio_de_venta_del_producto_sin_iva %>
+    <%= form.label :precio_de_venta %>
     <%= form.number_field :base_sell_price,  step: :any, required:true %>
   </div>
 
   <div class="field">
-    <%= form.label :genera_iva %>
+    <%= form.label :iva %>
     <%= form.check_box :sell_tax,  step: :any %>
   </div>
   </div>
@@ -62,7 +62,7 @@
   </div>
 
   <!--  -->
-
+<% end %>
   
 
 

@@ -8,15 +8,15 @@ class Provider < ApplicationRecord
   has_many :services
   has_many :provider_payments
 
-  enum status: %w( debo debe )
+  enum status: %w( Debo Debe )
 
   def balance
     n1 = provider_payments.map(&:cantidad).sum
-    n2 = services.map(&:proveedor).sum + services.map(&:iva_proveedor).sum
-    n1 - n2
+    n2 = services.map(&:proveedor).sum
+    n2 - n1
   end
 
   def set_status
-    balance >= 0 ? 'debe' : 'debo'
+    balance >= 0 ? 'Debo' : 'Debe'
   end
 end

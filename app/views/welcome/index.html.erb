@@ -112,7 +112,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>The most sold product in this month (<%= Product.find(@most_sold_product_id).nombre if @most_sold_product_id.present? %>)</h4>
+        <h4>Producto más vendido del mes (<%= Product.find(@most_sold_product_id).nombre if @most_sold_product_id.present? %>)</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -138,7 +138,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>Monthly sales</h4>
+        <h4>Ventas mensuales</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -164,7 +164,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>Monthly purchases</h4>
+        <h4>Compras mensuales</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -190,7 +190,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>Monthly utility</h4>
+        <h4>Utilidad mensual</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -216,7 +216,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>All providers balance</h4>
+        <h4>Balance de Proveedores</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -228,7 +228,7 @@
   <div class="col-md-6">
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>All charters balance</h4>
+        <h4>Balance de Fleteras</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -241,7 +241,7 @@
     <div id="balance" style="position: relative; top: -100px;"></div>
     <div class="panel panel-headline">
       <div class="panel-heading">
-        Balances of
+        Balance de
         <% if @balance == 'providers' %>
           Proveedores
           <%= link_to 'Fleteras', root_path(balance: :charters, anchor: :balance), style: "color: #3287B2 !important;" %>
@@ -261,7 +261,7 @@
     <div id="unpaid" style="position: relative; top: -100px;"></div>
     <div class="panel panel-headline">
       <div class="panel-heading">
-        <h4>Unpaid services</h4>
+        <h4>Servicios por cobrar</h4>
         <hr>
       </div>
       <div class="panel-body">
@@ -421,7 +421,7 @@
         <hr>
       </div>
       <div class="panel-body">
-        <%= line_chart Service.all.group_by_month(:fecha_de_entrega, last: 12, current: false).sum('total_por_facturar'),
+        <%= line_chart Service.all.group_by_month(:fecha_de_entrega, last: 12, current: false).sum('total_venta'),
     title: 'Facturación Mensual',
     colors: ['#F26D6B'],
     library: {

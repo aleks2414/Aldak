@@ -40,6 +40,24 @@
   <%= @provider.status %>
 </p>
 
+
+
+
+<% if @provider.balance <= 0 %>
+<p>
+  <strong>EL proveedor debe:</strong>
+  <%= number_to_currency @provider.balance *-1 %>
+</p>
+<% end %>
+
+<% if @provider.balance >= 0 %>
+<p>
+  <strong>Le Debo al proveedor:</strong>
+  <%= number_to_currency @provider.balance  %>
+</p>
+<% end %>
+
+
       </div>
       
     </div>

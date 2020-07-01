@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @product.user %>
+  <strong>Creado por:</strong>
+  <%= @product.user.email %>
 </p>
 
 <p>
@@ -15,6 +15,9 @@
   <%= @product.codigo_producto %>
 </p>
 
+
+<% if current_user.admin? or current_user.super_admin? %>
+
 <p>
   <strong>Costo del producto:</strong>
   <%= @product.costo_producto %>
@@ -25,10 +28,8 @@
   <%= @product.precio_de_venta %>
 </p>
 
-<p>
-  <strong>Caracteristicas:</strong>
-  <%= @product.caracteristicas %>
-</p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
