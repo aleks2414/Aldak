@@ -13,7 +13,7 @@ class Charter < ApplicationRecord
   def balance
     c1 = charter_payments.map(&:cantidad).sum
     c2 = services.map(&:fletera).sum
-    (c1 - c2)*-1
+    c1 - c2
   end
 
   def set_status

@@ -13,7 +13,7 @@ class Provider < ApplicationRecord
   def balance
     n1 = provider_payments.map(&:cantidad).sum
     n2 = services.map(&:proveedor).sum
-    (n1 - n2)*-1
+    n1 - n2
   end
 
   def set_status
