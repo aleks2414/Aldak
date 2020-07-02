@@ -63,7 +63,7 @@
                 <td><%= charter.precio_de_envio%></td>
               <% end %>
               <td><%= charter.codigo_fletera %></td>
-              <td class="text-capitalize"><%= charter.status %></td>
+              <td class="text-capitalize"><%= charter.set_status %></td>
               <td><%= number_to_currency charter.balance %></td>
               <% if can? :manage, Charter %>
               <td class="link"><%= link_to 'Ver más', charter %></td>

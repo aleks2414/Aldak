@@ -17,6 +17,6 @@ class Charter < ApplicationRecord
   end
 
   def set_status
-    balance >= 0 ? 'Debe' : 'Debo'
+    balance <= 0 ? 'Debe' : 'Debo'
   end
 end

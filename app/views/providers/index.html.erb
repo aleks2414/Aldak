@@ -65,7 +65,7 @@
               <td><%= provider.telefono_encargado %></td>
               <td><%= provider.correo_encargado %></td>
               <td><%= provider.codigo_proveedor %></td>
-              <td class="text-capitalize"><%= provider.status %></td>
+              <td class="text-capitalize"><%= provider.set_status %></td>
               <td><%= number_to_currency provider.balance %></td>
               <% if can? :manage, Provider %>
                 <td class="link"><%= link_to 'Ver más', provider %></td>
