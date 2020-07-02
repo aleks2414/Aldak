@@ -44,7 +44,8 @@
                 <th>Precio del viaje</th>
               <% end %>
               <th>Codigo fletera</th>
-              <th>Status</th>
+              <th>Estatus</th>
+              <th>$</th>
               <% if can? :manage, Charter %>
                 <th colspan="3"></th>
               <% end %>
@@ -63,6 +64,7 @@
               <% end %>
               <td><%= charter.codigo_fletera %></td>
               <td class="text-capitalize"><%= charter.status %></td>
+              <td><%= number_to_currency charter.balance %></td>
               <% if can? :manage, Charter %>
               <td class="link"><%= link_to 'Ver más', charter %></td>
               <td class="link"><%= link_to 'Editar', edit_charter_path(charter) %></td>

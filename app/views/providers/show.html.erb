@@ -36,26 +36,18 @@
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong>Estatus:</strong>
   <%= @provider.status %>
 </p>
 
 
-
-
-<% if @provider.balance <= 0 %>
 <p>
-  <strong>EL proveedor debe:</strong>
-  <%= number_to_currency @provider.balance *-1 %>
+  <strong>Balance:</strong>
+  <%= number_to_currency @provider.balance %>
 </p>
-<% end %>
 
-<% if @provider.balance >= 0 %>
-<p>
-  <strong>Le Debo al proveedor:</strong>
-  <%= number_to_currency @provider.balance  %>
-</p>
-<% end %>
+
+
 
 
       </div>
@@ -152,7 +144,7 @@
         </div>
       </div>
 
-<h5>Saldo: <%= number_to_currency @n1 - @n2 %></h5>
+<h5>Saldo del mes (<%= date.strftime('%B %Y') %>): <%= number_to_currency @n1 - @n2 %></h5>
 <hr>
 <% end %>
 

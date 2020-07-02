@@ -37,24 +37,15 @@
         </p>
 
         <p>
-          <strong>Status:</strong>
+          <strong>Estatus:</strong>
           <%= @charter.status %>
         </p>
 
 
-<% if @charter.balance <= 0 %>
 <p>
-  <strong>EL proveedor debe:</strong>
-  <%= number_to_currency @charter.balance *-1 %>
+  <strong>Balance:</strong>
+  <%= number_to_currency @charter.balance %>
 </p>
-<% end %>
-
-<% if @charter.balance >= 0 %>
-<p>
-  <strong>Le Debo al proveedor:</strong>
-  <%= number_to_currency @charter.balance  %>
-</p>
-<% end %>
 
 
       </div>
@@ -107,11 +98,7 @@
               <td></td>
             </tr>
 
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+
 
             <tr>
               <td><strong>Total:</strong><%= number_to_currency @c1 = @charter.charter_payments.where(fecha: date..date.end_of_month).map(&:cantidad).sum %></td>
@@ -149,10 +136,7 @@
               <td></td>
               <td></td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-            </tr>
+
             <tr>
               <td></td>
               <td><strong>Total:</strong> <%= number_to_currency @c2= @charter.services.where(fecha_de_entrega: date..date.end_of_month).map(&:charter).map(&:precio_de_envio).sum %></td>
@@ -164,7 +148,7 @@
         </div>
       </div>
 
-<h5>Saldo: <%= number_to_currency @c1 - @c2 %></h5>
+<h5>Saldo del mes (<%= date.strftime('%B %Y') %>): <%= number_to_currency @c1 - @c2 %></h5>
 <hr>
 <% end %>
 
