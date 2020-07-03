@@ -8,7 +8,7 @@ class Charter < ApplicationRecord
   has_many :services
   has_many :charter_payments
 
-  enum status: %w( Debo Debe )
+  enum status: %w( Saldo_en_Contra Saldo_a_Favor )
 
   def balance
     c1 = charter_payments.map(&:cantidad).sum
@@ -17,6 +17,6 @@ class Charter < ApplicationRecord
   end
 
   def set_status
-    balance <= 0 ? 'Debo' : 'Debe'
+    balance <= 0 ? 'Saldo_en_Contra' : 'Saldo_a_Favor'
   end
 end

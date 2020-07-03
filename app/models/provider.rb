@@ -8,7 +8,7 @@ class Provider < ApplicationRecord
   has_many :services
   has_many :provider_payments
 
-  enum status: %w( Debe Debo )
+  enum status: %w( Saldo_a_Favor Saldo_en_Contra )
 
   def balance
     n1 = provider_payments.map(&:cantidad).sum
@@ -17,6 +17,6 @@ class Provider < ApplicationRecord
   end
 
   def set_status
-    balance <= 0 ? 'Debo' : 'Debe'
+    balance <= 0 ? 'Saldo_a_Favor' : 'Saldo_en_Contra'
   end
 end
