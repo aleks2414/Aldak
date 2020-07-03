@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th scope="col">Fletera</th>
+      <th scope="col">Estatus</th>
       <th scope="col">Balance</th>
     </tr>
   </thead>
@@ -9,7 +10,9 @@
     <% Charter.all.each do |charter| %>
       <tr>
         <td><%= charter.alias %></td>
+        <td><%= charter.set_status %></td>
         <td><%= number_to_currency charter.balance %></td>
+
       </tr>
     <% end %>
   </tbody>

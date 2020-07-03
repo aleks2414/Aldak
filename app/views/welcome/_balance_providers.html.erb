@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th scope="col">Proveedor</th>
+      <th scope="col">Estatus</th>
       <th scope="col">Balance</th>
     </tr>
   </thead>
@@ -9,6 +10,7 @@
     <% Provider.all.each do |provider| %>
       <tr>
         <td><%= provider.alias %></td>
+        <td><%= provider.set_status %></td>
         <td><%= number_to_currency provider.balance %></td>
       </tr>
     <% end %>
