@@ -1,5 +1,161 @@
 <%= render 'pedido' %>
 
+<% if current_user.admin? or current_user.super_admin? %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-headline">
+
+      <div class="panel-heading">
+        <h4>Resumen:</h4>
+      </div>
+
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="field">
+              <label>Cliente:</label> <br>
+
+              <%= @service.client.alias%>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Fecha del servicio:</label> <br>
+
+              <%= @service.fecha_de_entrega.strftime(" %d-%m-%Y")%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Total del servicio:</label> <br>
+
+              <%= number_to_currency (@service.product.precio_de_venta * @service.cantidad_real_etregada)%>
+            </div>
+          </div>
+        </div>
+<br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="field">
+              <label>Producto:</label> <br>
+
+              <%= @service.product.alias%>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Costo sin iva:</label> <br>
+
+              <%= number_to_currency @service.product.base_cost_price%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Costo final:</label> <br>
+
+              <%= number_to_currency @service.product.costo_producto%>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="field">
+
+            </div>
+          </div>
+
+
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Venta sin iva:</label> <br>
+
+              <%= number_to_currency @service.product.base_sell_price%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Venta final:</label> <br>
+
+              <%= number_to_currency @service.product.precio_de_venta%>
+            </div>
+          </div>
+        </div>
+
+<br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="field">
+              <label>Proveedor:</label> <br>
+
+              <%= @service.provider.alias%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Cantidad entregada:</label> <br>
+
+              <%= number_to_currency @service.cantidad_real_etregada%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Pago a proveedor:</label> <br>
+
+              <%= number_to_currency @service.proveedor%>
+            </div>
+          </div>
+
+
+        </div>
+<br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="field">
+              <label>Fletera:</label> <br>
+
+              <%= @service.charter.alias%>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Pago a fletera:</label> <br>
+
+              <%= number_to_currency @service.fletera%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-headline">
@@ -30,33 +186,33 @@
         </div>
 
         <div class="row">
-        <div class="col-md-4">
-        <div class="field">
-          <label>Proveedor</label> <br>
-          
-          <%= @service.provider.alias%>
+          <div class="col-md-4">
+            <div class="field">
+              <label>Proveedor</label> <br>
+
+              <%= @service.provider.alias%>
+            </div>
+          </div>
+
+
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Fletera</label> <br>
+
+              <%= @service.charter.alias%>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="field">
+              <label>Producto</label> <br>
+
+              <%= @service.product.nombre%> <br>
+              <%= @service.precio_de_compra %>
+            </div>
+          </div>
         </div>
-      </div>
-
-
-
-       <div class="col-md-4">
-        <div class="field">
-          <label>Fletera</label> <br>
-          
-          <%= @service.charter.alias%>
-        </div>
-      </div>
-
-<div class="col-md-4">
-        <div class="field">
-          <label>Producto</label> <br>
-          
-          <%= @service.product.nombre%> <br>
-          <%= @service.precio_de_compra %>
-        </div>
-      </div>
-      </div>
       </div>
 
     </div>
