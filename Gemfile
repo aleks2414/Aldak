@@ -66,31 +66,21 @@ gem 'ransack'
 # Pagination
 gem 'will_paginate'
 # grab info
-gem 'grabbit'
 #tags
 #gem 'acts-as-taggable-on'
 #impressions
-gem 'impressionist'
 # votes
-gem 'acts_as_votable'
 # images
 gem 'carrierwave'
 # Friendly Ids
 gem 'friendly_id'
 # facebook auth
-gem 'omniauth-facebook'
 # change nam
 gem 'rename'
-# Amazon s3
-gem "figaro"
-gem "fog"
-gem "fog-aws"
 # crop images
-gem "mini_magick"
 # nested models
 gem "cocoon"
 #carousel
-gem 'photoswipe-rails'
 
 gem 'bootsnap', require: false
 
