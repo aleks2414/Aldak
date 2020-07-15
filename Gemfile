@@ -56,9 +56,6 @@ gem 'chartkick'
 gem 'groupdate'
 # Geolocation
 gem 'geocoder'
-# PDF generator
-gem 'prawn_rails'
-gem 'prawn-table'
 # Click and update
 gem 'best_in_place'
 # Search and Filter
