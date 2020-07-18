@@ -32,9 +32,6 @@ class WelcomeController < ApplicationController
   	@services4 = @services4.paginate(:page => params[:page], :per_page => 10)
   	@services5 = Service.where(etapa: 5).order('id ASC')
   	@services5 = @services5.paginate(:page => params[:page], :per_page => 10)
-
-
-    end
   end
 
   def reindex
