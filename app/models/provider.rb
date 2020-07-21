@@ -6,7 +6,7 @@ class Provider < ApplicationRecord
 
   belongs_to :user
   has_many :services
-  has_many :provider_payments
+  has_many :provider_payments, dependent: :destroy
 
   enum status: %w( Saldo_a_Favor Saldo_en_Contra )
 

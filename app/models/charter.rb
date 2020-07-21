@@ -6,7 +6,7 @@ class Charter < ApplicationRecord
 
   belongs_to :user
   has_many :services
-  has_many :charter_payments
+  has_many :charter_payments, dependent: :destroy
 
   enum status: %w( Saldo_en_Contra Saldo_a_Favor )
 
