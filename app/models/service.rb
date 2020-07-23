@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
-  SEARCH_FIELDS = %i( codigo_remision etapa gr numero_de_factura status_comercial status_operativo )
-  searchkick word_middle: SEARCH_FIELDS, highlight: SEARCH_FIELDS
+  
+  
   
   default_scope { where(user_id: User.current.company.users.pluck(:id)) }
 

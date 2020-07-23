@@ -81,8 +81,10 @@ gem "cocoon"
 
 gem 'bootsnap', require: false
 
-gem 'searchkick'
+
 gem 'cancancan'
+gem 'prawn_rails'
+gem 'prawn-table'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -36,7 +36,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <% if user_signed_in? %>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><%#=current_user.name %></span> <i class="icon-submenu material-icons">keyboard_arrow_left</i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span><%#=current_user.name %></span> <i class="icon-submenu material-icons exit">settings</i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<%= edit_user_registration_path %>"><i class="lnr lnr-user"></i> <span>Mi Perfil</span></a></li>
                                 <li><a href="<%= destroy_user_session_path %>" data-method='delete'><i class="lnr lnr-exit"></i> <span>Cerrar Sesión</span></a></li>
